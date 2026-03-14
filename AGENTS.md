@@ -27,6 +27,22 @@
 - Maintainability over short-term convenience.
 - Readability over micro-optimisation unless impact is clearly significant.
 
+## Implementation discipline
+- Treat any given plan as the default path, not as unquestionable truth.
+- Flag flaws, inconsistencies, risks, or better alternatives when they materially matter.
+- Produce the smallest correct change that fits the codebase.
+- If something important is ambiguous, ask briefly. If ambiguity is minor, state assumptions and proceed.
+- Keep changes local and reviewable.
+- Handle small adjacent changes (backend, API, schema) only when clearly part of the same task.
+- If deviation from the plan is needed, explain it briefly.
+
+## Quality bar
+- Ensure the implementation is internally consistent.
+- Ensure types, imports, and dependencies remain correct and coherent.
+- Ensure the solution fits the existing codebase style and architecture.
+- Run relevant checks when possible: type checking, linting, relevant tests.
+- If checks cannot be run, say so briefly instead of pretending they passed.
+
 ## General coding defaults
 - Prefer the simplest solution that solves the real problem.
 - Keep changes small, local, and reviewable.
