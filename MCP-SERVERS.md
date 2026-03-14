@@ -21,4 +21,4 @@ Design context and asset extraction from Figma. Use for fetching design specs, s
 
 Up-to-date documentation lookup for libraries and frameworks. Use for checking API signatures, configuration options, and usage patterns instead of relying on potentially outdated training data.
 
-**Relevant skills:** api-integration, bugfix, new-component
+**Relevant skills:** planning, api-integration, bugfix, new-component
