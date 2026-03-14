@@ -147,6 +147,8 @@
 ## Git defaults
 - Use read-only git commands unless explicitly instructed otherwise.
 - Writing or editing files is allowed when needed for the task. Commits, pushes, rebases, and other state-changing git operations require explicit instruction.
+- Break work into commit-sized logical units when practical.
+- After completing a logical unit, proactively suggest a commit message that matches the completed scope.
 - Keep commits atomic: one logical change per commit.
 - Split unrelated concerns into separate commits.
 - Avoid mixed-purpose commits.
