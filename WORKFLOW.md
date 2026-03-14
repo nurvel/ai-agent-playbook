@@ -15,6 +15,7 @@ Match the task to a skill based on its `triggers` in the frontmatter. When multi
 | Restructure code | `refactor` | `code-review`, `test-writing` |
 | Write or update tests | `test-writing` | — |
 | Review work | `code-review` | — |
+| Evaluate quality or maturity | `evaluation` | `code-review`, `planning` |
 
 ## When to plan first
 

@@ -48,6 +48,7 @@ skills/          ← task-specific guidance with triggers and MCP linkages
 | `refactor` | Restructure code without changing behavior |
 | `test-writing` | Add or improve tests |
 | `code-review` | Review code or plans for quality |
+| `evaluation` | Score a target `0-10`, explain why, and state what raises it to the next level |
 
 ## MCP Servers
 
