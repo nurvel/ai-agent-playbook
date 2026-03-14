@@ -2,6 +2,12 @@
 
 Generic, agent-agnostic guidelines for coding agents. Works with any LLM agent that can read markdown instructions. The playbook itself is framework-neutral; individual skills may target specific technologies (e.g. React).
 
+This `README.md` is repo documentation for humans. The actual portable agent package is:
+- `AGENTS.md`
+- `skills/<name>/SKILL.md`
+
+You typically do not need to move `README.md` into Codex or Claude. It exists here as an overview of the playbook itself.
+
 ## Structure
 
 ``` 
@@ -62,6 +68,8 @@ mcp_servers:          # optional — only if the skill benefits from an MCP serv
   - <server-name>
 ---
 ```
+
+The folder name should match the frontmatter `name` value.
 
 Below the frontmatter, include: `When to use`, task-specific guidance, a `Check` section, and a `Cross-reference` to `AGENTS.md`. See existing skills for reference.
 

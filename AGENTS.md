@@ -45,6 +45,7 @@
 
 ## Skill selection
 - Match the task to the most relevant skill based on its purpose and `triggers`.
+- Skills are located at `skills/<name>/SKILL.md`.
 - Use one lead skill for the main task type; combine other skills only when they add clear value.
 - Typical lead skills:
   - `planning` for non-trivial tasks where the approach is unclear
