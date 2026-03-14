@@ -146,6 +146,7 @@
 
 ## Git defaults
 - Use read-only git commands unless explicitly instructed otherwise.
+- Writing or editing files is allowed when needed for the task. Commits, pushes, rebases, and other state-changing git operations require explicit instruction.
 - Keep commits atomic: one logical change per commit.
 - Split unrelated concerns into separate commits.
 - Avoid mixed-purpose commits.
@@ -156,6 +157,7 @@
 ## Validation defaults
 - Always check TypeScript errors.
 - Always check linting errors.
+- If validation fails because of the change you just made, iterate immediately and fix it when the fix stays within the intended scope.
 - Before considering work complete:
   - ensure changes match intended scope
   - ensure no dead code or leftovers remain
