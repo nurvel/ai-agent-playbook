@@ -4,17 +4,16 @@ Generic, agent-agnostic guidelines for coding agents. Works with any LLM agent t
 
 ## Structure
 
-```
+``` 
 AGENTS.md        ← universal coding principles and defaults
-WORKFLOW.md      ← how to select and chain skills
 MCP-SERVERS.md   ← available MCP services and when to use them
 skills/<name>/SKILL.md ← task-specific guidance with triggers and MCP linkages
 ```
 
 ## How to use
 
-1. Point your agent to `AGENTS.md` as the baseline behavior guide
-2. Point it to `WORKFLOW.md` for task routing logic
+1. Point your agent to `AGENTS.md` as the baseline behavior guide and skill routing logic
+2. Point it to `MCP-SERVERS.md` for MCP usage guidance
 3. Skills are selected based on task type — each has YAML frontmatter with `triggers` and optional `mcp_servers`
 4. `mcp_servers` in skill frontmatter is a hint, not a hard requirement — use the server when it adds value, skip it when the codebase alone is sufficient
 

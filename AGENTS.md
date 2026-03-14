@@ -43,6 +43,34 @@
 - Run relevant checks when possible: type checking, linting, relevant tests.
 - If checks cannot be run, say so briefly instead of pretending they passed.
 
+## Skill selection
+- Match the task to the most relevant skill based on its purpose and `triggers`.
+- Use one lead skill for the main task type; combine other skills only when they add clear value.
+- Typical lead skills:
+  - `planning` for non-trivial tasks where the approach is unclear
+  - `bugfix` for incorrect behavior or regressions
+  - `new-component` for new UI/component work
+  - `api-integration` for data fetching and API wiring
+  - `refactor` for structural improvement without intended behavior change
+  - `test-writing` for adding or updating tests
+  - `code-review` for reviewing plans or implementations
+  - `evaluation` for scoring quality or maturity on a `0-10` scale
+
+## Task flow
+- Follow this default loop:
+  - select the lead skill
+  - use `planning` only when the task is non-trivial or the approach is unclear
+  - implement using the selected skill guidance
+  - use `test-writing` when behavior should be protected from regression
+  - use `code-review` when the change is large, risky, or touches shared code
+  - validate before considering the work complete
+
+## MCP usage
+- If a skill lists `mcp_servers` in frontmatter, treat it as a hint, not a hard requirement.
+- Use the MCP server when it adds information the codebase alone cannot provide.
+- Skip it when local code and existing context are sufficient.
+- See `MCP-SERVERS.md` for server descriptions and intended use.
+
 ## General coding defaults
 - Prefer the simplest solution that solves the real problem.
 - Keep changes small, local, and reviewable.
