@@ -16,7 +16,15 @@ skills/          ← task-specific guidance with triggers and MCP linkages
 1. Point your agent to `AGENTS.md` as the baseline behavior guide
 2. Point it to `WORKFLOW.md` for task routing logic
 3. Skills are selected based on task type — each has YAML frontmatter with `triggers` and optional `mcp_servers`
-4. MCP servers extend agent capabilities when skills reference them
+4. `mcp_servers` in skill frontmatter is a hint, not a hard requirement — use the server when it adds value, skip it when the codebase alone is sufficient
+
+### Example: fixing a browser bug
+
+1. Agent reads `AGENTS.md` → baseline behavior
+2. Task matches `bugfix` skill → agent follows `skills/bugfix.md`
+3. Skill lists `chrome-devtools` in `mcp_servers` → agent uses it to inspect the error in the browser
+4. Fix affects critical logic → agent adds `test-writing` as an optional step
+5. Agent validates: types, lint, tests pass
 
 ## Skills
 

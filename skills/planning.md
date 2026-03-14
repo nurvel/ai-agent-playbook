@@ -7,6 +7,8 @@ triggers:
   - break down task
   - implementation strategy
   - architecture decision
+mcp_servers:
+  - context7  # documentation lookup when framework/library behavior affects the plan
 ---
 
 ## When to use
