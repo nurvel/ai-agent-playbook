@@ -6,16 +6,14 @@ Generic, agent-agnostic guidelines for coding agents. Works with any LLM agent t
 
 ``` 
 AGENTS.md        ← universal coding principles and defaults
-MCP-SERVERS.md   ← available MCP services and when to use them
 skills/<name>/SKILL.md ← task-specific guidance with triggers and MCP linkages
 ```
 
 ## How to use
 
 1. Point your agent to `AGENTS.md` as the baseline behavior guide and skill routing logic
-2. Point it to `MCP-SERVERS.md` for MCP usage guidance
-3. Skills are selected based on task type — each has YAML frontmatter with `triggers` and optional `mcp_servers`
-4. `mcp_servers` in skill frontmatter is a hint, not a hard requirement — use the server when it adds value, skip it when the codebase alone is sufficient
+2. Skills are selected based on task type — each has YAML frontmatter with `triggers` and optional `mcp_servers`
+3. `mcp_servers` in skill frontmatter is a hint, not a hard requirement — use the server when it adds value, skip it when the codebase alone is sufficient
 
 ### Example flows
 
@@ -49,14 +47,6 @@ skills/<name>/SKILL.md ← task-specific guidance with triggers and MCP linkages
 | `code-review` | Review code or plans for quality |
 | `evaluation` | Score a target `0-10`, explain why, and state what raises it to the next level |
 
-## MCP Servers
-
-| Server | Purpose |
-|---|---|
-| `chrome-devtools` | Browser debugging and runtime inspection |
-| `figma` | Design context from Figma files |
-| `context7` | Library/framework documentation lookup |
-
 ## Adding a new skill
 
 Create `skills/<name>/SKILL.md` with this structure:
@@ -69,13 +59,11 @@ triggers:
   - <keyword that should activate this skill>
   - <another keyword>
 mcp_servers:          # optional — only if the skill benefits from an MCP server
-  - <server-name>     # must match a server listed in MCP-SERVERS.md
+  - <server-name>
 ---
 ```
 
 Below the frontmatter, include: `When to use`, task-specific guidance, a `Check` section, and a `Cross-reference` to `AGENTS.md`. See existing skills for reference.
-
-If you add a new MCP server, document it in `MCP-SERVERS.md` with command/URL, description, and relevant skills.
 
 ## Limitations
 

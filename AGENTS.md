@@ -69,7 +69,10 @@
 - If a skill lists `mcp_servers` in frontmatter, treat it as a hint, not a hard requirement.
 - Use the MCP server when it adds information the codebase alone cannot provide.
 - Skip it when local code and existing context are sufficient.
-- See `MCP-SERVERS.md` for server descriptions and intended use.
+- Typical uses:
+  - `chrome-devtools` for browser debugging and runtime inspection
+  - `figma` for design context and asset extraction
+  - `context7` for current library and framework documentation
 
 ## General coding defaults
 - Prefer the simplest solution that solves the real problem.
