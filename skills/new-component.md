@@ -1,3 +1,15 @@
+---
+name: new-component
+description: Create new React/UI components within existing design system
+triggers:
+  - create component
+  - new component
+  - build UI element
+  - add component
+mcp_servers:
+  - figma  # fetch design context when implementing from design specs
+---
+
 ## When to use
 - Creating new React components
 - Building new UI units in existing design system / app structure

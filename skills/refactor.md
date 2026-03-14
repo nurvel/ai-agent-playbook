@@ -1,3 +1,14 @@
+---
+name: refactor
+description: Restructure existing code without changing behavior
+triggers:
+  - refactor
+  - restructure
+  - clean up code
+  - simplify code
+  - reduce complexity
+---
+
 ## When to use
 - Existing code works but structure is weak
 - Code is too large, unclear, duplicated, or mixed-responsibility

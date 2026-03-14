@@ -1,3 +1,14 @@
+---
+name: test-writing
+description: Add, update, or improve tests for code confidence
+triggers:
+  - write test
+  - add test
+  - update test
+  - test coverage
+  - verify behavior
+---
+
 ## When to use
 - Adding or updating tests
 - Deciding what is worth testing

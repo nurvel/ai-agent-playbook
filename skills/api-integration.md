@@ -1,3 +1,16 @@
+---
+name: api-integration
+description: Add API calls, wire server data to UI, manage fetch flows
+triggers:
+  - add API call
+  - integrate API
+  - wire data
+  - fetch data
+  - connect endpoint
+mcp_servers:
+  - context7  # look up library/framework documentation for data fetching patterns
+---
+
 ## When to use
 - Adding new API calls
 - Wiring server data to UI

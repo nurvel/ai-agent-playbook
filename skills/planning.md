@@ -1,3 +1,14 @@
+---
+name: planning
+description: Plan implementation approach for non-trivial tasks before coding
+triggers:
+  - plan
+  - design approach
+  - break down task
+  - implementation strategy
+  - architecture decision
+---
+
 ## When to use
 - Planning a new feature, fix, refactor, or investigation before implementation
 - Defining implementation approach for non-trivial tasks
@@ -19,7 +30,7 @@
 - Ground recommendations in the actual codebase, not generic best practices alone.
 - Determine the correct implementation order when multiple parts are involved.
 - Split work into phases only when it improves execution clarity.
-- Use documentation lookup when framework or library behavior materially affects the plan.
+- Use documentation lookup (e.g. `context7` MCP) when framework or library behavior materially affects the plan.
 
 ## Planning rules
 - Keep plans high-signal and implementation-oriented.

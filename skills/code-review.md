@@ -1,3 +1,14 @@
+---
+name: code-review
+description: Review code or plans for correctness, scope fit, and architecture
+triggers:
+  - review code
+  - review PR
+  - review plan
+  - check implementation
+  - quality gate
+---
+
 ## When to use
 - Reviewing PRs
 - Reviewing generated code

@@ -1,3 +1,16 @@
+---
+name: bugfix
+description: Fix incorrect behavior, debug regressions, investigate issues
+triggers:
+  - fix bug
+  - debug
+  - investigate issue
+  - regression
+  - broken behavior
+mcp_servers:
+  - chrome-devtools  # browser debugging and runtime inspection
+---
+
 ## When to use
 - Fixing incorrect behavior
 - Debugging regressions
