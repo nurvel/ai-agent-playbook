@@ -8,7 +8,7 @@ Generic, agent-agnostic guidelines for coding agents. Works with any LLM agent t
 AGENTS.md        ← universal coding principles and defaults
 WORKFLOW.md      ← how to select and chain skills
 MCP-SERVERS.md   ← available MCP services and when to use them
-skills/          ← task-specific guidance with triggers and MCP linkages
+skills/<name>/SKILL.md ← task-specific guidance with triggers and MCP linkages
 ```
 
 ## How to use
@@ -21,19 +21,19 @@ skills/          ← task-specific guidance with triggers and MCP linkages
 ### Example flows
 
 **Fixing a browser bug** — `bugfix` + `chrome-devtools` + `test-writing`
-1. Task matches `bugfix` → agent follows `skills/bugfix.md`
+1. Task matches `bugfix` → agent follows `skills/bugfix/SKILL.md`
 2. Skill lists `chrome-devtools` → agent inspects the error in the browser
 3. Fix affects critical logic → agent adds `test-writing`
 4. Validate: types, lint, tests pass
 
 **New UI from Figma** — `planning` + `new-component` + `figma`
 1. Non-trivial component → agent starts with `planning`
-2. Plan ready → agent follows `skills/new-component.md`
+2. Plan ready → agent follows `skills/new-component/SKILL.md`
 3. Skill lists `figma` → agent fetches design specs and tokens
 4. Validate
 
 **API integration** — `api-integration` + `context7`
-1. Task matches `api-integration` → agent follows `skills/api-integration.md`
+1. Task matches `api-integration` → agent follows `skills/api-integration/SKILL.md`
 2. Unfamiliar library → agent uses `context7` to look up current API docs
 3. Validate
 
@@ -60,7 +60,7 @@ skills/          ← task-specific guidance with triggers and MCP linkages
 
 ## Adding a new skill
 
-Create `skills/<name>.md` with this structure:
+Create `skills/<name>/SKILL.md` with this structure:
 
 ```yaml
 ---
