@@ -48,6 +48,11 @@
 - Skills are located at `skills/<name>/SKILL.md`.
 - Use one lead skill for the main task type; combine other skills only when they add clear value.
 - Typical lead skills:
+  - `product-discovery` for deciding what should be built and why
+  - `requirements-definition` for turning a validated idea into clear scope and acceptance criteria
+  - `roadmap-planning` for sequencing initiatives into milestones and phases
+  - `backlog-management` for maintaining current priorities, statuses, and next work
+  - `story-slicing` for breaking defined work into small implementation-ready stories
   - `planning` for non-trivial tasks where the approach is unclear
   - `bugfix` for incorrect behavior or regressions
   - `new-component` for new UI/component work
@@ -60,11 +65,20 @@
 ## Task flow
 - Follow this default loop:
   - select the lead skill
+  - for product work, use the relevant product skill before implementation-oriented skills
   - use `planning` only when the task is non-trivial or the approach is unclear
   - implement using the selected skill guidance
   - use `test-writing` when behavior should be protected from regression
   - use `code-review` when the change is large, risky, or touches shared code
   - validate before considering the work complete
+
+## Product work defaults
+- Clarify the problem before locking the solution.
+- Separate confirmed facts, assumptions, and decisions.
+- Make user value, business value, and tradeoffs explicit.
+- Keep roadmap work strategic; do not collapse it into task lists.
+- Keep backlog state current: what is done, next, blocked, later, or dropped.
+- Make prioritization and sequencing rationale explicit.
 
 ## MCP usage
 - If a skill lists `mcp_servers` in frontmatter, treat it as a hint, not a hard requirement.
