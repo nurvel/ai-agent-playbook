@@ -29,6 +29,32 @@ product/initiatives/<slug>.md
 2. Skills are selected based on task type — each has YAML frontmatter with `triggers` and optional `mcp_servers`
 3. `mcp_servers` in skill frontmatter is a hint, not a hard requirement — use the server when it adds value, skip it when the codebase alone is sufficient
 
+### Install to Codex or Claude
+
+Use the install script to sync this playbook into user-level agent folders:
+
+```bash
+scripts/install-playbook.sh
+```
+
+Target only one agent if needed:
+
+```bash
+scripts/install-playbook.sh --codex
+scripts/install-playbook.sh --claude
+```
+
+Preview changes without writing files:
+
+```bash
+scripts/install-playbook.sh --dry-run
+```
+
+The script is intentionally non-destructive:
+- it updates matching playbook files
+- it overwrites older versions of the same skills
+- it does not delete unrelated files from `~/.agents` or `~/.claude`
+
 For roadmap and backlog work, you can use either:
 - `chat-only` mode — keep the output in chat and copy it to Jira, Linear, Notion, or elsewhere yourself
 - `repo-artifacts` mode — maintain lightweight markdown files in `product/`
