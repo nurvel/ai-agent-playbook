@@ -34,3 +34,5 @@
 ## Links
 - Roadmap:
 - Backlog:
+- OpenSpec capability:
+- OpenSpec change:

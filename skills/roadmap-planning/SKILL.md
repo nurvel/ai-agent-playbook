@@ -25,6 +25,15 @@ triggers:
 - If `product/roadmap.md` already exists, update it instead of creating parallel roadmap files.
 - Do not create roadmap artifacts unless the user asks for repo-backed tracking or the repo already uses them.
 
+## OpenSpec compatibility
+- OpenSpec is a change-planning and living-spec system, not a roadmap system.
+- Even in OpenSpec-heavy repos, keep roadmap state outside `openspec/specs/` and `openspec/changes/`.
+- When OpenSpec is present, roadmap items should reference:
+  - active change ids in `openspec/changes/<change-id>/`
+  - affected capabilities in `openspec/specs/<capability>/spec.md`
+- Only create or update an OpenSpec change when roadmap work is concrete enough to become an active planned change.
+- Do not store milestones, release sequencing, or portfolio prioritization inside spec files.
+
 ## Roadmap approach
 - Clarify the planning horizon before sequencing work.
 - Group work into meaningful milestones or phases.
@@ -59,6 +68,8 @@ When using `repo-artifacts`, prefer this structure in `product/roadmap.md`:
 7. **Milestones**
 8. **Risks and dependencies**
 
+In OpenSpec-aware repos, each roadmap item should also reference an OpenSpec capability or change id when available.
+
 ## Check
 - Is the sequencing rationale explicit?
 - Are dependencies visible?
@@ -66,6 +77,7 @@ When using `repo-artifacts`, prefer this structure in `product/roadmap.md`:
 - Do milestones have a clear purpose?
 - Is the roadmap realistic enough to guide decisions?
 - Did this stay strategic rather than collapse into task detail?
+- In OpenSpec-aware repos, did roadmap planning stay out of `openspec/specs/` and link to changes instead?
 
 ## Cross-reference
 - Apply all defaults from `AGENTS.md`.

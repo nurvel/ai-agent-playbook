@@ -7,6 +7,7 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Status: in progress
   - Priority: high
   - Link: roadmap `R1`
+  - OpenSpec change:
   - Next step:
 
 ## Next
@@ -14,6 +15,7 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Status: next
   - Priority: high
   - Link: roadmap `R2`
+  - OpenSpec change:
   - Next step:
 
 ## Blocked
@@ -21,6 +23,7 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Status: blocked
   - Priority: medium
   - Link:
+  - OpenSpec change:
   - Blocker:
 
 ## Later
@@ -28,12 +31,14 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Status: later
   - Priority: medium
   - Link:
+  - OpenSpec capability:
   - Note:
 
 ## Done (recent)
 - `B5` Item title
   - Status: done
   - Completed:
+  - OpenSpec archive:
   - Outcome:
 
 ## Dropped

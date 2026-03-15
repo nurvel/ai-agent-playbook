@@ -24,6 +24,16 @@ triggers:
 - Recommend a direction only after value, risk, and reversibility are visible.
 - Call out what still needs validation before moving into requirements or roadmap work.
 
+## OpenSpec compatibility
+- If the repo contains `openspec/`, `openspec/specs/`, `openspec/changes/`, or `openspec/config.yaml`, treat the repo as OpenSpec-aware.
+- In OpenSpec-aware repos, discovery is pre-spec work. Do not write or modify living specs until the direction is agreed.
+- When a discovery outcome is ready to move forward, hand off a candidate change shape:
+  - change intent
+  - candidate change id
+  - affected capability specs
+  - what belongs in `proposal.md` vs later spec deltas
+- Treat this skill as closest to `/opsx:explore`: clarify the opportunity first, then prepare for a proposal.
+
 ## Output format
 Prefer this structure unless asked otherwise:
 
@@ -35,6 +45,10 @@ Prefer this structure unless asked otherwise:
 6. **Options considered** — including do nothing
 7. **Recommendation** — direction and what to validate next
 
+In OpenSpec-aware repos, append:
+
+8. **OpenSpec handoff** — candidate `change-id`, affected `openspec/specs/<capability>/spec.md` files, and whether a new change should start or an existing one should be updated
+
 ## Check
 - Is the real problem clear?
 - Are users and business value explicit?
@@ -42,6 +56,7 @@ Prefer this structure unless asked otherwise:
 - Were alternatives compared fairly?
 - Is the recommendation justified?
 - Is there anything critical still unvalidated?
+- In OpenSpec-aware repos, is it clear whether this should update an existing change or start a new one?
 
 ## Cross-reference
 - Apply all defaults from `AGENTS.md`.

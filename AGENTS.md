@@ -66,6 +66,7 @@
 - Follow this default loop:
   - select the lead skill
   - for product work, use the relevant product skill before implementation-oriented skills
+  - if the repo provides its own OpenSpec skills or conventions, treat them as primary for OpenSpec change artifacts and use this playbook as supporting guidance around them
   - use `planning` only when the task is non-trivial or the approach is unclear
   - implement using the selected skill guidance
   - use `test-writing` when behavior should be protected from regression
@@ -76,6 +77,7 @@
 - Clarify the problem before locking the solution.
 - Separate confirmed facts, assumptions, and decisions.
 - Make user value, business value, and tradeoffs explicit.
+- When `openspec/` exists, treat `openspec/specs/` as the source of truth for agreed behavior and `openspec/changes/` as the source of truth for active change plans.
 - Keep roadmap work strategic; do not collapse it into task lists.
 - Keep backlog state current: what is done, next, blocked, later, or dropped.
 - Make prioritization and sequencing rationale explicit.

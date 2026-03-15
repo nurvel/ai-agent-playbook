@@ -16,6 +16,8 @@
   - Goal:
   - Why now:
   - Dependencies:
+  - OpenSpec capability:
+  - OpenSpec change:
   - Exit criteria:
 
 ## Next
@@ -23,6 +25,8 @@
   - Goal:
   - Why next:
   - Dependencies:
+  - OpenSpec capability:
+  - OpenSpec change:
   - Exit criteria:
 
 ## Later
@@ -30,6 +34,8 @@
   - Goal:
   - Why later:
   - Dependencies:
+  - OpenSpec capability:
+  - OpenSpec change:
   - Exit criteria:
 
 ## Milestones

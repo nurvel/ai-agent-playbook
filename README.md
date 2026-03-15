@@ -59,6 +59,11 @@ For roadmap and backlog work, you can use either:
 - `chat-only` mode — keep the output in chat and copy it to Jira, Linear, Notion, or elsewhere yourself
 - `repo-artifacts` mode — maintain lightweight markdown files in `product/`
 
+If the repo uses OpenSpec, use it as the source of truth for behavior and active change plans:
+- `openspec/specs/` = current agreed behavior
+- `openspec/changes/<change-id>/` = active change proposal, design, tasks, and spec deltas
+- `product/roadmap.md` and `product/backlog.md` remain optional planning overlays above OpenSpec
+
 ### Example flows
 
 **Fixing a browser bug** — `bugfix` + `chrome-devtools` + `test-writing`
@@ -97,6 +102,19 @@ Use this only when you want the repo to carry lightweight product state.
 - `product/initiatives/<slug>.md` is optional and only for larger initiatives that need their own scope and decision history
 
 This model is intentionally small. If Jira, Linear, or another tool is already the source of truth, use `chat-only` mode and keep the repo clean.
+
+## OpenSpec compatibility
+
+This playbook is OpenSpec-aware, not OpenSpec-dependent.
+
+- In repos without OpenSpec, PO skills use chat output or `product/` artifacts
+- In repos with partial OpenSpec adoption, requirements and implementation-ready change work should prefer OpenSpec for the covered capabilities
+- In repos with full OpenSpec adoption, use OpenSpec for:
+  - discovery handoff into change planning
+  - requirements as proposal + spec deltas
+  - slicing as `tasks.md`
+- Keep roadmap and backlog outside OpenSpec. They should reference change ids and capability specs, not replace them.
+- If a project ships its own OpenSpec skills, those should be primary for exact change-file workflows. This playbook's PO skills stay as a companion layer for discovery, scoping, prioritization, and slicing quality.
 
 ## Skills
 

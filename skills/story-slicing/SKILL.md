@@ -7,6 +7,9 @@ triggers:
   - user stories
   - split work
   - mvp slice
+  - tasks md
+  - task breakdown
+  - implementation slices
 ---
 
 ## When to use
@@ -24,6 +27,17 @@ triggers:
 - Make dependencies explicit.
 - Mark MVP stories separately from later work.
 
+## OpenSpec compatibility
+- If the repo contains `openspec/`, `openspec/specs/`, `openspec/changes/`, or `openspec/config.yaml`, translate story slices into OpenSpec task planning when the work is implementation-ready.
+- In OpenSpec-aware repos:
+  - keep user-value slicing as the reasoning layer
+  - write execution slices into `openspec/changes/<change-id>/tasks.md`
+  - ensure slices line up with proposal scope and spec scenarios
+- Prefer tasks that can be implemented and checked off independently.
+- Do not let `tasks.md` become a layer-by-layer engineering checklist detached from user outcomes.
+- If a slice changes behavior materially, ensure the corresponding scenario exists in the delta spec before treating the task plan as ready.
+- If the repo includes project-specific OpenSpec skills, let them own exact `tasks.md` conventions and use this skill to preserve good slicing quality and user-value ordering.
+
 ## Output format
 Prefer this structure unless asked otherwise:
 
@@ -34,6 +48,10 @@ Prefer this structure unless asked otherwise:
 5. **Recommended implementation order** — practical sequence
 6. **Risks** — sizing or ambiguity concerns
 
+In OpenSpec-aware repos, append:
+
+7. **Task mapping** — how slices map into `openspec/changes/<change-id>/tasks.md`, including phase order and spec-scenario coverage
+
 ## Check
 - Does each story deliver meaningful value?
 - Are slices vertical where possible?
@@ -41,6 +59,7 @@ Prefer this structure unless asked otherwise:
 - Is MVP explicit?
 - Are acceptance criteria testable?
 - Are dependencies visible?
+- In OpenSpec-aware repos, do the slices map cleanly to `tasks.md` and existing proposal/spec artifacts?
 
 ## Cross-reference
 - Apply all defaults from `AGENTS.md`.
