@@ -25,18 +25,11 @@ mcp_servers:
 - Avoid speculative fixes.
 
 ## Check
-- What is broken?
-- What is root cause?
-- Is fix in the right layer?
-- Is there a simpler fix?
-- Does fix introduce side effects?
-- Does fix require a test?
-- Are lint and TypeScript clean?
+- Root cause identified, not just symptom?
+- Fix in the right layer and minimal?
+- Side effects considered; regression test added when needed?
 
 ## Output style
 - State root cause clearly.
 - State fix clearly.
 - Mention risks or edge cases only if relevant.
-
-## Cross-reference
-- Apply all defaults from `AGENTS.md`.

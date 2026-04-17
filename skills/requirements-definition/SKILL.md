@@ -70,6 +70,3 @@ In OpenSpec-aware repos, prefer this artifact mapping:
 - Are dependencies and risks visible?
 - Is anything still too vague for implementation?
 - In OpenSpec-aware repos, do requirement statements and scenarios match OpenSpec delta format?
-
-## Cross-reference
-- Apply all defaults from `AGENTS.md`.

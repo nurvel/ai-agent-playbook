@@ -73,6 +73,3 @@ Prefer this structure unless asked otherwise:
 3. **Should improve** — worthwhile but non-blocking improvements
 4. **Optional notes** — small observations, tradeoffs, or follow-up ideas
 5. **Summary** — brief overall assessment
-
-## Cross-reference
-- Apply all defaults from `AGENTS.md`.

@@ -57,6 +57,3 @@ In OpenSpec-aware repos, append:
 - Is the recommendation justified?
 - Is there anything critical still unvalidated?
 - In OpenSpec-aware repos, is it clear whether this should update an existing change or start a new one?
-
-## Cross-reference
-- Apply all defaults from `AGENTS.md`.

@@ -34,13 +34,5 @@ mcp_servers:
 - Avoid unclear dependencies and hidden coupling.
 
 ## Check
-- Is data fetching in right place?
-- Is business logic in right place?
-- Is UI receiving usable data shape?
-- Is orchestration understandable?
-- Are boundaries clear?
-- Are query keys / fetch triggers predictable?
-- Is complexity justified?
-
-## Cross-reference
-- Apply all defaults from `AGENTS.md`.
+- Is data fetching, business logic, and UI data shape each in the right place?
+- Are orchestration, boundaries, and query keys / fetch triggers clear and predictable?

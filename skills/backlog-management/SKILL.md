@@ -82,6 +82,3 @@ Each item should stay short and include:
 - Does the backlog reflect roadmap intent?
 - Is the next work obvious?
 - In OpenSpec-aware repos, are active changes linked without turning the backlog into a duplicate of `tasks.md`?
-
-## Cross-reference
-- Apply all defaults from `AGENTS.md`.

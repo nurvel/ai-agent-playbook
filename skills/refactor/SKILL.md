@@ -32,11 +32,4 @@ triggers:
 - Avoid adding abstractions unless repeated patterns are stable and real.
 
 ## Check after refactor
-- Behavior unchanged unless intended
-- Clearer boundaries
-- Smaller cognitive load
-- No new indirection without payoff
-- TypeScript and lint pass
-
-## Cross-reference
-- Apply all defaults from `AGENTS.md`.
+- Behavior unchanged unless intended; boundaries clearer; cognitive load smaller; no new indirection without payoff.

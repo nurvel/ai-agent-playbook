@@ -62,6 +62,3 @@ Prefer this structure unless asked otherwise:
 - Do not use fake precision.
 - Do not treat all criteria as equally important if they are not.
 - Do not invent missing evidence; say when the basis is limited.
-
-## Cross-reference
-- Apply all defaults from `AGENTS.md`.

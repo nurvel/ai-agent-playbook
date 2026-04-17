@@ -65,6 +65,3 @@ Prefer this structure unless asked otherwise:
 - Are responsibilities and boundaries clear?
 - Is there unnecessary complexity?
 - Are key risks and assumptions visible?
-
-## Cross-reference
-- Apply all defaults from `AGENTS.md`.

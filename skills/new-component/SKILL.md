@@ -32,13 +32,5 @@ mcp_servers:
 - Keep accessibility and responsive behavior as baseline quality.
 
 ## Check
-- Is responsibility clear?
-- Is props API small?
-- Is naming clear?
-- Is state minimal?
-- Is JSX readable?
-- Is abstraction level appropriate?
-- Does it match project patterns?
-
-## Cross-reference
-- Apply all defaults from `AGENTS.md`.
+- One clear responsibility, small props API, minimal state?
+- JSX readable; abstraction level matches project patterns?

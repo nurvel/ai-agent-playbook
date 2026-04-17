@@ -78,6 +78,3 @@ In OpenSpec-aware repos, each roadmap item should also reference an OpenSpec cap
 - Is the roadmap realistic enough to guide decisions?
 - Did this stay strategic rather than collapse into task detail?
 - In OpenSpec-aware repos, did roadmap planning stay out of `openspec/specs/` and link to changes instead?
-
-## Cross-reference
-- Apply all defaults from `AGENTS.md`.

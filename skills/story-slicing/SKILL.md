@@ -60,6 +60,3 @@ In OpenSpec-aware repos, append:
 - Are acceptance criteria testable?
 - Are dependencies visible?
 - In OpenSpec-aware repos, do the slices map cleanly to `tasks.md` and existing proposal/spec artifacts?
-
-## Cross-reference
-- Apply all defaults from `AGENTS.md`.

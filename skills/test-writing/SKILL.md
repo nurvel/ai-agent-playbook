@@ -28,11 +28,4 @@ triggers:
 - Add tests where they increase confidence, not just coverage numbers.
 
 ## Check
-- Does test cover meaningful behavior?
-- Is test readable?
-- Is test too coupled to implementation?
-- Does it help catch regressions?
-- Is there a simpler level to test this?
-
-## Cross-reference
-- Apply all defaults from `AGENTS.md`.
+- Covers meaningful behavior; readable; not over-coupled to implementation; catches real regressions; tested at the simplest useful level.
