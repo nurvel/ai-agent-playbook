@@ -1,6 +1,6 @@
 ---
 name: evaluation
-description: Evaluate a target on a 0-10 scale, explain why, and state what raises it to the next level
+description: Evaluate a target on a 0-10 scale, explain why, and state concrete actions to reach each remaining level
 triggers:
   - evaluate
   - score
@@ -39,23 +39,54 @@ Prefer conservative scoring. Do not inflate scores without concrete evidence.
 - Judge the target against explicit criteria, not general vibes.
 - Ground the score in concrete observations.
 - Separate current strengths from current limitations.
-- State what blocks the next score level.
-- State the smallest meaningful improvements that would raise the score.
+- State what blocks each remaining level, not just the next one.
+- For every level above the current score, list concrete, actionable improvements.
+- Keep actions specific: name the file, module, behavior, or gap — not vague directions.
+- Escalate difficulty across levels: each step should represent a real increase in maturity, not repetition of the previous one.
 
 ## Output format
 Prefer this structure unless asked otherwise:
 
 1. **Score** — `X/10`
 2. **Why this score** — concise rationale tied to evidence
-3. **What blocks the next level** — the main gaps preventing `X+1`
-4. **What would raise it** — concrete improvements needed for the next level
-5. **Strengths** — optional, only if useful
+3. **Strengths** — optional, only if useful
+4. **Path to higher levels** — one subsection per level above the current score. For a score of `X`, produce a subsection for `X+1`, `X+2`, … up to `10`.
+
+For each level subsection, include:
+- **What blocks this level** — the specific gaps preventing it
+- **Concrete actions to reach it** — named, actionable improvements (files, modules, behaviors, tests, docs). Keep each action small enough to implement and verify.
+
+Example shape when current score is `7`:
+
+```
+## Path to higher levels
+
+### 8/10
+- What blocks this level: ...
+- Concrete actions:
+  - ...
+  - ...
+
+### 9/10
+- What blocks this level: ...
+- Concrete actions:
+  - ...
+
+### 10/10
+- What blocks this level: ...
+- Concrete actions:
+  - ...
+```
+
+If the current score is already `10`, omit this section and note that no further improvements are identified.
 
 ## Check
 - Is the target clearly defined?
 - Is the score grounded in evidence?
 - Are gaps and improvements concrete?
 - Is scoring conservative?
+- Is there a subsection for every level between the current score and `10`?
+- Do higher-level actions represent genuinely harder improvements, not repeats of lower-level ones?
 
 ## Constraints
 - Do not give a score without explaining it.
