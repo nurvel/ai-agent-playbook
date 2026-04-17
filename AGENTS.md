@@ -1,86 +1,102 @@
 
-## Purpose
+## Purpose and priorities
 - Produce correct, simple, maintainable code.
-- Prefer clarity over cleverness.
+- Correctness > clarity > simplicity > maintainability > readability > micro-optimisation.
+- Fit existing architecture and conventions unless there is a strong reason not to.
 - Prefer consistency over novelty.
-- Fit existing architecture unless there is a strong reason not to.
+- Prefer clarity over cleverness.
 
 ## Communication
 - Be extremely concise.
 - Sacrifice grammar for concision if needed.
-- Assume more detail will be requested separately.
 - Do not flatter.
 - Do not compliment unless explicitly asked for judgment.
+- Assume more detail will be requested separately.
 - If intent is unclear, ask instead of guessing.
-
-## Critical thinking
-- Challenge assumptions when needed.
-- Say clearly if the user is mistaken.
-- Suggest a better approach when one exists.
-- Point out relevant standards, conventions, or best practices when useful.
+- If ambiguity is minor, state assumptions and proceed.
+- Challenge assumptions when the direction is flawed or risky.
+- Flag flaws, inconsistencies, or better alternatives when they materially matter.
 - Prefer correctness over agreement.
 
-## Core priorities
-- Correctness first.
-- Clarity over cleverness.
-- Simplicity over abstraction.
-- Maintainability over short-term convenience.
-- Readability over micro-optimisation unless impact is clearly significant.
-
-## Implementation discipline
-- Treat any given plan as the default path, not as unquestionable truth.
-- Flag flaws, inconsistencies, risks, or better alternatives when they materially matter.
-- Produce the smallest correct change that fits the codebase.
-- If something important is ambiguous, ask briefly. If ambiguity is minor, state assumptions and proceed.
-- Keep changes local and reviewable.
-- Handle small adjacent changes (backend, API, schema) only when clearly part of the same task.
-- If deviation from the plan is needed, explain it briefly.
-
-## Quality bar
-- Ensure the implementation is internally consistent.
-- Ensure types, imports, and dependencies remain correct and coherent.
-- Ensure the solution fits the existing codebase style and architecture.
-- Run relevant checks when possible: type checking, linting, relevant tests.
-- If checks cannot be run, say so briefly instead of pretending they passed.
-
-## Skill selection
-- Match the task to the most relevant skill based on its purpose and `triggers`.
-- Skills are located at `skills/<name>/SKILL.md`.
-- Use one lead skill for the main task type; combine other skills only when they add clear value.
+## Task execution
+- Pick one lead skill from `skills/<name>/SKILL.md` based on its purpose and `triggers`.
+- Combine other skills only when they add clear value.
 - Typical lead skills:
-  - `product-discovery` for deciding what should be built and why
-  - `requirements-definition` for turning a validated idea into clear scope and acceptance criteria
-  - `roadmap-planning` for sequencing initiatives into milestones and phases
-  - `backlog-management` for maintaining current priorities, statuses, and next work
-  - `story-slicing` for breaking defined work into small implementation-ready stories
-  - `planning` for non-trivial tasks where the approach is unclear
-  - `bugfix` for incorrect behavior or regressions
-  - `new-component` for new UI/component work
-  - `api-integration` for data fetching and API wiring
-  - `refactor` for structural improvement without intended behavior change
-  - `test-writing` for adding or updating tests
-  - `code-review` for reviewing plans or implementations
-  - `evaluation` for scoring quality or maturity on a `0-10` scale
-
-## Task flow
-- Follow this default loop:
+  - `product-discovery` — deciding what should be built and why
+  - `requirements-definition` — turning a validated idea into clear scope and acceptance criteria
+  - `roadmap-planning` — sequencing initiatives into milestones
+  - `backlog-management` — maintaining priorities, statuses, and next work
+  - `story-slicing` — breaking defined work into implementation-ready stories
+  - `planning` — non-trivial tasks where the approach is unclear
+  - `bugfix`, `new-component`, `api-integration`, `refactor`, `test-writing`, `code-review`, `evaluation`
+- Default flow:
   - select the lead skill
-  - for product work, use the relevant product skill before implementation-oriented skills
-  - if the repo provides its own OpenSpec skills or conventions, treat them as primary for OpenSpec change artifacts and use this playbook as supporting guidance around them
+  - for product work, run PO skills before implementation skills
   - use `planning` only when the task is non-trivial or the approach is unclear
   - implement using the selected skill guidance
   - use `test-writing` when behavior should be protected from regression
   - use `code-review` when the change is large, risky, or touches shared code
   - validate before considering the work complete
+- If the repo has its own OpenSpec skills or conventions, treat them as primary for OpenSpec artifacts.
+- Treat this playbook as supporting guidance when project-specific skills exist.
+- Treat any given plan as the default path, not unquestionable truth.
+- Explain briefly when deviating from the plan.
+- Produce the smallest correct change that fits the codebase.
+- Keep changes local and reviewable.
+- Handle small adjacent changes (backend, API, schema) only when clearly part of the same task.
 
-## Product work defaults
-- Clarify the problem before locking the solution.
-- Separate confirmed facts, assumptions, and decisions.
-- Make user value, business value, and tradeoffs explicit.
-- When `openspec/` exists, treat `openspec/specs/` as the source of truth for agreed behavior and `openspec/changes/` as the source of truth for active change plans.
-- Keep roadmap work strategic; do not collapse it into task lists.
-- Keep backlog state current: what is done, next, blocked, later, or dropped.
-- Make prioritization and sequencing rationale explicit.
+## Simplicity and structure
+- Prefer the simplest solution that solves the real problem.
+- Avoid complexity without clear payoff.
+- Place each logic part in its proper layer.
+- UI should focus on rendering and interaction.
+- Business and domain logic should be isolated from presentation details.
+- Data access / API layers should stay thin.
+- Shared utilities should stay focused and not become dumping grounds.
+- Keep module and component APIs small and explicit.
+- Prefer composition over complicated configuration.
+- Avoid leaky abstractions.
+- Prefer pure functions when possible.
+- Prefer extracted functions with clear names over inline complexity.
+- Keep trivial logic inline when extraction hurts readability.
+- Prefer deterministic, testable units.
+- Build reusable solutions only with real evidence of reuse.
+- Avoid premature generalisation and just-in-case structure.
+- Do not introduce factories, middleware, or indirection layers without concrete need.
+- Remove dead code.
+- Do not leave obsolete branches, wrappers, or unused helpers.
+
+## React / UI defaults
+- One component should have one clear responsibility.
+- Split components when it improves readability, testing, or reuse.
+- Do not split purely for cosmetic reasons.
+- Keep render logic easy to scan.
+- Move complex derivation or branching out of JSX when helpful.
+- Keep props minimal and understandable.
+- Prefer explicit props over highly generic prop systems.
+- Avoid bloated configuration surfaces.
+- Avoid harmful prop drilling.
+- Do not introduce context without reason.
+- Keep state minimal.
+- Derive values instead of duplicating state where possible.
+- Use local state unless broader scope is clearly needed.
+- Keep async/data state predictable.
+- Accessibility and responsive behavior are baseline quality.
+
+## TypeScript defaults
+- Prefer explicit, understandable types.
+- Keep domain types and UI/view-model types distinct when useful.
+- Avoid `any` unless there is a strong reason.
+- Avoid overly complex generics.
+- Avoid type-level cleverness that harms readability.
+
+## Comments and docs defaults
+- Prefer self-documenting code over excessive comments.
+- Comment only when intent is not obvious.
+- Comment when caveats or gotchas cannot be removed through code design.
+- TODO comments are OK for clearly out-of-scope follow-up work.
+- Do not use comments to compensate for poor structure.
+- Keep comments accurate, minimal, and updated.
 
 ## MCP usage
 - If a skill lists `mcp_servers` in frontmatter, treat it as a hint, not a hard requirement.
@@ -91,111 +107,38 @@
   - `figma` for design context and asset extraction
   - `context7` for current library and framework documentation
 
-## General coding defaults
-- Prefer the simplest solution that solves the real problem.
-- Keep changes small, local, and reviewable.
-- Respect existing conventions and architecture.
-- Avoid complexity without clear payoff.
-- Optimize for future maintainability and ease of change.
-- Prefer explicitness when it reduces cognitive load.
-- Remove dead code.
-- Do not leave obsolete branches, wrappers, or unused helpers.
-
-## Architecture defaults
-- Place each logic part in its proper layer.
-- Keep separation of concerns consistent across features.
-- Do not mix UI, domain logic, data fetching, and infrastructure carelessly.
-- UI should focus on rendering and interaction.
-- Business/domain logic should be isolated from presentation details.
-- Data access / API layers should stay thin.
-- Shared utilities should stay focused and not become dumping grounds.
-- Keep module and component APIs small and simple.
-- Prefer narrow, explicit interfaces.
-- Prefer composition over complicated configuration.
-- Avoid leaky abstractions.
-
-## Code design defaults
-- Prefer pure functions when possible.
-- Prefer extracted functions with clear names over inline complexity.
-- Keep trivial logic inline if extraction hurts readability.
-- Make data flow easy to follow.
-- Prefer deterministic, testable units.
-- Build reusable solutions only with real evidence of reuse.
-- Avoid premature generalisation.
-- Avoid just-in-case structure.
-- Do not introduce factories, middleware, indirection layers, or patterns without concrete need.
-
-## React / UI defaults
-- One component should have one clear responsibility.
-- Split components when it improves readability, testing, or reuse.
-- Do not split purely for cosmetic reasons.
-- Keep render logic easy to scan.
-- Move complex derivation or branching out of JSX when helpful.
-- Keep props minimal and understandable.
-- Avoid bloated configuration surfaces.
-- Prefer explicit props over highly generic prop systems.
-- Avoid prop drilling when harmful, but do not introduce context without reason.
-- Keep state minimal.
-- Derive values instead of duplicating state where possible.
-- Use local state unless broader scope is clearly needed.
-- Keep async/data state predictable.
-- Keep styling and structure aligned with project conventions.
-- Accessibility and responsive behavior are baseline quality.
-
-## TypeScript defaults
-- Use TypeScript to improve clarity and safety.
-- Prefer explicit, understandable types.
-- Keep domain types and UI/view-model types distinct when useful.
-- Avoid `any` unless there is a strong reason.
-- Avoid overly complex generics.
-- Avoid type-level cleverness that harms readability.
-- Prefer straightforward type modeling over impressive-looking type systems.
-
-## Comments and docs defaults
-- Prefer self-documenting code over excessive comments.
-- Add comments only when they add real value.
-- Comment when intent is not obvious.
-- Comment when caveats or gotchas cannot be removed through code design.
-- TODO comments are OK for clearly out-of-scope but relevant follow-up work.
-- Do not use comments to compensate for poor structure.
-- Keep comments accurate, minimal, and updated.
+## Product work defaults
+- Clarify the problem before locking the solution.
+- Separate confirmed facts, assumptions, and decisions.
+- Make user value, business value, and tradeoffs explicit.
+- When `openspec/` exists, treat `openspec/specs/` as the source of truth for agreed behavior.
+- When `openspec/` exists, treat `openspec/changes/` as the source of truth for active change plans.
+- Keep roadmap work strategic; do not collapse it into task lists.
+- Keep backlog state current: done, next, blocked, later, or dropped.
+- Make prioritization and sequencing rationale explicit.
 
 ## Git defaults
 - Use read-only git commands unless explicitly instructed otherwise.
-- Writing or editing files is allowed when needed for the task. Commits, pushes, rebases, and other state-changing git operations require explicit instruction.
+- Editing files is allowed when needed for the task.
+- Commits, pushes, rebases, and other state-changing git operations require explicit instruction.
 - Break work into commit-sized logical units when practical.
-- After completing a logical unit, proactively suggest a commit message that matches the completed scope.
+- After completing a logical unit, proactively suggest a commit message that matches the scope.
 - Keep commits atomic: one logical change per commit.
 - Split unrelated concerns into separate commits.
-- Avoid mixed-purpose commits.
 - Simple changes: one-line commit message only.
 - Complex changes: add a body explaining what changed and why.
 - Wrap commit body lines at ~72 chars when practical.
 
-## Validation defaults
-- Always check TypeScript errors.
-- Always check linting errors.
-- If validation fails because of the change you just made, iterate immediately and fix it when the fix stays within the intended scope.
-- Before considering work complete:
-  - ensure changes match intended scope
-  - ensure no dead code or leftovers remain
-  - ensure structure still fits project conventions
-  - ensure abstraction is justified
-  - ensure readability did not regress
-
-## Anti-patterns
-Avoid unless there is a very strong, concrete reason:
-- Premature optimisation
-- Just-in-case features
-- Over-engineering
-- Unnecessary abstractions
-- Factory patterns without clear need
-- Middleware layers without clear need
-- Overly complex TypeScript
-- Mixed concerns in same unit
-- Bloated component APIs
-- Dead code
-- Clever but hard-to-read solutions
+## Quality gates
+- Ensure the implementation is internally consistent.
+- Ensure types, imports, and dependencies remain coherent.
+- Ensure the solution fits the existing codebase style and architecture.
+- Ensure abstraction is justified and readability did not regress.
+- Ensure no dead code or leftovers remain.
+- Ensure scope matches intent.
+- Run relevant checks: TypeScript, linting, relevant tests.
+- If a check cannot be run, say so briefly instead of pretending it passed.
+- If validation fails because of your change, iterate immediately when the fix stays within scope.
 
 ## Default review lens
 - Is the solution correct?
@@ -208,5 +151,3 @@ Avoid unless there is a very strong, concrete reason:
 - Is the API surface small and clear?
 - Is the code easy to test and change?
 - Is there dead code, accidental complexity, or just-in-case design?
-
----
