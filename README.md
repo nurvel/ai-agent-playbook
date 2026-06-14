@@ -21,6 +21,9 @@ principles/
   agent-tooling.md       <- agent and harness tooling principles
   workflows.md           <- idea-to-delivery workflow principles
 
+repo-skills/
+  README.md              <- repo-local skills for maintaining this toolbox
+
 planning/
   README.md              <- repo-internal planning notes
   requirements.md        <- durable requirements for this toolbox
@@ -45,6 +48,8 @@ scripts/
 `dist/` is the compressed runtime layer. It should contain only the guidance that improves agent behavior during normal work.
 
 Traceability flows one way: principle pages may list the runtime files they inform, but runtime files should not reference `principles/` directly.
+
+`repo-skills/` is for skills that maintain this repository itself. These skills are not part of the portable package.
 
 ### Install to Codex or Claude
 

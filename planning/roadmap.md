@@ -53,7 +53,7 @@
   - Dependencies: `R4`, `R5`
   - OpenSpec capability:
   - OpenSpec change:
-  - Exit criteria: Feedback/retro skill or workflow is ready to use after real tasks.
+  - Exit criteria: Repo-local `skill-evolution` skill or workflow is ready to use after real tasks.
 
 - `R7` Add architecture visualization support
   - Goal: Support pragmatic C4, ArchiMate, or equivalent architecture documentation/planning.

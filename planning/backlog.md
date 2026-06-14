@@ -52,12 +52,12 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - OpenSpec capability:
   - Note: Cover Idea Brief, Requirement Refinement, Technical Discovery, Implementation Handoff, and Implementation Report.
 
-- `B9` Design feedback/retro skill
+- `B9` Design repo-local skill evolution skill
   - Status: later
   - Priority: medium
   - Link: roadmap `R6`
   - OpenSpec capability:
-  - Note: Capture feedback from real skill usage back into this repo without bloating runtime guidance.
+  - Note: Create `repo-skills/skill-evolution/SKILL.md` to process learning or retro input into principles, backlog, existing skills, or new runtime skill candidates.
 
 - `B10` Evaluate non-native harnesses
   - Status: later

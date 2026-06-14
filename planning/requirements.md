@@ -17,6 +17,7 @@ The primary deliverable remains the portable agent package in `dist/`.
 - The project should evaluate non-native harnesses such as opencode before adding harness-specific assumptions.
 - Skill naming must make origin clear enough in agent menus without sacrificing portability.
 - A feedback or retro workflow should help turn real usage into improvements to this repo.
+- Repo-specific maintenance skills must live outside `dist/`, currently under `repo-skills/`.
 - A high-level workflow layer should cover Idea Brief, Requirement Refinement, Technical Discovery, Implementation Handoff, and Implementation Report.
 - Architecture support should include a pragmatic path for C4, ArchiMate, or another visual planning/documentation method.
 - Content must stay pragmatic: no unused ceremony, no broad fluff, no skills that do not map to real usage.
@@ -26,4 +27,3 @@ The primary deliverable remains the portable agent package in `dist/`.
 - Every new runtime rule has a clear reason in `principles/` or an explicit planning decision.
 - Every new skill has a likely real trigger and a clear job.
 - Runtime guidance gets shorter or more useful over time, not larger by default.
-
