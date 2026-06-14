@@ -4,11 +4,13 @@ Personal, agent-agnostic toolbox for coding agents and software work. It combine
 
 The portable agent package is `dist/AGENTS.md` + `dist/skills/<name>/SKILL.md`. The contents of `dist/` are hand-authored source files, not generated build output.
 
-`principles/`, `planning/`, `scripts/`, and this `README.md` are repo support files. They are not installed into Codex or Claude by the playbook installer.
+Root `AGENTS.md`, `principles/`, `planning/`, `repo-skills/`, `scripts/`, and this `README.md` are repo support files. They are not installed into Codex or Claude by the playbook installer.
 
 ## Structure
 
 ```
+AGENTS.md              <- repo-local instructions for agents working here
+
 dist/
   AGENTS.md              <- universal coding principles and defaults
   skills/<name>/SKILL.md <- task-specific guidance with triggers and MCP linkages
