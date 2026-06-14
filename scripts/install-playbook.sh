@@ -4,6 +4,7 @@ set -euo pipefail
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 repo_root="$(cd "${script_dir}/.." && pwd)"
+package_root="${repo_root}/dist"
 
 dry_run=0
 target_codex=0
@@ -29,10 +30,10 @@ Behavior:
   - Non-destructive: updates matching files but does not delete other files
   - Overwrites existing playbook files with the current repo version
   - Syncs only:
-    - AGENTS.md -> ~/.agents/AGENTS.md
-    - AGENTS.md -> ~/.claude/CLAUDE.md
-    - skills/*   -> ~/.agents/skills/*
-    - skills/*   -> ~/.claude/skills/*
+    - dist/AGENTS.md -> ~/.agents/AGENTS.md
+    - dist/AGENTS.md -> ~/.claude/CLAUDE.md
+    - dist/skills/*   -> ~/.agents/skills/*
+    - dist/skills/*   -> ~/.claude/skills/*
 EOF
 }
 
@@ -83,8 +84,8 @@ sync_codex() {
   log "Syncing Codex playbook -> ${codex_dir}"
   ensure_dir "$codex_dir"
   ensure_dir "$codex_skills_dir"
-  run_rsync "${repo_root}/AGENTS.md" "${codex_dir}/AGENTS.md"
-  run_rsync "${repo_root}/skills/" "${codex_skills_dir}/"
+  run_rsync "${package_root}/AGENTS.md" "${codex_dir}/AGENTS.md"
+  run_rsync "${package_root}/skills/" "${codex_skills_dir}/"
 }
 
 sync_claude() {
@@ -94,8 +95,8 @@ sync_claude() {
   log "Syncing Claude playbook -> ${claude_dir}"
   ensure_dir "$claude_dir"
   ensure_dir "$claude_skills_dir"
-  run_rsync "${repo_root}/AGENTS.md" "${claude_dir}/CLAUDE.md"
-  run_rsync "${repo_root}/skills/" "${claude_skills_dir}/"
+  run_rsync "${package_root}/AGENTS.md" "${claude_dir}/CLAUDE.md"
+  run_rsync "${package_root}/skills/" "${claude_skills_dir}/"
 }
 
 validate_target() {
@@ -143,8 +144,8 @@ if [[ "$targets_explicit" -eq 0 ]]; then
   target_claude=1
 fi
 
-require_path "${repo_root}/AGENTS.md" "repo AGENTS.md"
-require_path "${repo_root}/skills" "repo skills directory"
+require_path "${package_root}/AGENTS.md" "package AGENTS.md"
+require_path "${package_root}/skills" "package skills directory"
 
 if ! command -v rsync >/dev/null 2>&1; then
   log "Missing required command: rsync"
