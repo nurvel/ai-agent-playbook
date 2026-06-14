@@ -10,13 +10,13 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Status: next
   - Priority: high
   - Link: roadmap `R3`
-  - Next step: Identify Claude/Codex-specific wording, paths, or behavior that weakens portability.
+  - Next step: Produce the audit report defined in `planning/requirements.md#b3-agent-agnostic-dist-audit`.
 
 - `B4` Design symlink-based install mode
   - Status: next
   - Priority: high
   - Link: roadmap `R3`
-  - Next step: Map Codex, Claude, Gemini, and opencode file/link expectations before changing the installer.
+  - Next step: Produce the installer design defined in `planning/requirements.md#b4-symlink-based-install-mode`.
 
 - `B5` Define generic vs domain skill extension model
   - Status: next
