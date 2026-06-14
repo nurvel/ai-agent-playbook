@@ -32,7 +32,7 @@ triggers:
   - candidate change id
   - affected capability specs
   - what belongs in `proposal.md` vs later spec deltas
-- Treat this skill as closest to `/opsx:explore`: clarify the opportunity first, then prepare for a proposal.
+- Treat this skill as a pre-proposal exploration step: clarify the opportunity first, then prepare for a proposal.
 
 ## Output format
 Prefer this structure unless asked otherwise:

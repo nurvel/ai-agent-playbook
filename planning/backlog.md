@@ -6,12 +6,6 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
 - None
 
 ## Next
-- `B3` Audit `dist/` for agent-specific assumptions
-  - Status: next
-  - Priority: high
-  - Link: roadmap `R3`
-  - Next step: Produce `planning/reports/b3-dist-audit.md` using `planning/requirements/b3-agent-agnostic-dist-audit.md`.
-
 - `B4` Design symlink-based install mode
   - Status: next
   - Priority: high
@@ -77,6 +71,11 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Note: Keep lightweight unless package consumers need versioned change history.
 
 ## Done (recent)
+- `B3` Audit `dist/` for agent-specific assumptions
+  - Status: done
+  - Completed: 2026-06-14
+  - Outcome: Produced `planning/reports/b3-dist-audit.md`; applied accepted wording fixes in `dist/`; deferred MCP/tool structure to `B7`, installer/harness support to `B4`/`B10`, and naming questions to `B6`.
+
 - `B2` Establish principles-backed toolbox foundation
   - Status: done
   - Completed: 2026-06-14

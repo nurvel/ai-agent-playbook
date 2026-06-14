@@ -20,7 +20,8 @@ triggers:
 - `repo-artifacts`: maintain backlog artifacts in the repo.
 
 ## Artifact model
-- Use `product/backlog.md` as the operational source of truth when working in `repo-artifacts` mode.
+- Prefer an existing project source of truth when one is already established.
+- Use `product/backlog.md` as the default operational source when working in `repo-artifacts` mode and no equivalent artifact exists.
 - Optionally link larger items to `product/initiatives/<slug>.md`.
 - If `product/backlog.md` already exists, update it instead of creating new backlog documents.
 - Do not create backlog artifacts unless the user asks for repo-backed tracking or the repo already uses them.

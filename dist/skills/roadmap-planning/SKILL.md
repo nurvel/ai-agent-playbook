@@ -20,7 +20,8 @@ triggers:
 - `repo-artifacts`: maintain roadmap artifacts in the repo.
 
 ## Artifact model
-- Use `product/roadmap.md` as the strategic source of truth when working in `repo-artifacts` mode.
+- Prefer an existing project source of truth when one is already established.
+- Use `product/roadmap.md` as the default strategic source when working in `repo-artifacts` mode and no equivalent artifact exists.
 - Optionally link larger initiatives to `product/initiatives/<slug>.md`.
 - If `product/roadmap.md` already exists, update it instead of creating parallel roadmap files.
 - Do not create roadmap artifacts unless the user asks for repo-backed tracking or the repo already uses them.
