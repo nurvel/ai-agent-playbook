@@ -1,5 +1,5 @@
 ---
-name: evaluation
+name: nurvel-evaluation
 description: Evaluate a target on a 0-10 scale, explain why, and state concrete actions to reach each remaining level
 triggers:
   - evaluate

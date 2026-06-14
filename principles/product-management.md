@@ -11,9 +11,8 @@ Product work should clarify the problem, tradeoffs, and acceptance signals befor
 - Drop or defer work when the value, risk, or timing does not justify it.
 
 ## Distilled Runtime Outputs
-- `dist/skills/product-discovery/SKILL.md`: problem and opportunity framing.
-- `dist/skills/requirements-definition/SKILL.md`: scope and acceptance criteria.
-- `dist/skills/roadmap-planning/SKILL.md`: sequencing and milestones.
-- `dist/skills/backlog-management/SKILL.md`: operational priority state.
-- `dist/skills/story-slicing/SKILL.md`: implementation-ready slices.
-
+- `dist/skills/nurvel-product-discovery/SKILL.md`: problem and opportunity framing.
+- `dist/skills/nurvel-requirements-definition/SKILL.md`: scope and acceptance criteria.
+- `dist/skills/nurvel-roadmap-planning/SKILL.md`: sequencing and milestones.
+- `dist/skills/nurvel-backlog-management/SKILL.md`: operational priority state.
+- `dist/skills/nurvel-story-slicing/SKILL.md`: implementation-ready slices.

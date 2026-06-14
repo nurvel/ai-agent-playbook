@@ -1,5 +1,5 @@
 ---
-name: story-slicing
+name: nurvel-story-slicing
 description: Break defined work into small vertical slices with clear story boundaries and acceptance criteria
 triggers:
   - slice stories

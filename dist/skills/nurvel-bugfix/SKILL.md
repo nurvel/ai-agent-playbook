@@ -1,5 +1,5 @@
 ---
-name: bugfix
+name: nurvel-bugfix
 description: Fix incorrect behavior, debug regressions, investigate issues
 triggers:
   - fix bug

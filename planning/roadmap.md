@@ -20,12 +20,6 @@
   - Exit criteria: Compatibility matrix and installer direction are decided.
 
 ## Next
-- `R4` Refine skill system model
-  - Goal: Define generic vs domain-specific skill boundaries, naming/prefix convention, MCP extraction, and token budget.
-  - Why next: The runtime package needs tighter rules before expanding skills.
-  - Dependencies: `R2`, `R3`
-  - Exit criteria: Skill authoring rules are explicit enough for consistent future additions.
-
 - `R5` Define high-level workflow layer
   - Goal: Model Idea Brief, Requirement Refinement, Technical Discovery, Implementation Handoff, Implementation Report, and Post-Implementation Learning.
   - Why next: Workflow guidance coordinates skills without bloating every skill.
@@ -46,6 +40,9 @@
   - Exit criteria: Architecture guidance has clear triggers, outputs, and visual notation defaults.
 
 ## Done (recent)
+- `R4` Refine skill system model
+  - Scope: Generic base skill boundaries, `nurvel-*` naming, optional tool hints, and runtime token budget.
+  - Exit criteria: Skill authoring rules are explicit enough for consistent future additions.
 - `R2` Principles-backed toolbox foundation
   - Scope: `principles/`, requirements, roadmap, and backlog.
   - Exit criteria: Runtime output, source knowledge, and planning state are clearly separated.

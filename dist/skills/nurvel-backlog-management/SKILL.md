@@ -1,5 +1,5 @@
 ---
-name: backlog-management
+name: nurvel-backlog-management
 description: Maintain backlog and roadmap state so priorities, progress, and next work stay current
 triggers:
   - backlog

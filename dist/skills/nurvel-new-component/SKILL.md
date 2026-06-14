@@ -1,5 +1,5 @@
 ---
-name: new-component
+name: nurvel-new-component
 description: Create new React/UI components within existing design system
 triggers:
   - create component

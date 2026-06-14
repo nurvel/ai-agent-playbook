@@ -1,5 +1,5 @@
 ---
-name: refactor
+name: nurvel-refactor
 description: Restructure existing code without changing behavior
 triggers:
   - refactor

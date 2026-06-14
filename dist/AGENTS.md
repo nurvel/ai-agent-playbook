@@ -19,26 +19,27 @@
 - Prefer correctness over agreement.
 
 ## Task execution
-- Pick one lead skill from `skills/<name>/SKILL.md` based on its purpose and `triggers`.
+- Pick one lead skill from `skills/nurvel-<name>/SKILL.md` based on its purpose and `triggers`.
 - Combine other skills only when they add clear value.
 - Typical lead skills:
-  - `product-discovery` — deciding what should be built and why
-  - `requirements-definition` — turning a validated idea into clear scope and acceptance criteria
-  - `roadmap-planning` — sequencing initiatives into milestones
-  - `backlog-management` — maintaining priorities, statuses, and next work
-  - `story-slicing` — breaking defined work into implementation-ready stories
-  - `planning` — non-trivial tasks where the approach is unclear
-  - `bugfix`, `new-component`, `api-integration`, `refactor`, `test-writing`, `code-review`, `evaluation`
+  - `nurvel-product-discovery` - deciding what should be built and why
+  - `nurvel-requirements-definition` - turning a validated idea into clear scope and acceptance criteria
+  - `nurvel-roadmap-planning` - sequencing initiatives into milestones
+  - `nurvel-backlog-management` - maintaining priorities, statuses, and next work
+  - `nurvel-story-slicing` - breaking defined work into implementation-ready stories
+  - `nurvel-planning` - non-trivial tasks where the approach is unclear
+  - `nurvel-bugfix`, `nurvel-new-component`, `nurvel-api-integration`, `nurvel-refactor`, `nurvel-test-writing`, `nurvel-code-review`, `nurvel-evaluation`
 - Default flow:
   - select the lead skill
   - for product work, run PO skills before implementation skills
-  - use `planning` only when the task is non-trivial or the approach is unclear
+  - use `nurvel-planning` only when the task is non-trivial or the approach is unclear
   - implement using the selected skill guidance
-  - use `test-writing` when behavior should be protected from regression
-  - use `code-review` when the change is large, risky, or touches shared code
+  - use `nurvel-test-writing` when behavior should be protected from regression
+  - use `nurvel-code-review` when the change is large, risky, or touches shared code
   - validate before considering the work complete
 - If the repo has its own OpenSpec skills or conventions, treat them as primary for OpenSpec artifacts.
-- Treat this playbook as supporting guidance when project-specific skills exist.
+- Treat project-specific or domain-specific skills as primary for local conventions; use these `nurvel-*` skills as generic base guidance.
+- Keep derived or local extension skills outside this base package unless the generic base behavior itself should change.
 - Treat any given plan as the default path, not unquestionable truth.
 - Explain briefly when deviating from the plan.
 - Produce the smallest correct change that fits the codebase.

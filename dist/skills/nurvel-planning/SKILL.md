@@ -1,5 +1,5 @@
 ---
-name: planning
+name: nurvel-planning
 description: Plan implementation approach for non-trivial tasks before coding
 triggers:
   - plan

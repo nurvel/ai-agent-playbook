@@ -1,5 +1,5 @@
 ---
-name: roadmap-planning
+name: nurvel-roadmap-planning
 description: Sequence product initiatives into logical phases, milestones, and MVP cuts
 triggers:
   - roadmap

@@ -12,9 +12,8 @@ Architecture should make responsibilities, constraints, and tradeoffs visible en
 
 ## Distilled Runtime Outputs
 - `dist/AGENTS.md`: architecture fit, boundary preservation, and review lens.
-- `dist/skills/planning/SKILL.md`: implementation planning and architecture decisions.
-- `dist/skills/code-review/SKILL.md`: architecture and scope-fit review.
+- `dist/skills/nurvel-planning/SKILL.md`: implementation planning and architecture decisions.
+- `dist/skills/nurvel-code-review/SKILL.md`: architecture and scope-fit review.
 
 ## Open Questions
 - Which visualization method should be the default for agent-assisted architecture work: C4, ArchiMate, or a lighter repo-specific diagram convention?
-

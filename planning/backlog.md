@@ -6,35 +6,17 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
 - None
 
 ## Next
-- `B5` Define generic vs domain skill extension model
-  - Status: next
-  - Priority: high
-  - Link: roadmap `R4`
-  - Next step: Decide how base skills should be extended by project-specific or domain-specific skills.
-
-- `B6` Decide skill naming and prefix strategy
+- `B8` Define high-level workflow layer
   - Status: next
   - Priority: medium
-  - Link: roadmap `R4`
-  - Next step: Compare generic names with a visible origin prefix such as `nurvel-*` in agent menus.
+  - Link: roadmap `R5`
+  - Requirement: `planning/requirements/b8-high-level-workflow-layer.md`
+  - Next step: Design the workflow layer now that R4 skill-system decisions are settled.
 
 ## Blocked
 - None
 
 ## Later
-- `B7` Extract MCP and tool guidance model
-  - Status: later
-  - Priority: medium
-  - Link: roadmap `R4`
-  - Note: Decide whether MCP/tool guidance belongs in skill frontmatter, a `dist/tools/` folder, or separate adapter docs.
-
-- `B8` Define high-level workflow layer
-  - Status: later
-  - Priority: medium
-  - Link: roadmap `R5`
-  - Requirement: `planning/requirements/b8-high-level-workflow-layer.md`
-  - Note: Cover Idea Brief, Requirement Refinement, Technical Discovery, Implementation Handoff, Implementation Report, and Post-Implementation Learning.
-
 - `B9` Design repo-local skill evolution skill
   - Status: later
   - Priority: medium
@@ -72,6 +54,21 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Note: Keep lightweight unless package consumers need versioned change history.
 
 ## Done (recent)
+- `B7` Extract MCP and tool guidance model
+  - Status: done
+  - Completed: 2026-06-14
+  - Outcome: Kept `mcp_servers` as optional frontmatter hints; deferred a separate `dist/tools/` artifact until harness evidence justifies it.
+
+- `B6` Decide skill naming and prefix strategy
+  - Status: done
+  - Completed: 2026-06-14
+  - Outcome: Renamed portable runtime skills to the `nurvel-*` prefix and documented the installer duplicate-folder migration note.
+
+- `B5` Define generic vs domain skill extension model
+  - Status: done
+  - Completed: 2026-06-14
+  - Outcome: Kept `dist/` skills as generic base guidance; project and domain extensions live outside the base package by default.
+
 - `B4` Design symlink-based install mode
   - Status: done
   - Completed: 2026-06-14

@@ -50,11 +50,11 @@ The workflow must support work that happens over long time spans. Early artifact
 
 | Phase | Candidate output | Primary job | Candidate skills |
 | --- | --- | --- | --- |
-| Idea Brief | `idea-brief.md` | Capture the raw idea, problem, stakeholder, value, timing, constraints, and next refinement question. | `product-discovery` |
-| Requirement Refinement | `requirements-blueprint.md` or `product-spec.md` | Convert the idea into scope, decisions, assumptions, rules, non-goals, and acceptance criteria. | `requirements-definition` |
-| Technical Discovery | `technical-blueprint.md` | Inspect the real system shape, constraints, reusable patterns, risks, and recommended approach. | `planning`, `code-review` |
-| Implementation Handoff | `implementation-handoff.md` | Provide an execution contract with scope, facts, contracts, steps, acceptance checks, tests, and stop conditions. | `planning`, `story-slicing`, `test-writing` |
-| Implementation Report | `implementation-report.md` | Summarize changes, decisions, validation, deviations, risks, and follow-up work. | `code-review`, `backlog-management` |
+| Idea Brief | `idea-brief.md` | Capture the raw idea, problem, stakeholder, value, timing, constraints, and next refinement question. | `nurvel-product-discovery` |
+| Requirement Refinement | `requirements-blueprint.md` or `product-spec.md` | Convert the idea into scope, decisions, assumptions, rules, non-goals, and acceptance criteria. | `nurvel-requirements-definition` |
+| Technical Discovery | `technical-blueprint.md` | Inspect the real system shape, constraints, reusable patterns, risks, and recommended approach. | `nurvel-planning`, `nurvel-code-review` |
+| Implementation Handoff | `implementation-handoff.md` | Provide an execution contract with scope, facts, contracts, steps, acceptance checks, tests, and stop conditions. | `nurvel-planning`, `nurvel-story-slicing`, `nurvel-test-writing` |
+| Implementation Report | `implementation-report.md` | Summarize changes, decisions, validation, deviations, risks, and follow-up work. | `nurvel-code-review`, `nurvel-backlog-management` |
 | Post-Implementation Learning | `post-implementation-learning.md` | Capture what should improve in future requirements, discovery, handoff, skills, or blueprints. | future repo-local skill evolution workflow |
 
 ## Seed Blueprint Drafts

@@ -1,5 +1,5 @@
 ---
-name: requirements-definition
+name: nurvel-requirements-definition
 description: Turn a validated product idea into clear scope, requirements, and acceptance criteria
 triggers:
   - define requirements

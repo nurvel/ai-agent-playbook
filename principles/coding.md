@@ -12,6 +12,5 @@ Coding work should optimize for correct, clear, maintainable software that fits 
 
 ## Distilled Runtime Outputs
 - `dist/AGENTS.md`: purpose, simplicity, TypeScript, React/UI, comments, and quality gates.
-- `dist/skills/refactor/SKILL.md`: behavior-preserving cleanup.
-- `dist/skills/test-writing/SKILL.md`: practical regression protection.
-
+- `dist/skills/nurvel-refactor/SKILL.md`: behavior-preserving cleanup.
+- `dist/skills/nurvel-test-writing/SKILL.md`: practical regression protection.

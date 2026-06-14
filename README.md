@@ -2,7 +2,7 @@
 
 Personal, agent-agnostic toolbox for coding agents and software work. It combines deployable agent guidance with repo-only principles from coding, architecture, product management, workflows, and agent tooling.
 
-The portable agent package is `dist/AGENTS.md` + `dist/skills/<name>/SKILL.md`. The contents of `dist/` are hand-authored source files, not generated build output.
+The portable agent package is `dist/AGENTS.md` + `dist/skills/nurvel-<name>/SKILL.md`. The contents of `dist/` are hand-authored source files, not generated build output.
 
 Root `AGENTS.md`, `principles/`, `planning/`, `repo-skills/`, `scripts/`, and this `README.md` are repo support files. They are not installed into Codex or Claude by the playbook installer.
 
@@ -13,7 +13,7 @@ AGENTS.md              <- repo-local instructions for agents working here
 
 dist/
   AGENTS.md              <- universal coding principles and defaults
-  skills/<name>/SKILL.md <- task-specific guidance with triggers and MCP linkages
+  skills/nurvel-<name>/SKILL.md <- task-specific guidance with triggers and MCP linkages
 
 principles/
   README.md              <- repo-only knowledge layer and compression model
@@ -41,8 +41,9 @@ scripts/
 ## How to use
 
 1. Point your agent at `dist/AGENTS.md` as the baseline behavior guide and skill router.
-2. Skills are selected from their YAML frontmatter (`triggers`, optional `mcp_servers`).
+2. Skills are selected from their YAML frontmatter (`name`, `triggers`, optional `mcp_servers`).
 3. `mcp_servers` is a hint, not a requirement - use the server when it adds value, skip it when the codebase alone is enough.
+4. Runtime skill names use the `nurvel-` prefix so they are identifiable in agent menus.
 
 ## Knowledge Model
 
@@ -57,6 +58,8 @@ Traceability flows one way: principle pages may list the runtime files they info
 ### Install to Codex or Claude
 
 The install script syncs `dist/` into user-level agent folders. It updates matching files and overwrites older versions of the same skills, but never deletes unrelated files from `~/.agents` or `~/.claude`.
+
+Migration note: installs made before the `nurvel-` prefix rename may leave old unprefixed skill folders beside the new prefixed folders because the installer intentionally does not delete extra destination files.
 
 ```bash
 scripts/install-playbook.sh              # both agents
@@ -91,11 +94,11 @@ In OpenSpec-adopted repos, use OpenSpec for: discovery handoff into change plann
 
 ## Example flows
 
-- **Fixing a browser bug** - `bugfix` + `chrome-devtools` + `test-writing`
-- **New UI from Figma** - `planning` + `new-component` + `figma`
-- **API integration** - `api-integration` + `context7` (for library docs)
-- **New feature shaping** - `product-discovery` -> `requirements-definition` -> `story-slicing`
-- **Roadmap upkeep** - `backlog-management` -> `roadmap-planning`
+- **Fixing a browser bug** - `nurvel-bugfix` + `chrome-devtools` + `nurvel-test-writing`
+- **New UI from Figma** - `nurvel-planning` + `nurvel-new-component` + `figma`
+- **API integration** - `nurvel-api-integration` + `context7` (for library docs)
+- **New feature shaping** - `nurvel-product-discovery` -> `nurvel-requirements-definition` -> `nurvel-story-slicing`
+- **Roadmap upkeep** - `nurvel-backlog-management` -> `nurvel-roadmap-planning`
 
 Each flow ends with validation: types, lint, and relevant tests.
 
@@ -103,27 +106,27 @@ Each flow ends with validation: types, lint, and relevant tests.
 
 | Skill | Purpose |
 |---|---|
-| `planning` | Plan implementation approach before coding |
-| `product-discovery` | Analyze what should be built and why |
-| `requirements-definition` | Turn a validated idea into clear scope and acceptance criteria |
-| `roadmap-planning` | Sequence initiatives into milestones and MVP phases |
-| `backlog-management` | Maintain current priorities, progress, and next work |
-| `story-slicing` | Break defined work into small implementation-ready stories |
-| `bugfix` | Fix bugs, debug regressions |
-| `new-component` | Create React/UI components |
-| `api-integration` | Add API calls, wire data to UI |
-| `refactor` | Restructure code without changing behavior |
-| `test-writing` | Add or improve tests |
-| `code-review` | Review code or plans for quality |
-| `evaluation` | Score a target `0-10`, explain why, state what raises it to the next level |
+| `nurvel-planning` | Plan implementation approach before coding |
+| `nurvel-product-discovery` | Analyze what should be built and why |
+| `nurvel-requirements-definition` | Turn a validated idea into clear scope and acceptance criteria |
+| `nurvel-roadmap-planning` | Sequence initiatives into milestones and MVP phases |
+| `nurvel-backlog-management` | Maintain current priorities, progress, and next work |
+| `nurvel-story-slicing` | Break defined work into small implementation-ready stories |
+| `nurvel-bugfix` | Fix bugs, debug regressions |
+| `nurvel-new-component` | Create React/UI components |
+| `nurvel-api-integration` | Add API calls, wire data to UI |
+| `nurvel-refactor` | Restructure code without changing behavior |
+| `nurvel-test-writing` | Add or improve tests |
+| `nurvel-code-review` | Review code or plans for quality |
+| `nurvel-evaluation` | Score a target `0-10`, explain why, state what raises it to the next level |
 
 ## Adding a new skill
 
-Create `dist/skills/<name>/SKILL.md` (folder name matches the frontmatter `name`):
+Create `dist/skills/nurvel-<name>/SKILL.md` (folder name matches the frontmatter `name`):
 
 ```yaml
 ---
-name: <skill-name>
+name: nurvel-<skill-name>
 description: <one-line purpose>
 triggers:
   - <keyword that should activate this skill>
@@ -133,6 +136,8 @@ mcp_servers:          # optional — only if the skill benefits from an MCP serv
 ```
 
 Below the frontmatter, include: `When to use`, task-specific guidance, and a `Check` section. See existing skills for reference.
+
+Project-specific or domain-specific extensions should usually live outside `dist/` and use their own naming convention. Promote behavior into `dist/` only when it is useful as generic base guidance.
 
 ## Limitations
 

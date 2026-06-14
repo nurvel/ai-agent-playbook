@@ -1,5 +1,5 @@
 ---
-name: product-discovery
+name: nurvel-product-discovery
 description: Analyze what should be built and why before defining detailed requirements or delivery plans
 triggers:
   - product discovery

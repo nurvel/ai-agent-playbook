@@ -1,5 +1,5 @@
 ---
-name: api-integration
+name: nurvel-api-integration
 description: Add API calls, wire server data to UI, manage fetch flows
 triggers:
   - add API call

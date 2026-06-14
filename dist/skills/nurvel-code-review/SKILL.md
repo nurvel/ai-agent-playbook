@@ -1,5 +1,5 @@
 ---
-name: code-review
+name: nurvel-code-review
 description: Review code or plans for correctness, scope fit, and architecture
 triggers:
   - review code

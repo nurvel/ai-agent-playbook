@@ -1,5 +1,5 @@
 ---
-name: test-writing
+name: nurvel-test-writing
 description: Add, update, or improve tests for code confidence
 triggers:
   - write test

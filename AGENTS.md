@@ -57,9 +57,9 @@ If the request is broad or strategic, refine `planning/` first instead of editin
 
 ## Skill Use Inside This Repo
 - When a task maps to an existing skill in `dist/skills/`, read that skill and use it as guidance.
-- For planning work, prefer `planning`, `product-discovery`, `requirements-definition`, `backlog-management`, or `roadmap-planning`.
+- For planning work, prefer `nurvel-planning`, `nurvel-product-discovery`, `nurvel-requirements-definition`, `nurvel-backlog-management`, or `nurvel-roadmap-planning`.
 - For runtime skill changes, use `skill-creator` guidance if available and keep token cost low.
-- For reviews, use `code-review` and lead with concrete issues.
+- For reviews, use `nurvel-code-review` and lead with concrete issues.
 
 ## Change Discipline
 - Do the smallest useful change.
