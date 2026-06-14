@@ -44,7 +44,8 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Status: later
   - Priority: medium
   - Link: roadmap `R5`
-  - Note: Cover Idea Brief, Requirement Refinement, Technical Discovery, Implementation Handoff, and Implementation Report.
+  - Requirement: `planning/requirements/b8-high-level-workflow-layer.md`
+  - Note: Cover Idea Brief, Requirement Refinement, Technical Discovery, Implementation Handoff, Implementation Report, and Post-Implementation Learning.
 
 - `B9` Design repo-local skill evolution skill
   - Status: later

@@ -27,7 +27,7 @@
   - Exit criteria: Skill authoring rules are explicit enough for consistent future additions.
 
 - `R5` Define high-level workflow layer
-  - Goal: Model Idea Brief, Requirement Refinement, Technical Discovery, Implementation Handoff, and Implementation Report.
+  - Goal: Model Idea Brief, Requirement Refinement, Technical Discovery, Implementation Handoff, Implementation Report, and Post-Implementation Learning.
   - Why next: Workflow guidance coordinates skills without bloating every skill.
   - Dependencies: `R4`
   - Exit criteria: Each workflow step has purpose, inputs, outputs, recommended skills, and acceptance checks.

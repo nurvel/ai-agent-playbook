@@ -9,13 +9,14 @@ High-level workflows should make agent collaboration repeatable from idea to del
 - Technical Discovery: inspect the codebase, constraints, dependencies, and implementation options.
 - Implementation Handoff: produce a decision-complete plan or small story set.
 - Implementation Report: summarize what changed, validation run, remaining risk, and follow-up.
+- Post-Implementation Learning: capture what should improve in future requirements, discovery, handoffs, skills, or blueprint templates.
 
 ## Guidance
 - Workflow stages coordinate skills; skills should remain focused and concise.
 - Each stage should define inputs, output artifact, recommended skills, and acceptance check.
+- Early-stage artifacts should preserve durable decisions and uncertainty without pretending implementation details will remain stable months later.
 - Workflow guidance belongs in a runtime-efficient form only when it changes agent behavior.
 
 ## Distilled Runtime Outputs
 - `dist/AGENTS.md`: task execution defaults and validation expectations.
 - Candidate future workflow artifact in `dist/`.
-

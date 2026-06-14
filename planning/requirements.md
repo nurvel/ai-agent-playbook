@@ -21,13 +21,14 @@ The primary deliverable remains the portable agent package in `dist/`.
 - Symlink-based install for faster iteration, if agent harnesses support it cleanly.
 - Harness compatibility evaluation for Codex, Claude, Gemini, opencode, and similar tools.
 - Feedback or retro workflow for turning real usage into repo improvements.
-- High-level workflow layer: Idea Brief, Requirement Refinement, Technical Discovery, Implementation Handoff, Implementation Report.
+- High-level workflow layer: Idea Brief, Requirement Refinement, Technical Discovery, Implementation Handoff, Implementation Report, and Post-Implementation Learning.
 - Pragmatic architecture visualization support, likely C4, ArchiMate, or a lighter alternative.
 
 ## Detailed Requirement Files
 - Template: `requirements/_template.md`
 - `B3` Agent-Agnostic Dist Audit: `requirements/b3-agent-agnostic-dist-audit.md`
 - `B4` Symlink-Based Install Mode: `requirements/b4-symlink-install-mode.md`
+- `B8` High-Level Workflow Layer: `requirements/b8-high-level-workflow-layer.md`
 
 ## Acceptance Checks
 - A reader can tell what is runtime output, source knowledge, and project planning.
