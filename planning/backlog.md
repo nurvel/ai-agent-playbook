@@ -10,13 +10,13 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Status: next
   - Priority: high
   - Link: roadmap `R3`
-  - Next step: Produce the audit report defined in `planning/requirements/b3-agent-agnostic-dist-audit.md`.
+  - Next step: Produce `planning/reports/b3-dist-audit.md` using `planning/requirements/b3-agent-agnostic-dist-audit.md`.
 
 - `B4` Design symlink-based install mode
   - Status: next
   - Priority: high
   - Link: roadmap `R3`
-  - Next step: Produce the installer design defined in `planning/requirements/b4-symlink-install-mode.md`.
+  - Next step: Produce `planning/reports/b4-installer-design.md` using `planning/requirements/b4-symlink-install-mode.md`.
 
 - `B5` Define generic vs domain skill extension model
   - Status: next

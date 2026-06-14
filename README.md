@@ -30,6 +30,7 @@ planning/
   README.md              <- repo-internal planning notes
   requirements.md        <- requirements index and durable project contract
   requirements/<id>-<slug>.md <- implementation-ready requirement details
+  reports/               <- one-off audits, analysis, and design outputs
   roadmap.md             <- roadmap for improving this playbook
   backlog.md             <- operational backlog for this repo
 
@@ -79,6 +80,8 @@ The shipped roadmap and backlog skills support these optional files in target pr
 ## OpenSpec compatibility
 
 The playbook is OpenSpec-aware, not OpenSpec-dependent.
+
+This repository does not currently use OpenSpec for its own planning. OpenSpec guidance here is for target projects that install or adapt `dist/`.
 
 - `openspec/specs/` — current agreed behavior
 - `openspec/changes/<change-id>/` — active proposal, design, tasks, spec deltas

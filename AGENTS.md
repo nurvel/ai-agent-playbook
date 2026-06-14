@@ -42,6 +42,8 @@ If the request is broad or strategic, refine `planning/` first instead of editin
 ## Working With Planning
 - `planning/requirements.md` is the index and durable project contract.
 - Detailed requirements live in `planning/requirements/<id>-<slug>.md`.
+- Use `planning/requirements/_template.md` for new detailed requirements.
+- Use `planning/reports/` for one-off audits, compatibility matrices, design comparisons, and implementation reports.
 - `planning/backlog.md` stays short: status, priority, roadmap link, next step.
 - `planning/roadmap.md` stays strategic: Now, Next, Later, Done, risks.
 - Do not reintroduce OpenSpec artifacts for this repo unless explicitly requested.
@@ -75,4 +77,3 @@ If the request is broad or strategic, refine `planning/` first instead of editin
   - `scripts/install-playbook.sh --dry-run --claude`
 - For docs-only changes, inspect affected files for stale paths and old terminology.
 - If a check cannot be run, say so.
-

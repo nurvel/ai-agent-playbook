@@ -25,6 +25,7 @@ The primary deliverable remains the portable agent package in `dist/`.
 - Pragmatic architecture visualization support, likely C4, ArchiMate, or a lighter alternative.
 
 ## Detailed Requirement Files
+- Template: `requirements/_template.md`
 - `B3` Agent-Agnostic Dist Audit: `requirements/b3-agent-agnostic-dist-audit.md`
 - `B4` Symlink-Based Install Mode: `requirements/b4-symlink-install-mode.md`
 
