@@ -1,4 +1,4 @@
-# AI Agent Playbook
+# Agent Engineering Playbook
 
 Personal, agent-agnostic toolbox for coding agents and software work. It combines deployable agent guidance with repo-only principles from coding, architecture, product management, workflows, and agent tooling.
 

@@ -1,6 +1,6 @@
 # Principles
 
-This directory is the repo-only knowledge layer behind the AI Agent Playbook.
+This directory is the repo-only knowledge layer behind the Agent Engineering Playbook.
 
 Use it for durable principles, lessons, tradeoffs, and taste around coding, architecture, product management, workflows, and agent tooling. This material explains why the runtime guidance exists.
 
@@ -21,4 +21,3 @@ Principles can be detailed. Runtime guidance must be compressed.
 - `product-management.md` - discovery, requirements, prioritization, delivery
 - `agent-tooling.md` - agent behavior, harness compatibility, install model, MCP/tooling
 - `workflows.md` - high-level workflow stages and expected handoffs
-

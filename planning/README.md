@@ -1,6 +1,6 @@
 # Planning
 
-This directory contains repo-internal planning for improving the AI Agent Playbook.
+This directory contains repo-internal planning for improving the Agent Engineering Playbook.
 
 These files are not part of the portable package and are not installed into Codex or Claude. The installed output lives in `dist/`:
 
