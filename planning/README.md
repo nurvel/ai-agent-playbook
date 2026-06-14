@@ -9,6 +9,8 @@ These files are not part of the portable package and are not installed into Code
 
 Use this directory for requirements, roadmap, and backlog about the playbook itself.
 
+`requirements.md` is the index and durable project contract. Detailed implementation-ready requirements live in `requirements/<id>-<slug>.md` so agents can load only the relevant scope.
+
 The source/rationale layer lives in `principles/`. Planning decides what should change; principles explain why the runtime guidance exists.
 
 References to `product/roadmap.md` or `product/backlog.md` inside shipped skills describe optional files in target projects that install the playbook.

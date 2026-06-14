@@ -26,7 +26,8 @@ repo-skills/
 
 planning/
   README.md              <- repo-internal planning notes
-  requirements.md        <- durable requirements for this toolbox
+  requirements.md        <- requirements index and durable project contract
+  requirements/<id>-<slug>.md <- implementation-ready requirement details
   roadmap.md             <- roadmap for improving this playbook
   backlog.md             <- operational backlog for this repo
 
