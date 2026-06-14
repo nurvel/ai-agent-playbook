@@ -5,7 +5,7 @@ This directory contains repo-internal planning for improving the Agent Engineeri
 These files are not part of the portable package and are not installed into Codex or Claude. The installed output lives in `dist/`:
 
 - `dist/AGENTS.md`
-- `dist/skills/<name>/SKILL.md`
+- `dist/skills/nurvel-<name>/SKILL.md`
 
 Use this directory for requirements, roadmap, and backlog about the playbook itself.
 

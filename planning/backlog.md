@@ -11,7 +11,8 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Priority: medium
   - Link: roadmap `R5`
   - Requirement: `planning/requirements/b8-high-level-workflow-layer.md`
-  - Next step: Design the workflow layer now that R4 skill-system decisions are settled.
+  - Source: `planning/reports/b8-workflow-layer-design.md`
+  - Next step: Review the B8 design report, then implement the accepted concise runtime guidance.
 
 ## Blocked
 - None

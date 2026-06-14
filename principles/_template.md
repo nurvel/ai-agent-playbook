@@ -13,8 +13,7 @@
 
 ## Distilled Runtime Outputs
 - `dist/AGENTS.md`:
-- `dist/skills/<name>/SKILL.md`:
+- `dist/skills/nurvel-<name>/SKILL.md`:
 
 ## Open Questions
 - Question:
-
