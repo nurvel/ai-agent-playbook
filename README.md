@@ -1,10 +1,10 @@
 # AI Agent Playbook
 
-Generic, agent-agnostic guidelines for coding agents. Works with any LLM agent that can read markdown. The playbook is framework-neutral; individual skills may target specific technologies (e.g. React).
+Personal, agent-agnostic toolbox for coding agents and software work. It combines deployable agent guidance with repo-only principles from coding, architecture, product management, workflows, and agent tooling.
 
 The portable agent package is `dist/AGENTS.md` + `dist/skills/<name>/SKILL.md`. The contents of `dist/` are hand-authored source files, not generated build output.
 
-This `README.md`, `scripts/`, and `planning/` are repo support files. They are not installed into Codex or Claude by the playbook installer.
+`principles/`, `planning/`, `scripts/`, and this `README.md` are repo support files. They are not installed into Codex or Claude by the playbook installer.
 
 ## Structure
 
@@ -13,8 +13,17 @@ dist/
   AGENTS.md              <- universal coding principles and defaults
   skills/<name>/SKILL.md <- task-specific guidance with triggers and MCP linkages
 
+principles/
+  README.md              <- repo-only knowledge layer and compression model
+  coding.md              <- coding quality and maintainability principles
+  architecture.md        <- architecture boundaries and visualization principles
+  product-management.md  <- discovery, requirements, and prioritization principles
+  agent-tooling.md       <- agent and harness tooling principles
+  workflows.md           <- idea-to-delivery workflow principles
+
 planning/
   README.md              <- repo-internal planning notes
+  requirements.md        <- durable requirements for this toolbox
   roadmap.md             <- roadmap for improving this playbook
   backlog.md             <- operational backlog for this repo
   initiatives/<slug>.md  <- larger internal initiative notes
@@ -28,6 +37,14 @@ scripts/
 1. Point your agent at `dist/AGENTS.md` as the baseline behavior guide and skill router.
 2. Skills are selected from their YAML frontmatter (`triggers`, optional `mcp_servers`).
 3. `mcp_servers` is a hint, not a requirement - use the server when it adds value, skip it when the codebase alone is enough.
+
+## Knowledge Model
+
+`principles/` explains the thinking behind the runtime output. It can be detailed, opinionated, and traceable.
+
+`dist/` is the compressed runtime layer. It should contain only the guidance that improves agent behavior during normal work.
+
+Traceability flows one way: principle pages may list the runtime files they inform, but runtime files should not reference `principles/` directly.
 
 ### Install to Codex or Claude
 
