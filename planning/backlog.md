@@ -6,12 +6,6 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
 - None
 
 ## Next
-- `B4` Design symlink-based install mode
-  - Status: next
-  - Priority: high
-  - Link: roadmap `R3`
-  - Next step: Produce `planning/reports/b4-installer-design.md` using `planning/requirements/b4-symlink-install-mode.md`.
-
 - `B5` Define generic vs domain skill extension model
   - Status: next
   - Priority: high
@@ -53,6 +47,13 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Link: roadmap `R3`
   - Note: Test opencode and other markdown-reading coding agents before adding harness-specific assumptions.
 
+- `B14` Implement symlink-based install mode
+  - Status: later
+  - Priority: high
+  - Link: roadmap `R3`
+  - Source: `planning/reports/b4-installer-design.md`
+  - Note: Implement modular target adapters and independent `copy` / `link` install methods from the B4 design.
+
 - `B11` Add architecture visualization support
   - Status: later
   - Priority: medium
@@ -71,6 +72,11 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Note: Keep lightweight unless package consumers need versioned change history.
 
 ## Done (recent)
+- `B4` Design symlink-based install mode
+  - Status: done
+  - Completed: 2026-06-14
+  - Outcome: Produced `planning/reports/b4-installer-design.md`; chose modular Codex/Claude targets, independent copy/link methods, all-target install, and explicit fail-or-backup conflict behavior.
+
 - `B3` Audit `dist/` for agent-specific assumptions
   - Status: done
   - Completed: 2026-06-14
