@@ -1,153 +1,79 @@
+# Agent Engineering Playbook Repo Guide
 
-## Purpose and priorities
-- Produce correct, simple, maintainable code.
-- Correctness > clarity > simplicity > maintainability > readability > micro-optimisation.
-- Fit existing architecture and conventions unless there is a strong reason not to.
-- Prefer consistency over novelty.
-- Prefer clarity over cleverness.
+## Purpose
+This repository builds and maintains the Agent Engineering Playbook.
 
-## Communication
-- Be extremely concise.
-- Sacrifice grammar for concision if needed.
-- Do not flatter.
-- Do not compliment unless explicitly asked for judgment.
-- Assume more detail will be requested separately.
-- If intent is unclear, ask instead of guessing.
-- If ambiguity is minor, state assumptions and proceed.
-- Challenge assumptions when the direction is flawed or risky.
-- Flag flaws, inconsistencies, or better alternatives when they materially matter.
-- Prefer correctness over agreement.
+The main output is the portable agent package in `dist/`. The rest of the repo exists to shape, justify, plan, and maintain that output.
 
-## Task execution
-- Pick one lead skill from `skills/<name>/SKILL.md` based on its purpose and `triggers`.
-- Combine other skills only when they add clear value.
-- Typical lead skills:
-  - `product-discovery` — deciding what should be built and why
-  - `requirements-definition` — turning a validated idea into clear scope and acceptance criteria
-  - `roadmap-planning` — sequencing initiatives into milestones
-  - `backlog-management` — maintaining priorities, statuses, and next work
-  - `story-slicing` — breaking defined work into implementation-ready stories
-  - `planning` — non-trivial tasks where the approach is unclear
-  - `bugfix`, `new-component`, `api-integration`, `refactor`, `test-writing`, `code-review`, `evaluation`
-- Default flow:
-  - select the lead skill
-  - for product work, run PO skills before implementation skills
-  - use `planning` only when the task is non-trivial or the approach is unclear
-  - implement using the selected skill guidance
-  - use `test-writing` when behavior should be protected from regression
-  - use `code-review` when the change is large, risky, or touches shared code
-  - validate before considering the work complete
-- If the repo has its own OpenSpec skills or conventions, treat them as primary for OpenSpec artifacts.
-- Treat this playbook as supporting guidance when project-specific skills exist.
-- Treat any given plan as the default path, not unquestionable truth.
-- Explain briefly when deviating from the plan.
-- Produce the smallest correct change that fits the codebase.
-- Keep changes local and reviewable.
-- Handle small adjacent changes (backend, API, schema) only when clearly part of the same task.
+## Repo Layers
+- `dist/` - deployable runtime package: `AGENTS.md` and `skills/**`.
+- `principles/` - repo-only source knowledge, rationale, lessons, and tradeoffs.
+- `planning/` - roadmap, backlog, durable requirements, and detailed requirement files.
+- `repo-skills/` - repo-local maintenance skills, not part of the portable package.
+- `scripts/` - repo support automation.
 
-## Simplicity and structure
-- Prefer the simplest solution that solves the real problem.
-- Avoid complexity without clear payoff.
-- Place each logic part in its proper layer.
-- UI should focus on rendering and interaction.
-- Business and domain logic should be isolated from presentation details.
-- Data access / API layers should stay thin.
-- Shared utilities should stay focused and not become dumping grounds.
-- Keep module and component APIs small and explicit.
-- Prefer composition over complicated configuration.
-- Avoid leaky abstractions.
-- Prefer pure functions when possible.
-- Prefer extracted functions with clear names over inline complexity.
-- Keep trivial logic inline when extraction hurts readability.
-- Prefer deterministic, testable units.
-- Build reusable solutions only with real evidence of reuse.
-- Avoid premature generalisation and just-in-case structure.
-- Do not introduce factories, middleware, or indirection layers without concrete need.
-- Remove dead code.
-- Do not leave obsolete branches, wrappers, or unused helpers.
+Do not treat root `AGENTS.md` as portable output. `dist/AGENTS.md` is the installed guide.
 
-## React / UI defaults
-- One component should have one clear responsibility.
-- Split components when it improves readability, testing, or reuse.
-- Do not split purely for cosmetic reasons.
-- Keep render logic easy to scan.
-- Move complex derivation or branching out of JSX when helpful.
-- Keep props minimal and understandable.
-- Prefer explicit props over highly generic prop systems.
-- Avoid bloated configuration surfaces.
-- Avoid harmful prop drilling.
-- Do not introduce context without reason.
-- Keep state minimal.
-- Derive values instead of duplicating state where possible.
-- Use local state unless broader scope is clearly needed.
-- Keep async/data state predictable.
-- Accessibility and responsive behavior are baseline quality.
+## Default Workflow
+Before changing behavior, structure, skills, or installer logic:
 
-## TypeScript defaults
-- Prefer explicit, understandable types.
-- Keep domain types and UI/view-model types distinct when useful.
-- Avoid `any` unless there is a strong reason.
-- Avoid overly complex generics.
-- Avoid type-level cleverness that harms readability.
+1. Read `planning/README.md`.
+2. Check `planning/backlog.md` for the active item.
+3. Read `planning/requirements.md`.
+4. If the backlog item has a detailed file, read `planning/requirements/<id>-<slug>.md`.
+5. Check relevant `principles/*.md` for rationale.
 
-## Comments and docs defaults
-- Prefer self-documenting code over excessive comments.
-- Comment only when intent is not obvious.
-- Comment when caveats or gotchas cannot be removed through code design.
-- TODO comments are OK for clearly out-of-scope follow-up work.
-- Do not use comments to compensate for poor structure.
-- Keep comments accurate, minimal, and updated.
+If the request is broad or strategic, refine `planning/` first instead of editing `dist/` directly.
 
-## MCP usage
-- If a skill lists `mcp_servers` in frontmatter, treat it as a hint, not a hard requirement.
-- Use the MCP server when it adds information the codebase alone cannot provide.
-- Skip it when local code and existing context are sufficient.
-- Typical uses:
-  - `chrome-devtools` for browser debugging and runtime inspection
-  - `figma` for design context and asset extraction
-  - `context7` for current library and framework documentation
+## Working With Principles
+- Add learnings, rationale, examples, and caveats to `principles/`.
+- Keep principles detailed enough to preserve reasoning.
+- Use `principles/_template.md` for new principle pages.
+- Principles may point to runtime outputs they inform.
+- Runtime files in `dist/` should not reference `principles/`.
 
-## Product work defaults
-- Clarify the problem before locking the solution.
-- Separate confirmed facts, assumptions, and decisions.
-- Make user value, business value, and tradeoffs explicit.
-- When `openspec/` exists, treat `openspec/specs/` as the source of truth for agreed behavior.
-- When `openspec/` exists, treat `openspec/changes/` as the source of truth for active change plans.
-- Keep roadmap work strategic; do not collapse it into task lists.
-- Keep backlog state current: done, next, blocked, later, or dropped.
-- Make prioritization and sequencing rationale explicit.
+## Working With Dist
+- Keep `dist/` concise, agent-agnostic, and runtime-focused.
+- Do not add long rationale, personal notes, or planning history to `dist/`.
+- Preserve target-project compatibility guidance when it is useful, even if this repo does not use that tool.
+- When changing a skill, keep frontmatter triggers clear and the body small.
+- Prefer improving an existing skill over creating a new one unless the job is genuinely distinct.
 
-## Git defaults
-- Use read-only git commands unless explicitly instructed otherwise.
-- Editing files is allowed when needed for the task.
-- Commits, pushes, rebases, and other state-changing git operations require explicit instruction.
-- Break work into commit-sized logical units when practical.
-- After completing a logical unit, proactively suggest a commit message that matches the scope.
-- Keep commits atomic: one logical change per commit.
-- Split unrelated concerns into separate commits.
-- Simple changes: one-line commit message only.
-- Complex changes: add a body explaining what changed and why.
-- Wrap commit body lines at ~72 chars when practical.
+## Working With Planning
+- `planning/requirements.md` is the index and durable project contract.
+- Detailed requirements live in `planning/requirements/<id>-<slug>.md`.
+- Use `planning/requirements/_template.md` for new detailed requirements.
+- Use `planning/reports/` for one-off audits, compatibility matrices, design comparisons, and implementation reports.
+- `planning/backlog.md` stays short: status, priority, roadmap link, next step.
+- `planning/roadmap.md` stays strategic: Now, Next, Later, Done, risks.
+- Do not reintroduce OpenSpec artifacts for this repo unless explicitly requested.
+- OpenSpec references in `dist/` are target-project compatibility guidance.
 
-## Quality gates
-- Ensure the implementation is internally consistent.
-- Ensure types, imports, and dependencies remain coherent.
-- Ensure the solution fits the existing codebase style and architecture.
-- Ensure abstraction is justified and readability did not regress.
-- Ensure no dead code or leftovers remain.
-- Ensure scope matches intent.
-- Run relevant checks: TypeScript, linting, relevant tests.
-- If a check cannot be run, say so briefly instead of pretending it passed.
-- If validation fails because of your change, iterate immediately when the fix stays within scope.
+## Working With Repo Skills
+- Use `repo-skills/` only for skills that maintain this repository.
+- Do not install `repo-skills/` by default.
+- Planned repo-local skill: `repo-skills/skill-evolution/SKILL.md`.
+- Use repo-local skills to process learnings or retros into `principles/`, `planning/`, or proposed `dist/` changes.
 
-## Default review lens
-- Is the solution correct?
-- Is it the simplest reasonable solution?
-- Is the code easy for humans to read?
-- Are responsibilities clearly separated?
-- Does it fit the project architecture?
-- Is abstraction justified?
-- Is TypeScript helping rather than hurting?
-- Is the API surface small and clear?
-- Is the code easy to test and change?
-- Is there dead code, accidental complexity, or just-in-case design?
+## Skill Use Inside This Repo
+- When a task maps to an existing skill in `dist/skills/`, read that skill and use it as guidance.
+- For planning work, prefer `planning`, `product-discovery`, `requirements-definition`, `backlog-management`, or `roadmap-planning`.
+- For runtime skill changes, use `skill-creator` guidance if available and keep token cost low.
+- For reviews, use `code-review` and lead with concrete issues.
+
+## Change Discipline
+- Do the smallest useful change.
+- Keep `dist/`, `principles/`, `planning/`, and `repo-skills/` responsibilities separate.
+- Update planning when a change alters priority, scope, or accepted requirements.
+- Update principles when a change encodes a durable belief or lesson.
+- Update `dist/` only when runtime agent behavior should change.
+- Avoid ad hoc files unless the folder model requires them.
+
+## Validation
+- Always run `git diff --check` after edits.
+- For installer changes, also run:
+  - `bash -n scripts/install-playbook.sh`
+  - `scripts/install-playbook.sh --dry-run --codex`
+  - `scripts/install-playbook.sh --dry-run --claude`
+- For docs-only changes, inspect affected files for stale paths and old terminology.
+- If a check cannot be run, say so.

@@ -1,30 +1,62 @@
-# AI Agent Playbook
+# Agent Engineering Playbook
 
-Generic, agent-agnostic guidelines for coding agents. Works with any LLM agent that can read markdown. The playbook is framework-neutral; individual skills may target specific technologies (e.g. React).
+Personal, agent-agnostic toolbox for coding agents and software work. It combines deployable agent guidance with repo-only principles from coding, architecture, product management, workflows, and agent tooling.
 
-The portable agent package is `AGENTS.md` + `skills/<name>/SKILL.md`. This `README.md` is repo documentation for humans and typically does not need to be copied into Codex or Claude.
+The portable agent package is `dist/AGENTS.md` + `dist/skills/<name>/SKILL.md`. The contents of `dist/` are hand-authored source files, not generated build output.
+
+Root `AGENTS.md`, `principles/`, `planning/`, `repo-skills/`, `scripts/`, and this `README.md` are repo support files. They are not installed into Codex or Claude by the playbook installer.
 
 ## Structure
 
 ```
-AGENTS.md              ← universal coding principles and defaults
-skills/<name>/SKILL.md ← task-specific guidance with triggers and MCP linkages
+AGENTS.md              <- repo-local instructions for agents working here
 
-# optional, only when tracking product state in the repo
-product/roadmap.md
-product/backlog.md
-product/initiatives/<slug>.md
+dist/
+  AGENTS.md              <- universal coding principles and defaults
+  skills/<name>/SKILL.md <- task-specific guidance with triggers and MCP linkages
+
+principles/
+  README.md              <- repo-only knowledge layer and compression model
+  coding.md              <- coding quality and maintainability principles
+  architecture.md        <- architecture boundaries and visualization principles
+  product-management.md  <- discovery, requirements, and prioritization principles
+  agent-tooling.md       <- agent and harness tooling principles
+  workflows.md           <- idea-to-delivery workflow principles
+
+repo-skills/
+  README.md              <- repo-local skills for maintaining this toolbox
+
+planning/
+  README.md              <- repo-internal planning notes
+  requirements.md        <- requirements index and durable project contract
+  requirements/<id>-<slug>.md <- implementation-ready requirement details
+  reports/               <- one-off audits, analysis, and design outputs
+  roadmap.md             <- roadmap for improving this playbook
+  backlog.md             <- operational backlog for this repo
+
+scripts/
+  install-playbook.sh    <- syncs dist/ into user-level agent folders
 ```
 
 ## How to use
 
-1. Point your agent at `AGENTS.md` as the baseline behavior guide and skill router.
+1. Point your agent at `dist/AGENTS.md` as the baseline behavior guide and skill router.
 2. Skills are selected from their YAML frontmatter (`triggers`, optional `mcp_servers`).
-3. `mcp_servers` is a hint, not a requirement — use the server when it adds value, skip it when the codebase alone is enough.
+3. `mcp_servers` is a hint, not a requirement - use the server when it adds value, skip it when the codebase alone is enough.
+
+## Knowledge Model
+
+`principles/` explains the thinking behind the runtime output. It can be detailed, opinionated, and traceable.
+
+`dist/` is the compressed runtime layer. It should contain only the guidance that improves agent behavior during normal work.
+
+Traceability flows one way: principle pages may list the runtime files they inform, but runtime files should not reference `principles/` directly.
+
+`repo-skills/` is for skills that maintain this repository itself. These skills are not part of the portable package.
 
 ### Install to Codex or Claude
 
-The install script syncs the playbook into user-level agent folders. It updates matching files and overwrites older versions of the same skills, but never deletes unrelated files from `~/.agents` or `~/.claude`.
+The install script syncs `dist/` into user-level agent folders. It updates matching files and overwrites older versions of the same skills, but never deletes unrelated files from `~/.agents` or `~/.claude`.
 
 ```bash
 scripts/install-playbook.sh              # both agents
@@ -33,19 +65,23 @@ scripts/install-playbook.sh --claude     # Claude only
 scripts/install-playbook.sh --dry-run    # preview without writing
 ```
 
-## Product artifacts (optional)
+## Internal Planning
 
-Use only when you want the repo to carry lightweight product state. If Jira, Linear, or another tool is already the source of truth, stay in `chat-only` mode and keep the repo clean.
+Use `planning/` only for work about this repository and the package it produces. It should describe what needs to change in the playbook, not content that should be copied into installed agent folders.
+
+## Target-Project Product Artifacts
 
 - `product/roadmap.md` — strategic view: goals, horizons, milestones, `Now / Next / Later`
 - `product/backlog.md` — operational view: `In progress / Next / Blocked / Later / Done / Dropped`
 - `product/initiatives/<slug>.md` — only for larger initiatives that need their own scope and decision history
 
-Roadmap and backlog skills support two modes: `chat-only` (output in chat, copy elsewhere yourself) or `repo-artifacts` (maintain the files above).
+The shipped roadmap and backlog skills support these optional files in target projects. If Jira, Linear, or another tool is already the source of truth for a target project, use `chat-only` mode and keep that project clean.
 
 ## OpenSpec compatibility
 
 The playbook is OpenSpec-aware, not OpenSpec-dependent.
+
+This repository does not currently use OpenSpec for its own planning. OpenSpec guidance here is for target projects that install or adapt `dist/`.
 
 - `openspec/specs/` — current agreed behavior
 - `openspec/changes/<change-id>/` — active proposal, design, tasks, spec deltas
@@ -55,11 +91,11 @@ In OpenSpec-adopted repos, use OpenSpec for: discovery handoff into change plann
 
 ## Example flows
 
-- **Fixing a browser bug** — `bugfix` + `chrome-devtools` + `test-writing`
-- **New UI from Figma** — `planning` + `new-component` + `figma`
-- **API integration** — `api-integration` + `context7` (for library docs)
-- **New feature shaping** — `product-discovery` → `requirements-definition` → `story-slicing`
-- **Roadmap upkeep** — `backlog-management` → `roadmap-planning`
+- **Fixing a browser bug** - `bugfix` + `chrome-devtools` + `test-writing`
+- **New UI from Figma** - `planning` + `new-component` + `figma`
+- **API integration** - `api-integration` + `context7` (for library docs)
+- **New feature shaping** - `product-discovery` -> `requirements-definition` -> `story-slicing`
+- **Roadmap upkeep** - `backlog-management` -> `roadmap-planning`
 
 Each flow ends with validation: types, lint, and relevant tests.
 
@@ -83,7 +119,7 @@ Each flow ends with validation: types, lint, and relevant tests.
 
 ## Adding a new skill
 
-Create `skills/<name>/SKILL.md` (folder name matches the frontmatter `name`):
+Create `dist/skills/<name>/SKILL.md` (folder name matches the frontmatter `name`):
 
 ```yaml
 ---
@@ -101,14 +137,14 @@ Below the frontmatter, include: `When to use`, task-specific guidance, and a `Ch
 ## Limitations
 
 This playbook does not:
-- **Orchestrate agents** — it provides guidelines, not runtime coordination
-- **Enforce rules** — the agent is expected to follow the guidance, not be constrained by it
-- **Cover all task types** — skills are added as needed, not upfront
-- **Replace project-specific config** — use alongside your project's own conventions (e.g. `CLAUDE.md`, `.cursorrules`)
+- **Orchestrate agents** - it provides guidelines, not runtime coordination
+- **Enforce rules** - the agent is expected to follow the guidance, not be constrained by it
+- **Cover all task types** - skills are added as needed, not upfront
+- **Replace project-specific config** - use alongside your project's own conventions (e.g. `CLAUDE.md`, `.cursorrules`)
 
 ## Design principles
 
-- **Generic** — agent-agnostic; skills may be technology-specific
-- **Composable** — skills can be combined per task
-- **Minimal** — only what adds value, no bloat
-- **Opinionated** — clear defaults, not endless options
+- **Generic** - agent-agnostic; skills may be technology-specific
+- **Composable** - skills can be combined per task
+- **Minimal** - only what adds value, no bloat
+- **Opinionated** - clear defaults, not endless options
