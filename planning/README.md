@@ -7,7 +7,7 @@ These files are not part of the portable package and are not installed into Code
 - `dist/AGENTS.md`
 - `dist/skills/<name>/SKILL.md`
 
-Use this directory for requirements, roadmap, backlog, and initiative notes about the playbook itself.
+Use this directory for requirements, roadmap, and backlog about the playbook itself.
 
 The source/rationale layer lives in `principles/`. Planning decides what should change; principles explain why the runtime guidance exists.
 

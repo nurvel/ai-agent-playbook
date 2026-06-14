@@ -29,7 +29,6 @@ planning/
   requirements.md        <- durable requirements for this toolbox
   roadmap.md             <- roadmap for improving this playbook
   backlog.md             <- operational backlog for this repo
-  initiatives/<slug>.md  <- larger internal initiative notes
 
 scripts/
   install-playbook.sh    <- syncs dist/ into user-level agent folders
