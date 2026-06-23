@@ -1,8 +1,11 @@
 ---
 name: nurvel-backlog-management
-description: Maintain backlog and roadmap state so priorities, progress, and next work stay current
+description: Maintain backlog state; support implementation report follow-up and post-implementation learning backlog updates
 triggers:
   - backlog
+  - implementation report follow-up
+  - post-implementation learning
+  - post-implementation-learning.md
   - prioritize work
   - update roadmap
   - what next
@@ -22,9 +25,14 @@ triggers:
 ## Artifact model
 - Prefer an existing project source of truth when one is already established.
 - Use `product/backlog.md` as the default operational source when working in `repo-artifacts` mode and no equivalent artifact exists.
-- Optionally link larger items to `product/initiatives/<slug>.md`.
+- Optionally link larger items to `product/initiatives/<slug>.md`, or to `product/initiatives/<slug>/` for multi-blueprint initiatives.
 - If `product/backlog.md` already exists, update it instead of creating new backlog documents.
 - Do not create backlog artifacts unless the user asks for repo-backed tracking or the repo already uses them.
+
+## Workflow support role
+- Support `implementation-report.md` by recording follow-up work, risks, or next steps when backlog state changes.
+- Support the Post-Implementation Learning phase and `post-implementation-learning.md` only by turning accepted learning into backlog or roadmap updates.
+- Do not replace the learning note; only turn accepted learning into backlog or roadmap updates.
 
 ## OpenSpec compatibility
 - Keep backlog state outside `openspec/specs/` and `openspec/changes/`. OpenSpec tracks behavior and active changes, not portfolio state.

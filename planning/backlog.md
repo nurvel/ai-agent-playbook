@@ -6,13 +6,12 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
 - None
 
 ## Next
-- `B8` Define high-level workflow layer
+- `B14` Implement symlink-based install mode
   - Status: next
-  - Priority: medium
-  - Link: roadmap `R5`
-  - Requirement: `planning/requirements/b8-high-level-workflow-layer.md`
-  - Source: `planning/reports/b8-workflow-layer-design.md`
-  - Next step: Review the B8 design report, then implement the accepted concise runtime guidance.
+  - Priority: high
+  - Link: roadmap `R3`
+  - Source: `planning/reports/b4-installer-design.md`
+  - Next step: Implement modular target adapters and independent `copy` / `link` install methods from the B4 design.
 
 ## Blocked
 - None
@@ -29,13 +28,6 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Priority: medium
   - Link: roadmap `R3`
   - Note: Test opencode and other markdown-reading coding agents before adding harness-specific assumptions.
-
-- `B14` Implement symlink-based install mode
-  - Status: later
-  - Priority: high
-  - Link: roadmap `R3`
-  - Source: `planning/reports/b4-installer-design.md`
-  - Note: Implement modular target adapters and independent `copy` / `link` install methods from the B4 design.
 
 - `B11` Add architecture visualization support
   - Status: later
@@ -55,6 +47,11 @@ Use short items. Keep the backlog decision-useful, not exhaustive.
   - Note: Keep lightweight unless package consumers need versioned change history.
 
 ## Done (recent)
+- `B8` Define high-level workflow layer
+  - Status: done
+  - Completed: 2026-06-14
+  - Outcome: Added workflow-blueprint routing in `dist/AGENTS.md`, compact workflow output contracts in existing phase-owner skills, support-role clarification in helper skills, target-project artifact paths in `README.md`, and workflow principles; no new runtime skills, shared templates, tools directory, or installer changes.
+
 - `B7` Extract MCP and tool guidance model
   - Status: done
   - Completed: 2026-06-14

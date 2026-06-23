@@ -76,9 +76,21 @@ Use `planning/` only for work about this repository and the package it produces.
 
 - `product/roadmap.md` — strategic view: goals, horizons, milestones, `Now / Next / Later`
 - `product/backlog.md` — operational view: `In progress / Next / Blocked / Later / Done / Dropped`
-- `product/initiatives/<slug>.md` — only for larger initiatives that need their own scope and decision history
+- `product/initiatives/<slug>.md` — larger initiative with one durable scope and decision-history artifact
+- `product/initiatives/<slug>/` — multi-blueprint initiative folder for separate artifacts such as idea brief, requirements, technical discovery, implementation handoff, implementation report, and post-implementation learning
 
-The shipped roadmap and backlog skills support these optional files in target projects. If Jira, Linear, or another tool is already the source of truth for a target project, use `chat-only` mode and keep that project clean.
+The shipped roadmap, backlog, and workflow guidance support these optional files in target projects. If Jira, Linear, or another tool is already the source of truth for a target project, use `chat-only` mode and keep that project clean.
+
+## Workflow Phase Mapping
+
+| Phase | Artifact | Owner / support |
+|---|---|---|
+| Idea Brief | `idea-brief.md` | `nurvel-product-discovery` |
+| Requirement Refinement | `requirements-blueprint.md` or `product-spec.md` | `nurvel-requirements-definition` |
+| Technical Discovery | `technical-blueprint.md` | `nurvel-planning`; `nurvel-code-review` can review |
+| Implementation Handoff | `implementation-handoff.md` | `nurvel-planning`; `nurvel-story-slicing` and `nurvel-test-writing` support |
+| Implementation Report | `implementation-report.md` | `nurvel-code-review`; `nurvel-backlog-management` supports follow-up |
+| Post-Implementation Learning | `post-implementation-learning.md` | Workflow artifact; `nurvel-backlog-management` supports follow-up until repo-local skill evolution exists |
 
 ## OpenSpec compatibility
 
@@ -98,6 +110,7 @@ In OpenSpec-adopted repos, use OpenSpec for: discovery handoff into change plann
 - **New UI from Figma** - `nurvel-planning` + `nurvel-new-component` + `figma`
 - **API integration** - `nurvel-api-integration` + `context7` (for library docs)
 - **New feature shaping** - `nurvel-product-discovery` -> `nurvel-requirements-definition` -> `nurvel-story-slicing`
+- **Workflow blueprint handoff** - `nurvel-product-discovery` -> `nurvel-requirements-definition` -> `nurvel-planning` -> `nurvel-code-review`
 - **Roadmap upkeep** - `nurvel-backlog-management` -> `nurvel-roadmap-planning`
 
 Each flow ends with validation: types, lint, and relevant tests.
@@ -106,18 +119,18 @@ Each flow ends with validation: types, lint, and relevant tests.
 
 | Skill | Purpose |
 |---|---|
-| `nurvel-planning` | Plan implementation approach before coding |
-| `nurvel-product-discovery` | Analyze what should be built and why |
-| `nurvel-requirements-definition` | Turn a validated idea into clear scope and acceptance criteria |
-| `nurvel-roadmap-planning` | Sequence initiatives into milestones and MVP phases |
-| `nurvel-backlog-management` | Maintain current priorities, progress, and next work |
-| `nurvel-story-slicing` | Break defined work into small implementation-ready stories |
+| `nurvel-planning` | Plan implementation approach; owns technical blueprint and implementation handoff outputs |
+| `nurvel-product-discovery` | Analyze what should be built and why; owns idea brief output |
+| `nurvel-requirements-definition` | Turn a validated idea into clear scope and acceptance criteria; owns requirements blueprint and product spec outputs |
+| `nurvel-roadmap-planning` | Sequence initiatives into milestones and MVP phases; uses workflow artifacts as input |
+| `nurvel-backlog-management` | Maintain current priorities, progress, and next work; supports report and learning follow-up |
+| `nurvel-story-slicing` | Break defined work into small implementation-ready stories; supports implementation handoff |
 | `nurvel-bugfix` | Fix bugs, debug regressions |
 | `nurvel-new-component` | Create React/UI components |
 | `nurvel-api-integration` | Add API calls, wire data to UI |
 | `nurvel-refactor` | Restructure code without changing behavior |
-| `nurvel-test-writing` | Add or improve tests |
-| `nurvel-code-review` | Review code or plans for quality |
+| `nurvel-test-writing` | Add or improve tests; supports implementation handoff test plans |
+| `nurvel-code-review` | Review code or plans for quality; owns implementation report output |
 | `nurvel-evaluation` | Score a target `0-10`, explain why, state what raises it to the next level |
 
 ## Adding a new skill

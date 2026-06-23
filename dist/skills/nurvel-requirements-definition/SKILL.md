@@ -1,8 +1,12 @@
 ---
 name: nurvel-requirements-definition
-description: Turn a validated product idea into clear scope, requirements, and acceptance criteria
+description: Turn a validated idea into scope and acceptance criteria; produce Requirement Refinement as `requirements-blueprint.md` or `product-spec.md`
 triggers:
   - define requirements
+  - requirement refinement
+  - requirements blueprint
+  - requirements-blueprint.md
+  - product-spec.md
   - write spec
   - define spec
   - write proposal
@@ -26,7 +30,7 @@ triggers:
 - Add non-functional requirements only when relevant.
 - Surface dependencies, assumptions, and risks early.
 - Write acceptance criteria that are observable and testable.
-- Keep strategy and execution detail separate.
+- Keep strategy and execution detail separate. Do not add ordered implementation steps before `implementation-handoff.md`.
 
 ## OpenSpec compatibility
 - If the repo contains `openspec/`, `openspec/specs/`, `openspec/changes/`, or `openspec/config.yaml`, prefer OpenSpec artifacts over generic product specs.
@@ -43,24 +47,68 @@ triggers:
 - In repos with partial OpenSpec adoption, use OpenSpec for covered capabilities and plain chat or repo artifacts for the rest. Do not force a full migration as part of normal feature scoping.
 - If the repo includes project-specific OpenSpec skills, follow their file-level workflow and use this skill for product framing, scope clarity, and delta quality.
 
-## Output format
-Prefer this structure unless asked otherwise:
+## Workflow artifact outputs
+When asked for Requirement Refinement, produce `requirements-blueprint.md`:
 
-1. **Feature summary** — what is being built and why
-2. **Objective** — user and business outcome
-3. **Users and stakeholders** — primary and secondary
-4. **In scope** — explicit capabilities included
-5. **Out of scope** — explicit boundaries
-6. **Requirements** — functional and relevant non-functional requirements
-7. **Dependencies, assumptions, risks** — key delivery constraints
-8. **Acceptance criteria** — concrete and testable
-9. **Open questions** — only real blockers or unresolved issues
+```md
+# Requirement Refinement
+
+## Current understanding
+
+## Decisions needed
+
+## Assumptions
+
+## Edge cases
+
+## Data rules
+
+## UX rules
+
+## Technical constraints
+
+## Proposed scope
+### In
+
+### Out
+```
+
+When the work is ready for product-signoff or engineering input, produce `product-spec.md`:
+
+```md
+# User Story / Product Spec
+
+## Title
+
+## User Story
+
+## Problem
+
+## Desired Outcome
+
+## Functional Requirements
+
+## Acceptance Criteria
+
+## Data / Content Rules
+
+## UX Notes
+
+## Non-Goals
+
+## Technical Scope Summary
+
+## Risks / Open Questions
+
+## References
+```
+
+For non-blueprint requirements work, keep the same substance in a concise chat answer. Do not include implementation steps; keep execution planning separate.
 
 In OpenSpec-aware repos, prefer this artifact mapping:
-
-1. `proposal.md` — summary, objective, scope, out of scope, dependencies, risks, open questions
-2. `spec delta` — requirements and scenarios in `openspec/changes/<change-id>/specs/<capability>/spec.md`
-3. `design.md` — only if technical design needs to be preserved separately
+- `proposal.md` - summary, objective, scope, out of scope, dependencies, risks, open questions
+- spec deltas - requirements and scenarios in `openspec/changes/<change-id>/specs/<capability>/spec.md`
+- `design.md` - only if technical design needs to be preserved separately
 
 ## Check
 - Is the scope unambiguous?

@@ -1,8 +1,12 @@
 ---
 name: nurvel-planning
-description: Plan implementation approach for non-trivial tasks before coding
+description: Plan implementation approach; produce Technical Discovery as `technical-blueprint.md` and Implementation Handoff as `implementation-handoff.md`
 triggers:
   - plan
+  - technical discovery
+  - technical-blueprint.md
+  - implementation handoff
+  - implementation-handoff.md
   - design approach
   - break down task
   - implementation strategy
@@ -36,8 +40,9 @@ mcp_servers:
 
 ## Planning rules
 - Keep plans high-signal and implementation-oriented.
-- Do not over-specify implementation details.
-- Reference layers, modules, domains, features, or directories rather than deep file-level micromanagement.
+- For `technical-blueprint.md`, avoid brittle implementation steps.
+- For `implementation-handoff.md`, be concrete enough that another agent can execute without rediscovery.
+- Reference layers, modules, domains, features, or directories by default; name files and contracts when needed for handoff accuracy.
 - Avoid speculative design and unnecessary abstractions.
 - Keep separation of concerns clear.
 - Preserve client/server and domain/UI boundaries.
@@ -49,13 +54,64 @@ mcp_servers:
 - Optional improvements
 - Out-of-scope observations
 
-## Output format
-Prefer this structure unless asked otherwise:
+## Workflow artifact outputs
+When asked for Technical Discovery, produce `technical-blueprint.md`:
 
-1. **Goal** — what needs to be achieved
-2. **Implementation plan** — numbered, high-level steps with clear execution order
-3. **Guidance for implementer** — constraints, key risks, important assumptions, what must be preserved
-4. **Open questions** — only if materially needed
+```md
+# Technical Discovery
+
+## Files inspected
+
+## Current implementation
+
+## Relevant patterns
+
+## Existing utilities/components
+
+## Constraints found
+
+## Reuse opportunities
+
+## Risks
+
+## Recommended approach
+```
+
+When asked for Implementation Handoff, produce `implementation-handoff.md`. This is the first workflow artifact expected to contain ordered implementation steps:
+
+```md
+# Implementation Handoff
+
+## Goal
+
+## Non-Negotiables
+
+## Scope
+### Create
+### Modify
+### Inspect Only
+### Out of Scope
+
+## Current Facts
+
+## Contracts
+
+## Rules
+
+## Implementation Steps
+
+## Feature Rules
+
+## Acceptance
+
+## Test Plan
+
+## Stop Conditions
+
+## Handoff Instruction
+```
+
+For non-blueprint planning, keep the same substance in a concise chat answer: goal, implementation plan, guidance for implementer, and material open questions.
 
 ## Check
 - Is the goal clear?

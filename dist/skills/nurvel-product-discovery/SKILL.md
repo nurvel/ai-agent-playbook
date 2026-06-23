@@ -1,8 +1,10 @@
 ---
 name: nurvel-product-discovery
-description: Analyze what should be built and why before defining detailed requirements or delivery plans
+description: Analyze what should be built and why before requirements; produce Idea Brief output as `idea-brief.md` when a workflow artifact is requested
 triggers:
   - product discovery
+  - idea brief
+  - idea-brief.md
   - what should we build
   - should we build this
   - validate opportunity
@@ -34,20 +36,32 @@ triggers:
   - what belongs in `proposal.md` vs later spec deltas
 - Treat this skill as a pre-proposal exploration step: clarify the opportunity first, then prepare for a proposal.
 
-## Output format
-Prefer this structure unless asked otherwise:
+## Workflow artifact output
+When asked for an Idea Brief or workflow blueprint, produce `idea-brief.md` in this compact shape:
 
-1. **Summary** — opportunity, key tradeoff, recommendation
-2. **Problem statement** — what problem exists, for whom, why now
-3. **Users and stakeholders** — primary and secondary groups affected
-4. **Current pain and desired outcome** — present state, target state, success characteristics
-5. **Facts, assumptions, unknowns** — what is known vs inferred
-6. **Options considered** — including do nothing
-7. **Recommendation** — direction and what to validate next
+```md
+# Idea Brief
 
-In OpenSpec-aware repos, append:
+## Raw idea
 
-8. **OpenSpec handoff** — candidate `change-id`, affected `openspec/specs/<capability>/spec.md` files, and whether a new change should start or an existing one should be updated
+## Problem
+
+## User / stakeholder
+
+## Why now
+
+## Expected value
+
+## Known constraints
+
+## Unknowns
+
+## Next refinement question
+```
+
+For non-blueprint discovery, keep the same substance in a concise chat answer: summary, problem, users, facts/assumptions/unknowns, options, recommendation, and what to validate next.
+
+In OpenSpec-aware repos, append candidate `change-id`, affected `openspec/specs/<capability>/spec.md` files, and whether a new change should start only after the opportunity is clear.
 
 ## Check
 - Is the real problem clear?

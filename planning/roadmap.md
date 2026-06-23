@@ -20,19 +20,13 @@
   - Exit criteria: Compatibility matrix and installer direction are decided.
 
 ## Next
-- `R5` Define high-level workflow layer
-  - Goal: Model Idea Brief, Requirement Refinement, Technical Discovery, Implementation Handoff, Implementation Report, and Post-Implementation Learning.
-  - Why next: Workflow guidance coordinates skills without bloating every skill.
-  - Dependencies: `R4`
-  - Exit criteria: Each workflow step has purpose, inputs, outputs, recommended skills, and acceptance checks.
-
-## Later
 - `R6` Add feedback and evolution loop
   - Goal: Capture real usage feedback into improvements for principles, skills, and agent defaults.
-  - Why later: Better after the core taxonomy and skill model are stable.
+  - Why next: B8 established the workflow-blueprint layer; the remaining gap is turning real usage and post-implementation learning into repo improvements.
   - Dependencies: `R4`, `R5`
   - Exit criteria: Repo-local `skill-evolution` skill or workflow is ready to use after real tasks.
 
+## Later
 - `R7` Add architecture visualization support
   - Goal: Support pragmatic C4, ArchiMate, or equivalent architecture documentation/planning.
   - Why later: Needs clear workflow integration to avoid becoming diagram ceremony.
@@ -40,6 +34,9 @@
   - Exit criteria: Architecture guidance has clear triggers, outputs, and visual notation defaults.
 
 ## Done (recent)
+- `R5` Define high-level workflow layer
+  - Scope: Idea Brief, Requirement Refinement, Technical Discovery, Implementation Handoff, Implementation Report, and Post-Implementation Learning.
+  - Exit criteria: Workflow phase order, artifacts, existing skill mapping, compact skill output contracts, chat-vs-file guidance, and early-phase execution boundaries are captured in runtime guidance.
 - `R4` Refine skill system model
   - Scope: Generic base skill boundaries, `nurvel-*` naming, optional tool hints, and runtime token budget.
   - Exit criteria: Skill authoring rules are explicit enough for consistent future additions.

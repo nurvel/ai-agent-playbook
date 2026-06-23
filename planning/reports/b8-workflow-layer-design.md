@@ -7,8 +7,8 @@ Accepted design:
 - Use the six-phase workflow from the B8 requirement.
 - Treat blueprints as optional phase output contracts, not mandatory process.
 - Coordinate existing `nurvel-*` skills instead of adding phase-specific runtime skills.
-- Keep detailed templates in planning/source material; keep runtime guidance compact.
-- Implement runtime support with one short workflow section in `dist/AGENTS.md`, plus README alignment if accepted.
+- Keep full templates in planning/source material; put compact blueprint skeletons in the existing phase-owner skills.
+- Implement runtime support with one short workflow section in `dist/AGENTS.md`, compact output contracts in existing skills, and README alignment.
 
 ## Phase Contracts
 | Phase | Output | Required when | Recommended skills | Freshness rule | Acceptance check |
@@ -34,19 +34,29 @@ Default target-project location:
 Early-phase artifacts must avoid brittle implementation steps. `implementation-handoff.md` is the first blueprint expected to contain concrete execution steps.
 
 ## Runtime Design
-Do not create new runtime skills for B8. Existing `nurvel-*` skills already own the phase behavior.
+Do not create new runtime skills for B8. Existing `nurvel-*` skills own or support the phase behavior.
 
-Recommended runtime changes after this design is accepted:
+Runtime changes:
 - Add a compact `Workflow blueprints` section to `dist/AGENTS.md`.
 - Mention when blueprints are useful, when chat-only is enough, and that early phases should avoid execution steps.
-- Include only the phase order, artifact names, and skill mapping.
+- Include the phase order, artifact names, and skill mapping.
+- Add compact workflow output skeletons to phase-owner skills:
+  - `nurvel-product-discovery` owns `idea-brief.md`.
+  - `nurvel-requirements-definition` owns `requirements-blueprint.md` and `product-spec.md`.
+  - `nurvel-planning` owns `technical-blueprint.md` and `implementation-handoff.md`.
+  - `nurvel-code-review` owns `implementation-report.md` when summarizing completed implementation.
+- Clarify support roles:
+  - `nurvel-story-slicing` feeds handoff scope, feature rules, and acceptance.
+  - `nurvel-test-writing` feeds handoff test planning.
+  - `nurvel-backlog-management` records follow-up after reports and learning.
+  - `nurvel-roadmap-planning` uses workflow artifacts as input but is not a phase owner.
 - Update README target-project artifact guidance to allow `product/initiatives/<slug>/` for multi-blueprint initiatives.
 - Update `principles/workflows.md` distilled output after runtime edits land.
 
 Do not add:
 - A separate `dist/tools/` or workflow adapter layer.
 - New phase-specific skills.
-- Full template bodies to `dist/AGENTS.md`.
+- Full template bodies to `dist/AGENTS.md` or a shared runtime template file.
 - Installer changes.
 
 ## Validation Against B8 Acceptance
@@ -56,13 +66,14 @@ Do not add:
 - Early-phase artifacts explicitly exclude implementation steps.
 - Implementation Handoff is the execution-ready artifact.
 - Implementation Report supports review, follow-up, and later learning.
-- Runtime impact is limited to `dist/AGENTS.md`, README alignment, and workflow principle distilled-output updates.
+- Runtime impact is limited to `dist/AGENTS.md`, existing `dist/skills/**`, README alignment, and workflow principle distilled-output updates.
 - Runtime changes can stay concise and agent-agnostic.
 
 ## Implementation Handoff
 When implementing the accepted B8 runtime changes:
 1. Update `dist/AGENTS.md` with a short workflow-blueprints section near task execution.
-2. Update `README.md` target-project artifact guidance for multi-blueprint initiative folders.
-3. Update `principles/workflows.md` distilled runtime outputs.
-4. Update `planning/backlog.md` and `planning/roadmap.md` only after the runtime change is applied or deliberately deferred.
-5. Validate with `git diff --check` and inspect active docs for stale unprefixed skill names or old artifact paths.
+2. Update phase-owner and support skills with compact workflow output contracts.
+3. Update `README.md` target-project artifact guidance for multi-blueprint initiative folders.
+4. Update `principles/workflows.md` distilled runtime outputs.
+5. Update `planning/backlog.md` and `planning/roadmap.md` only after the runtime change is applied or deliberately deferred.
+6. Validate with `git diff --check` and inspect active docs for stale unprefixed skill names or old artifact paths.

@@ -1,10 +1,12 @@
 ---
 name: nurvel-code-review
-description: Review code or plans for correctness, scope fit, and architecture
+description: Review code or plans; produce Implementation Report as `implementation-report.md` when summarizing completed work
 triggers:
   - review code
   - review PR
   - review plan
+  - implementation report
+  - implementation-report.md
   - check implementation
   - quality gate
 ---
@@ -65,11 +67,34 @@ When reviewing code, check:
 - Should-improve issues
 - Optional observations
 
-## Output format
-Prefer this structure unless asked otherwise:
+## Review output
+For review requests, prefer this structure unless asked otherwise:
 
 1. **Verdict** — acceptable / acceptable with issues / not ready
 2. **Must-fix** — only real blockers or meaningful issues
 3. **Should improve** — worthwhile but non-blocking improvements
 4. **Optional notes** — small observations, tradeoffs, or follow-up ideas
 5. **Summary** — brief overall assessment
+
+## Workflow artifact output
+When asked to summarize completed implementation or close an implementation handoff, produce `implementation-report.md`:
+
+```md
+# Implementation Report
+
+## Summary
+
+## Files changed
+
+## Key decisions
+
+## Tests run
+
+## Tests not run
+
+## Deviations from plan
+
+## Remaining risks
+```
+
+When the report creates or changes follow-up work, state that follow-up clearly for backlog tracking.

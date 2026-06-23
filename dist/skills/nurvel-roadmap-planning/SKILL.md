@@ -1,6 +1,6 @@
 ---
 name: nurvel-roadmap-planning
-description: Sequence product initiatives into logical phases, milestones, and MVP cuts
+description: Sequence initiatives into milestones and MVP cuts; use workflow artifacts as inputs without producing phase blueprints
 triggers:
   - roadmap
   - plan milestones
@@ -22,9 +22,14 @@ triggers:
 ## Artifact model
 - Prefer an existing project source of truth when one is already established.
 - Use `product/roadmap.md` as the default strategic source when working in `repo-artifacts` mode and no equivalent artifact exists.
-- Optionally link larger initiatives to `product/initiatives/<slug>.md`.
+- Optionally link larger initiatives to `product/initiatives/<slug>.md`, or to `product/initiatives/<slug>/` for multi-blueprint initiatives.
 - If `product/roadmap.md` already exists, update it instead of creating parallel roadmap files.
 - Do not create roadmap artifacts unless the user asks for repo-backed tracking or the repo already uses them.
+
+## Workflow role
+- Remain a portfolio and milestone sequencing skill, not a workflow phase owner.
+- Link roadmap items to initiative artifacts when useful, but do not produce phase blueprints.
+- Use workflow outputs as input when sequencing initiatives, dependencies, or MVP phases.
 
 ## OpenSpec compatibility
 - OpenSpec is a change-planning and living-spec system, not a roadmap system.

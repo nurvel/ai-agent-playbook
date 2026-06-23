@@ -46,6 +46,20 @@
 - Keep changes local and reviewable.
 - Handle small adjacent changes (backend, API, schema) only when clearly part of the same task.
 
+## Workflow blueprints
+- Use chat-only output for small, immediate work the same agent can safely finish.
+- Use repo-backed blueprint files when work is long-lived, handed off, product-ambiguous, risky, or needs auditability.
+- Prefer the target project's existing source of truth for files; do not assume a `planning/` folder by default.
+- Early phases capture durable decisions, constraints, and unknowns. Do not add concrete implementation steps before `implementation-handoff.md`.
+- When a workflow phase is requested, the owner skill must produce the named artifact shape:
+  - Idea Brief -> `idea-brief.md` owned by `nurvel-product-discovery`
+  - Requirement Refinement -> `requirements-blueprint.md` or `product-spec.md` owned by `nurvel-requirements-definition`
+  - Technical Discovery -> `technical-blueprint.md` owned by `nurvel-planning`, reviewed with `nurvel-code-review` when useful
+  - Implementation Handoff -> `implementation-handoff.md` owned by `nurvel-planning`, with `nurvel-story-slicing` and `nurvel-test-writing` as support
+  - Implementation Report -> `implementation-report.md` owned by `nurvel-code-review`, with `nurvel-backlog-management` for follow-up state
+  - Post-Implementation Learning -> `post-implementation-learning.md`; use `nurvel-backlog-management` only when learning changes follow-up work
+- Refresh technical and handoff artifacts when code, branch, scope, dependencies, or architecture changed since inspection.
+
 ## Simplicity and structure
 - Prefer the simplest solution that solves the real problem.
 - Avoid complexity without clear payoff.

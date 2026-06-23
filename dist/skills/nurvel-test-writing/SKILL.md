@@ -1,6 +1,6 @@
 ---
 name: nurvel-test-writing
-description: Add, update, or improve tests for code confidence
+description: Add or improve tests; support the implementation handoff Test Plan section
 triggers:
   - write test
   - add test
@@ -26,6 +26,11 @@ triggers:
 - Test domain logic without unnecessary UI coupling.
 - Avoid brittle tests tied to internal structure unless needed.
 - Add tests where they increase confidence, not just coverage numbers.
+
+## Workflow support role
+- Support the `implementation-handoff.md` Test Plan section.
+- Suggest the smallest useful unit, integration, typecheck, and manual checks for the handoff scope.
+- Keep standalone test-writing output only when the user asks directly for tests or test strategy.
 
 ## Check
 - Covers meaningful behavior; readable; not over-coupled to implementation; catches real regressions; tested at the simplest useful level.

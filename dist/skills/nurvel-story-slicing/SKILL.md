@@ -1,6 +1,6 @@
 ---
 name: nurvel-story-slicing
-description: Break defined work into small vertical slices with clear story boundaries and acceptance criteria
+description: Break defined work into vertical slices; support implementation handoff scope, feature rules, and acceptance sections
 triggers:
   - slice stories
   - break down feature
@@ -26,6 +26,11 @@ triggers:
 - Keep each story small enough to implement, review, and test.
 - Make dependencies explicit.
 - Mark MVP stories separately from later work.
+
+## Workflow support role
+- Support `implementation-handoff.md`; do not replace it.
+- Feed the handoff's scope, feature rules, acceptance, and implementation-step ordering when work needs vertical slices.
+- Keep standalone story-slicing output only when the user asks for story breakdown rather than a handoff artifact.
 
 ## OpenSpec compatibility
 - If the repo contains `openspec/`, `openspec/specs/`, `openspec/changes/`, or `openspec/config.yaml`, translate story slices into OpenSpec task planning when the work is implementation-ready.
