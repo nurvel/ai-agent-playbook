@@ -22,12 +22,19 @@ Instructions guide agent behavior. Native permissions and sandbox controls enfor
 
 ### Read-only Git inspection
 
-Allow these command families with additional arguments where the harness can match them without also allowing mutation:
+Allow these read-only forms where the harness can match them without also allowing mutation:
 
 - `git status`
 - `git diff`
 - `git log`
 - `git show`
+- `git rev-parse`
+- `git ls-files`
+- `git ls-tree`
+- `git branch --show-current`
+- `git remote -v`
+
+Treat `git branch --show-current` and `git remote -v` as exact read-only forms, not as broad `git branch` or `git remote` prefixes. Additional arguments are acceptable only where they cannot select a mutating subcommand.
 
 ### Read-only GitHub CLI inspection
 
@@ -61,11 +68,12 @@ Do not create a broad `gh` allow rule. Commands not listed here follow the harne
 ### High-impact local operations
 
 - Recursively delete files or directories.
+- Discard, overwrite, or rewrite existing user work, the Git index, worktree state, local history, branches, tags, or other refs. This includes destructive forms of `git reset`, `git clean`, `git restore`, and `git checkout`, branch or tag deletion, and history-changing `git rebase` or `git merge` operations.
 - Modify files outside the active workspace.
 - Change system, shell, editor, harness, credential, or global Git configuration.
 - Install or remove system-wide software.
 
-Normal edits inside the active workspace follow the harness default and the user's authorized task scope. Do not add a blanket approval rule that makes routine, already authorized project edits unusable.
+Normal edits inside the active workspace follow the harness default and the user's authorized task scope. Staging, local commits, and branch creation likewise follow the task's explicit authorization and applicable project instructions. Do not add a blanket approval rule that makes routine, already authorized project work unusable.
 
 ### Network and remote access
 
@@ -84,7 +92,7 @@ A harness-native read-only web or documentation tool may follow its own scoped a
 
 Require approval before reading credential, token, key, or secret-bearing files, including:
 
-- `.env` and `.env.*`
+- `.env` and `.env.*`, except documented, committed, secret-free templates such as `.env.example` or `.env.sample`
 - private keys and credential exports
 - OAuth client-secret files
 - harness authentication stores
