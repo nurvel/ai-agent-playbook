@@ -11,20 +11,34 @@
       "Bash(tail:*)",
       "Bash(tree:*)",
       "Bash(wc:*)",
-      "Bash(git status)",
+      "Bash(git status:*)",
       "Bash(git diff:*)",
       "Bash(git log:*)",
-      "Bash(git show:*)"
+      "Bash(git show:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr status:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh run list:*)"
     ],
     "deny": [
       "Bash(git push --force:*)",
       "Bash(git push -f:*)",
-      "Bash(rm -rf:*)"
+      "Bash(rm -rf:*)",
+      "Bash(rm -fr:*)",
+      "Bash(rm -Rf:*)",
+      "Bash(rm -fR:*)"
     ],
     "ask": [
       "Bash(git push:*)",
       "Bash(git remote:*)",
-      "Bash(gh:*)",
+      "Bash(rm -r:*)",
+      "Bash(rm -R:*)",
+      "Bash(rm --recursive:*)",
       "Bash(npm publish:*)",
       "Bash(yarn publish:*)",
       "Bash(pnpm publish:*)",
