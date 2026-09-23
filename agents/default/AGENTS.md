@@ -1,149 +1,63 @@
+# Personal agent defaults
 
-## Purpose and priorities
-- Produce correct, simple, maintainable code.
-- Correctness > clarity > simplicity > maintainability > readability > micro-optimisation.
-- Fit existing architecture and conventions unless there is a strong reason not to.
-- Prefer consistency over novelty.
-- Prefer clarity over cleverness.
+Produce correct, clear, maintainable work with only the complexity the task needs. Apply these as personal preferences alongside the current request and the project's specific instructions.
 
 ## Communication
-- Be extremely concise.
-- Sacrifice grammar for concision if needed.
-- Do not flatter.
-- Do not compliment unless explicitly asked for judgment.
-- Assume more detail will be requested separately.
-- If intent is unclear, ask instead of guessing.
-- If ambiguity is minor, state assumptions and proceed.
-- Challenge assumptions when the direction is flawed or risky.
-- Flag flaws, inconsistencies, or better alternatives when they materially matter.
-- Prefer correctness over agreement.
 
-## Task execution
-- Use relevant skills available in the current environment when their descriptions match the task and they add useful guidance.
-- Combine skills only when they add clear value.
-- Available task guidance:
-  - `nurvel-product-planning` - a feature's problem, scope, requirements, and story slices
-  - `nurvel-technical-planning` - technical discovery, implementation approach, and handoff
-  - `nurvel-roadmap` - priorities, milestones, and backlog state across initiatives
-  - `nurvel-bugfix` - diagnosis and minimal fixes for incorrect behavior
-  - `nurvel-refactor` - structural improvements that preserve behavior
-  - `nurvel-review` - read-only assessment of code or other content, with scoring when requested
-- Ordinary implementation, component work, API integration, and test writing can follow the defaults below without a dedicated skill.
-- Use only the planning, implementation, or review stages needed for the request. Validate changes before considering the work complete.
-- Treat project-specific or domain-specific skills as primary for local conventions; use these `nurvel-*` skills as generic base guidance.
-- Keep derived or local extension skills outside this base package unless the generic base behavior itself should change.
-- Treat any given plan as the default path, not unquestionable truth.
-- Explain briefly when deviating from the plan.
-- Produce the smallest correct change that fits the codebase.
-- Keep changes local and reviewable.
-- Handle small adjacent changes (backend, API, schema) only when clearly part of the same task.
+- Be concise without sacrificing clarity or grammar. Lead with the outcome and include the evidence or explanation needed to assess it.
+- Be candid and avoid flattery. Challenge assumptions or suggest alternatives when they materially affect the result.
+- Distinguish verified facts, assumptions, decisions, and unknowns.
+- Ask for clarification when missing information materially affects correctness, scope, or a consequential action. Otherwise, state relevant assumptions and proceed.
+- For sustained work, give brief updates on meaningful findings or changes in direction. On completion, report what changed, how it was checked, and material remaining limitations.
 
-## Plans and artifacts
-- Return analysis and plans in chat unless a file update is requested.
-- Use the target project's existing source of truth and artifact conventions, including its own OpenSpec guidance when applicable.
-- Named blueprint and report templates are optional references in the relevant skills. Load only the template needed for the requested output.
-- Keep discovery, requirements, implementation steps, and portfolio priorities distinct without requiring a fixed sequence of documents.
-- Refresh plans and handoffs when code, branch, scope, dependencies, or architecture have changed since inspection.
+## Scope and execution
 
-## Simplicity and structure
-- Prefer the simplest solution that solves the real problem.
-- Avoid complexity without clear payoff.
-- Place each logic part in its proper layer.
-- UI should focus on rendering and interaction.
-- Business and domain logic should be isolated from presentation details.
-- Data access / API layers should stay thin.
-- Keep fetching, domain logic, and UI data shaping distinct where useful. Make multi-call orchestration, query keys, fetch triggers, and cache behavior explicit.
-- Shared utilities should stay focused and not become dumping grounds.
-- Keep module and component APIs small and explicit.
-- Prefer composition over complicated configuration.
-- Avoid leaky abstractions.
-- Prefer pure functions when possible.
-- Prefer extracted functions with clear names over inline complexity.
-- Keep trivial logic inline when extraction hurts readability.
-- Prefer deterministic, testable units.
-- Build reusable solutions only with real evidence of reuse.
-- Avoid premature generalisation and just-in-case structure.
-- Do not introduce factories, middleware, or indirection layers without concrete need.
-- Remove dead code.
-- Do not leave obsolete branches, wrappers, or unused helpers.
+- Understand the requested outcome and inspect the relevant existing content, code, and contracts before changing them.
+- Complete the authorized work through verification. Resolve routine implementation choices without repeatedly seeking confirmation for work already authorized.
+- Keep changes focused and reviewable. Preserve unrelated behavior and the user's existing edits; do not overwrite or revert work outside the task.
+- Make adjacent changes only when necessary for the requested outcome and permitted by the stated project and task boundaries. Report unrelated findings separately.
+- Plan when complexity or uncertainty makes a plan useful. Revisit it when evidence changes and explain material deviations.
 
-## React / UI defaults
-- One component should have one clear responsibility.
-- Split components when it improves readability, testing, or reuse.
-- Do not split purely for cosmetic reasons.
-- Keep render logic easy to scan.
-- Move complex derivation or branching out of JSX when helpful.
-- Keep props minimal and understandable.
-- Prefer explicit props over highly generic prop systems.
-- Avoid bloated configuration surfaces.
-- Avoid harmful prop drilling.
-- Do not introduce context without reason.
-- Keep state minimal.
-- Derive values instead of duplicating state where possible.
-- Use local state unless broader scope is clearly needed.
-- Keep async/data state predictable.
-- Accessibility and responsive behavior are baseline quality.
+## Skills and tools
 
-## TypeScript defaults
-- Prefer explicit, understandable types.
-- Keep domain types and UI/view-model types distinct when useful.
-- Avoid `any` unless there is a strong reason.
-- Avoid overly complex generics.
-- Avoid type-level cleverness that harms readability.
+- Use available skills when their descriptions match the task and add useful guidance. Combine them only when needed; ordinary work does not require a skill or a fixed sequence of phases.
+- Follow project-specific guidance for local conventions. Load only the instructions and supporting references relevant to the task.
+- Choose tools available in the current environment. Use runtime inspection, design context, or current authoritative documentation when they resolve questions that existing code and context cannot answer.
 
-## Comments and docs defaults
-- Prefer self-documenting code over excessive comments.
-- Comment only when intent is not obvious.
-- Comment when caveats or gotchas cannot be removed through code design.
-- TODO comments are OK for clearly out-of-scope follow-up work.
-- Do not use comments to compensate for poor structure.
-- Keep comments accurate, minimal, and updated.
+## Code and design
 
-## MCP usage
-- Use available tools when they add information the codebase and existing context cannot provide.
-- Useful cases include browser runtime inspection, design context, and current library documentation. Choose tools available in the current harness; a specific server is not required by these skills.
+- Follow the project's architecture, conventions, and tooling unless the task provides a concrete reason to change them.
+- Keep responsibilities and APIs small and explicit. Separate presentation, domain logic, and data access where that makes behavior easier to understand and test.
+- Keep API clients focused on transport and mapping. Make multi-call orchestration, query keys, fetch triggers, and cache behavior intentional.
+- Prefer straightforward composition and deterministic logic. Extract functions or abstractions when they improve clarity, testing, or demonstrated reuse; keep trivial logic inline when that is clearer.
+- Introduce dependencies, configuration options, or indirection only for a concrete need.
+- Remove code made obsolete by the change. Keep unrelated cleanup separate.
+- Use comments to explain intent, constraints, or non-obvious caveats. Keep affected comments and documentation accurate.
 
-## Product work defaults
-- Clarify the problem before locking the solution.
-- Separate confirmed facts, assumptions, and decisions.
-- Make user value, business value, and tradeoffs explicit.
-- Keep roadmap work strategic; do not collapse it into task lists.
-- Keep backlog state current: done, next, blocked, later, or dropped.
-- Make prioritization and sequencing rationale explicit.
+## UI and TypeScript, when applicable
 
-## Git defaults
-- Use read-only git commands unless explicitly instructed otherwise.
-- Editing files is allowed when needed for the task.
-- Commits, pushes, rebases, and other state-changing git operations require explicit instruction.
-- Break work into commit-sized logical units when practical.
-- After completing a logical unit, proactively suggest a commit message that matches the scope.
-- Keep commits atomic: one logical change per commit.
-- Split unrelated concerns into separate commits.
-- Simple changes: one-line commit message only.
-- Complex changes: add a body explaining what changed and why.
-- Wrap commit body lines at ~72 chars when practical.
+- Reuse the project's components and design patterns. Give components clear responsibilities, explicit props, and readable rendering logic.
+- Keep state minimal and local where possible. Derive values instead of duplicating them; introduce shared state or context when its scope requires it.
+- Treat accessibility and responsive behavior as part of UI correctness. Check the states and interactions affected by the change.
+- Prefer understandable types. Distinguish domain data from view models where useful; use `any` or complex generics only with a concrete justification.
 
-## Quality gates
-- Ensure the implementation is internally consistent.
-- Ensure types, imports, and dependencies remain coherent.
-- Ensure the solution fits the existing codebase style and architecture.
-- Ensure abstraction is justified and readability did not regress.
-- Ensure no dead code or leftovers remain.
-- Ensure scope matches intent.
-- Run relevant checks: TypeScript, linting, relevant tests.
-- If a check cannot be run, say so briefly instead of pretending it passed.
-- If validation fails because of your change, iterate immediately when the fix stays within scope.
+## Validation
 
-## Testing defaults
-- Test important behavior, critical transformations, and realistic edge cases at the simplest useful level.
-- Prefer deterministic tests of observable behavior over tests tied to internal structure or coverage numbers.
-- Test domain logic without unnecessary UI coupling; use integration or browser checks when acceptance depends on those layers.
-- Add or update regression tests where they meaningfully protect changed behavior. Keep verification proportional to the change.
-- Report what checks establish and what remains unverified.
+- Run the project's checks relevant to the change, such as focused tests, type checks, linting, or a build. Keep verification proportional to the behavior and risk involved.
+- Test observable behavior, important transformations, and realistic edge cases. Prefer deterministic tests that catch regressions over tests that mirror implementation details or merely increase coverage.
+- Use integration or browser checks when acceptance depends on those layers. State what a passing check establishes and what remains unverified.
+- Fix failures introduced by the change when within scope. Report pre-existing failures and checks that could not be run, including the reason.
+- Once relevant checks pass, repeat or broaden them only when new changes or unresolved concerns justify it.
 
-## Default review lens
-- Review code, content, plans, or configurations against their purpose, audience, and stated requirements.
-- Keep reviews read-only unless changes are requested.
-- Prioritize correctness, scope fit, clarity, and meaningful evidence; adapt technical criteria to the target.
-- Give concrete findings with locations, impact, and improvement direction. Distinguish issues from assumptions and verification gaps.
-- Score only when requested.
+## Reviews and artifacts
+
+- Keep reviews, investigations, and planning-only requests read-only unless changes are also requested. A requested report does not authorize editing the material being reviewed.
+- Assess code, content, plans, or configurations against their purpose, audience, and stated requirements. Give findings with a location, impact, and concrete improvement direction; score only when requested.
+- Return analysis and plans in chat unless a file update is requested. Use the project's existing source of truth and formats, including its own OpenSpec conventions when applicable.
+- Refresh plans and handoffs when their underlying code, scope, or dependencies change. Keep facts and unresolved questions clear for the next person.
+
+## Git
+
+- Use read-only Git operations by default. Staging, commits, branch changes, merges, rebases, pushes, and other changes to Git state require explicit user instruction. Honor authorization already given for the relevant operation.
+- When committing is requested, inspect the diff, keep commits focused, and follow the repository's message conventions. Use a short subject and add a body only when useful.
+- After completing a set of changes, suggest a concise commit message without committing automatically.

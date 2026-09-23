@@ -39,7 +39,7 @@ Prefer the target project's existing source of truth and formats, including its 
 - Add a skill when a distinct, repeated task needs guidance beyond the shared defaults. Combine overlapping guidance and remove rules that add no useful behavior.
 - Keep skills self-contained and avoid hardcoded harness installation paths or unnecessary tool dependencies.
 - Put substantial, conditional templates or procedures in linked references.
-- Update this catalog and the default agent's skill list when names or scope change.
+- Keep this skill catalog current when names or scope change, and keep the shared defaults consistent with the skills.
 - Check metadata, local links, and representative task routing after changes.
 
 ## Installation
