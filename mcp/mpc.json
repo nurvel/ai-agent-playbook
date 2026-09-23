@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@1.6.0"
+      ],
+      "lifecycle": "lazy"
+    },
+
+    "company-api": {
+      "url": "${COMPANY_MCP_URL}",
+      "headers": {
+        "Authorization": "Bearer ${COMPANY_MCP_TOKEN}"
+      },
+      "lifecycle": "lazy"
+    }
+  }
+}
