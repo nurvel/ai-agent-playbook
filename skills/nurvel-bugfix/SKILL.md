@@ -1,35 +1,24 @@
 ---
 name: nurvel-bugfix
-description: Fix incorrect behavior, debug regressions, investigate issues
-triggers:
-  - fix bug
-  - debug
-  - investigate issue
-  - regression
-  - broken behavior
-mcp_servers:
-  - chrome-devtools  # browser debugging and runtime inspection
+description: Investigate incorrect behavior, diagnose regressions, and implement minimal fixes. Use for debugging runtime, logic, typing, or integration failures.
 ---
 
-## When to use
-- Fixing incorrect behavior
-- Debugging regressions
-- Investigating runtime, logic, typing, or integration issues
+## Approach
 
-## Bugfix approach
-- Identify root cause before changing structure.
-- Prefer minimal fix that addresses actual cause.
-- Do not bundle unrelated cleanup into the same change unless necessary.
-- Preserve existing behavior outside the bug scope.
-- Add guardrails only when they solve a real failure mode.
-- Avoid speculative fixes.
+1. Establish expected versus actual behavior and the conditions that trigger the failure. Reproduce it when practical; otherwise gather evidence and state the limitation.
+2. Trace the failure through the relevant code, data, and contracts. Use available runtime or browser inspection tools when the failure needs that evidence.
+3. Distinguish the cause from symptoms and untested hypotheses. Narrow uncertainty before making speculative changes.
+4. When a fix is requested, make the smallest change that addresses the cause in the right layer. Preserve unrelated behavior and keep cleanup outside the fix unless required.
+5. Recheck the original failure and relevant nearby behavior. Add or update a regression test when it meaningfully protects against recurrence; confirm that it would detect the original defect when feasible.
 
-## Check
-- Root cause identified, not just symptom?
-- Fix in the right layer and minimal?
-- Side effects considered; regression test added when needed?
+An investigation-only request ends with findings and a proposed fix. It does not authorize code changes.
 
-## Output style
-- State root cause clearly.
-- State fix clearly.
-- Mention risks or edge cases only if relevant.
+## Verification
+
+- Verify at the level where the failure occurred. A unit test may support the diagnosis without establishing browser or integration behavior.
+- Prefer focused checks that exercise the failure over tests that merely mirror the implementation.
+- If the cause or result remains unverified, say what evidence is missing and what would resolve it.
+
+## Output
+
+State the observed failure, cause or leading hypothesis, fix made or proposed, and verification results. Include material remaining risks without bundling unrelated improvements.

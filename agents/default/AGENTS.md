@@ -19,25 +19,17 @@
 - Prefer correctness over agreement.
 
 ## Task execution
-- Pick one lead skill from `skills/nurvel-<name>/SKILL.md` based on its purpose and `triggers`.
-- Combine other skills only when they add clear value.
-- Typical lead skills:
-  - `nurvel-product-discovery` - deciding what should be built and why
-  - `nurvel-requirements-definition` - turning a validated idea into clear scope and acceptance criteria
-  - `nurvel-roadmap-planning` - sequencing initiatives into milestones
-  - `nurvel-backlog-management` - maintaining priorities, statuses, and next work
-  - `nurvel-story-slicing` - breaking defined work into implementation-ready stories
-  - `nurvel-planning` - non-trivial tasks where the approach is unclear
-  - `nurvel-bugfix`, `nurvel-new-component`, `nurvel-api-integration`, `nurvel-refactor`, `nurvel-test-writing`, `nurvel-code-review`, `nurvel-evaluation`
-- Default flow:
-  - select the lead skill
-  - for product work, run PO skills before implementation skills
-  - use `nurvel-planning` only when the task is non-trivial or the approach is unclear
-  - implement using the selected skill guidance
-  - use `nurvel-test-writing` when behavior should be protected from regression
-  - use `nurvel-code-review` when the change is large, risky, or touches shared code
-  - validate before considering the work complete
-- If the repo has its own OpenSpec skills or conventions, treat them as primary for OpenSpec artifacts.
+- Use relevant skills available in the current environment when their descriptions match the task and they add useful guidance.
+- Combine skills only when they add clear value.
+- Available task guidance:
+  - `nurvel-product-planning` - a feature's problem, scope, requirements, and story slices
+  - `nurvel-technical-planning` - technical discovery, implementation approach, and handoff
+  - `nurvel-roadmap` - priorities, milestones, and backlog state across initiatives
+  - `nurvel-bugfix` - diagnosis and minimal fixes for incorrect behavior
+  - `nurvel-refactor` - structural improvements that preserve behavior
+  - `nurvel-review` - read-only assessment of code or other content, with scoring when requested
+- Ordinary implementation, component work, API integration, and test writing can follow the defaults below without a dedicated skill.
+- Use only the planning, implementation, or review stages needed for the request. Validate changes before considering the work complete.
 - Treat project-specific or domain-specific skills as primary for local conventions; use these `nurvel-*` skills as generic base guidance.
 - Keep derived or local extension skills outside this base package unless the generic base behavior itself should change.
 - Treat any given plan as the default path, not unquestionable truth.
@@ -46,19 +38,12 @@
 - Keep changes local and reviewable.
 - Handle small adjacent changes (backend, API, schema) only when clearly part of the same task.
 
-## Workflow blueprints
-- Use chat-only output for small, immediate work the same agent can safely finish.
-- Use repo-backed blueprint files when work is long-lived, handed off, product-ambiguous, risky, or needs auditability.
-- Prefer the target project's existing source of truth for files; do not assume a `planning/` folder by default.
-- Early phases capture durable decisions, constraints, and unknowns. Do not add concrete implementation steps before `implementation-handoff.md`.
-- When a workflow phase is requested, the owner skill must produce the named artifact shape:
-  - Idea Brief -> `idea-brief.md` owned by `nurvel-product-discovery`
-  - Requirement Refinement -> `requirements-blueprint.md` or `product-spec.md` owned by `nurvel-requirements-definition`
-  - Technical Discovery -> `technical-blueprint.md` owned by `nurvel-planning`, reviewed with `nurvel-code-review` when useful
-  - Implementation Handoff -> `implementation-handoff.md` owned by `nurvel-planning`, with `nurvel-story-slicing` and `nurvel-test-writing` as support
-  - Implementation Report -> `implementation-report.md` owned by `nurvel-code-review`, with `nurvel-backlog-management` for follow-up state
-  - Post-Implementation Learning -> `post-implementation-learning.md`; use `nurvel-backlog-management` only when learning changes follow-up work
-- Refresh technical and handoff artifacts when code, branch, scope, dependencies, or architecture changed since inspection.
+## Plans and artifacts
+- Return analysis and plans in chat unless a file update is requested.
+- Use the target project's existing source of truth and artifact conventions, including its own OpenSpec guidance when applicable.
+- Named blueprint and report templates are optional references in the relevant skills. Load only the template needed for the requested output.
+- Keep discovery, requirements, implementation steps, and portfolio priorities distinct without requiring a fixed sequence of documents.
+- Refresh plans and handoffs when code, branch, scope, dependencies, or architecture have changed since inspection.
 
 ## Simplicity and structure
 - Prefer the simplest solution that solves the real problem.
@@ -67,6 +52,7 @@
 - UI should focus on rendering and interaction.
 - Business and domain logic should be isolated from presentation details.
 - Data access / API layers should stay thin.
+- Keep fetching, domain logic, and UI data shaping distinct where useful. Make multi-call orchestration, query keys, fetch triggers, and cache behavior explicit.
 - Shared utilities should stay focused and not become dumping grounds.
 - Keep module and component APIs small and explicit.
 - Prefer composition over complicated configuration.
@@ -114,20 +100,13 @@
 - Keep comments accurate, minimal, and updated.
 
 ## MCP usage
-- If a skill lists `mcp_servers` in frontmatter, treat it as a hint, not a hard requirement.
-- Use the MCP server when it adds information the codebase alone cannot provide.
-- Skip it when local code and existing context are sufficient.
-- Typical uses:
-  - `chrome-devtools` for browser debugging and runtime inspection
-  - `figma` for design context and asset extraction
-  - `context7` for current library and framework documentation
+- Use available tools when they add information the codebase and existing context cannot provide.
+- Useful cases include browser runtime inspection, design context, and current library documentation. Choose tools available in the current harness; a specific server is not required by these skills.
 
 ## Product work defaults
 - Clarify the problem before locking the solution.
 - Separate confirmed facts, assumptions, and decisions.
 - Make user value, business value, and tradeoffs explicit.
-- When `openspec/` exists, treat `openspec/specs/` as the source of truth for agreed behavior.
-- When `openspec/` exists, treat `openspec/changes/` as the source of truth for active change plans.
 - Keep roadmap work strategic; do not collapse it into task lists.
 - Keep backlog state current: done, next, blocked, later, or dropped.
 - Make prioritization and sequencing rationale explicit.
@@ -155,14 +134,16 @@
 - If a check cannot be run, say so briefly instead of pretending it passed.
 - If validation fails because of your change, iterate immediately when the fix stays within scope.
 
+## Testing defaults
+- Test important behavior, critical transformations, and realistic edge cases at the simplest useful level.
+- Prefer deterministic tests of observable behavior over tests tied to internal structure or coverage numbers.
+- Test domain logic without unnecessary UI coupling; use integration or browser checks when acceptance depends on those layers.
+- Add or update regression tests where they meaningfully protect changed behavior. Keep verification proportional to the change.
+- Report what checks establish and what remains unverified.
+
 ## Default review lens
-- Is the solution correct?
-- Is it the simplest reasonable solution?
-- Is the code easy for humans to read?
-- Are responsibilities clearly separated?
-- Does it fit the project architecture?
-- Is abstraction justified?
-- Is TypeScript helping rather than hurting?
-- Is the API surface small and clear?
-- Is the code easy to test and change?
-- Is there dead code, accidental complexity, or just-in-case design?
+- Review code, content, plans, or configurations against their purpose, audience, and stated requirements.
+- Keep reviews read-only unless changes are requested.
+- Prioritize correctness, scope fit, clarity, and meaningful evidence; adapt technical criteria to the target.
+- Give concrete findings with locations, impact, and improvement direction. Distinguish issues from assumptions and verification gaps.
+- Score only when requested.

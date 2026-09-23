@@ -1,168 +1,49 @@
 # Agent Engineering Playbook
 
-Personal, agent-agnostic toolbox for coding agents and software work. It combines deployable agent guidance with repo-only principles from coding, architecture, product management, workflows, and agent tooling.
+A personal, curated library of skills, agent instructions, MCP configurations, and permissions for use across coding-agent harnesses. Maintain reusable content here and keep harness-specific configuration in its native format.
 
-The portable agent package is `dist/AGENTS.md` + `dist/skills/nurvel-<name>/SKILL.md`. The contents of `dist/` are hand-authored source files, not generated build output.
+## Contents
 
-Root `AGENTS.md`, `principles/`, `planning/`, `repo-skills/`, `scripts/`, and this `README.md` are repo support files. They are not installed into Codex or Claude by the playbook installer.
-
-## Structure
-
-```
-AGENTS.md              <- repo-local instructions for agents working here
-
-dist/
-  AGENTS.md              <- universal coding principles and defaults
-  skills/nurvel-<name>/SKILL.md <- task-specific guidance with triggers and MCP linkages
-
-principles/
-  README.md              <- repo-only knowledge layer and compression model
-  coding.md              <- coding quality and maintainability principles
-  architecture.md        <- architecture boundaries and visualization principles
-  product-management.md  <- discovery, requirements, and prioritization principles
-  agent-tooling.md       <- agent and harness tooling principles
-  workflows.md           <- idea-to-delivery workflow principles
-
-repo-skills/
-  README.md              <- repo-local skills for maintaining this toolbox
-
-planning/
-  README.md              <- repo-internal planning notes
-  requirements.md        <- requirements index and durable project contract
-  requirements/<id>-<slug>.md <- implementation-ready requirement details
-  reports/               <- one-off audits, analysis, and design outputs
-  roadmap.md             <- roadmap for improving this playbook
-  backlog.md             <- operational backlog for this repo
-
-scripts/
-  install-playbook.sh    <- syncs dist/ into user-level agent folders
-```
-
-## How to use
-
-1. Point your agent at `dist/AGENTS.md` as the baseline behavior guide and skill router.
-2. Skills are selected from their YAML frontmatter (`name`, `triggers`, optional `mcp_servers`).
-3. `mcp_servers` is a hint, not a requirement - use the server when it adds value, skip it when the codebase alone is enough.
-4. Runtime skill names use the `nurvel-` prefix so they are identifiable in agent menus.
-
-## Knowledge Model
-
-`principles/` explains the thinking behind the runtime output. It can be detailed, opinionated, and traceable.
-
-`dist/` is the compressed runtime layer. It should contain only the guidance that improves agent behavior during normal work.
-
-Traceability flows one way: principle pages may list the runtime files they inform, but runtime files should not reference `principles/` directly.
-
-`repo-skills/` is for skills that maintain this repository itself. These skills are not part of the portable package.
-
-### Install to Codex or Claude
-
-The install script syncs `dist/` into user-level agent folders. It updates matching files and overwrites older versions of the same skills, but never deletes unrelated files from `~/.agents` or `~/.claude`.
-
-Migration note: installs made before the `nurvel-` prefix rename may leave old unprefixed skill folders beside the new prefixed folders because the installer intentionally does not delete extra destination files.
-
-```bash
-scripts/install-playbook.sh              # both agents
-scripts/install-playbook.sh --codex      # Codex only
-scripts/install-playbook.sh --claude     # Claude only
-scripts/install-playbook.sh --dry-run    # preview without writing
-```
-
-## Internal Planning
-
-Use `planning/` only for work about this repository and the package it produces. It should describe what needs to change in the playbook, not content that should be copied into installed agent folders.
-
-## Target-Project Product Artifacts
-
-- `product/roadmap.md` — strategic view: goals, horizons, milestones, `Now / Next / Later`
-- `product/backlog.md` — operational view: `In progress / Next / Blocked / Later / Done / Dropped`
-- `product/initiatives/<slug>.md` — larger initiative with one durable scope and decision-history artifact
-- `product/initiatives/<slug>/` — multi-blueprint initiative folder for separate artifacts such as idea brief, requirements, technical discovery, implementation handoff, implementation report, and post-implementation learning
-
-The shipped roadmap, backlog, and workflow guidance support these optional files in target projects. If Jira, Linear, or another tool is already the source of truth for a target project, use `chat-only` mode and keep that project clean.
-
-## Workflow Phase Mapping
-
-| Phase | Artifact | Owner / support |
-|---|---|---|
-| Idea Brief | `idea-brief.md` | `nurvel-product-discovery` |
-| Requirement Refinement | `requirements-blueprint.md` or `product-spec.md` | `nurvel-requirements-definition` |
-| Technical Discovery | `technical-blueprint.md` | `nurvel-planning`; `nurvel-code-review` can review |
-| Implementation Handoff | `implementation-handoff.md` | `nurvel-planning`; `nurvel-story-slicing` and `nurvel-test-writing` support |
-| Implementation Report | `implementation-report.md` | `nurvel-code-review`; `nurvel-backlog-management` supports follow-up |
-| Post-Implementation Learning | `post-implementation-learning.md` | Workflow artifact; `nurvel-backlog-management` supports follow-up until repo-local skill evolution exists |
-
-## OpenSpec compatibility
-
-The playbook is OpenSpec-aware, not OpenSpec-dependent.
-
-This repository does not currently use OpenSpec for its own planning. OpenSpec guidance here is for target projects that install or adapt `dist/`.
-
-- `openspec/specs/` — current agreed behavior
-- `openspec/changes/<change-id>/` — active proposal, design, tasks, spec deltas
-- `product/roadmap.md` / `product/backlog.md` remain optional planning overlays above OpenSpec
-
-In OpenSpec-adopted repos, use OpenSpec for: discovery handoff into change planning, requirements as proposal + spec deltas, slicing as `tasks.md`. Keep roadmap and backlog outside OpenSpec — they should reference change ids and capability specs, not replace them. If a project ships its own OpenSpec skills, those are primary for change-file workflows; this playbook's PO skills stay as a companion layer for discovery, scoping, prioritization, and slicing quality.
-
-## Example flows
-
-- **Fixing a browser bug** - `nurvel-bugfix` + `chrome-devtools` + `nurvel-test-writing`
-- **New UI from Figma** - `nurvel-planning` + `nurvel-new-component` + `figma`
-- **API integration** - `nurvel-api-integration` + `context7` (for library docs)
-- **New feature shaping** - `nurvel-product-discovery` -> `nurvel-requirements-definition` -> `nurvel-story-slicing`
-- **Workflow blueprint handoff** - `nurvel-product-discovery` -> `nurvel-requirements-definition` -> `nurvel-planning` -> `nurvel-code-review`
-- **Roadmap upkeep** - `nurvel-backlog-management` -> `nurvel-roadmap-planning`
-
-Each flow ends with validation: types, lint, and relevant tests.
+| Location | Purpose |
+|---|---|
+| [agents/default/AGENTS.md](agents/default/AGENTS.md) | Shared working preferences and coding defaults |
+| [skills/](skills/) | Six focused, reusable task skills |
+| [mcp/](mcp/) | Curated MCP configuration |
+| [permissions/](permissions/README.md) | Native permission configurations and guidance for keeping them aligned |
 
 ## Skills
 
-| Skill | Purpose |
+| Skill | Use it for |
 |---|---|
-| `nurvel-planning` | Plan implementation approach; owns technical blueprint and implementation handoff outputs |
-| `nurvel-product-discovery` | Analyze what should be built and why; owns idea brief output |
-| `nurvel-requirements-definition` | Turn a validated idea into clear scope and acceptance criteria; owns requirements blueprint and product spec outputs |
-| `nurvel-roadmap-planning` | Sequence initiatives into milestones and MVP phases; uses workflow artifacts as input |
-| `nurvel-backlog-management` | Maintain current priorities, progress, and next work; supports report and learning follow-up |
-| `nurvel-story-slicing` | Break defined work into small implementation-ready stories; supports implementation handoff |
-| `nurvel-bugfix` | Fix bugs, debug regressions |
-| `nurvel-new-component` | Create React/UI components |
-| `nurvel-api-integration` | Add API calls, wire data to UI |
-| `nurvel-refactor` | Restructure code without changing behavior |
-| `nurvel-test-writing` | Add or improve tests; supports implementation handoff test plans |
-| `nurvel-code-review` | Review code or plans for quality; owns implementation report output |
-| `nurvel-evaluation` | Score a target `0-10`, explain why, state what raises it to the next level |
+| [nurvel-product-planning](skills/nurvel-product-planning/SKILL.md) | Discovery, requirements, acceptance criteria, and story slicing for a feature |
+| [nurvel-technical-planning](skills/nurvel-technical-planning/SKILL.md) | Technical discovery, implementation approach, verification plans, and handoffs |
+| [nurvel-roadmap](skills/nurvel-roadmap/SKILL.md) | Priorities, milestones, and backlog state across initiatives |
+| [nurvel-bugfix](skills/nurvel-bugfix/SKILL.md) | Diagnosis, minimal fixes, and regression verification |
+| [nurvel-refactor](skills/nurvel-refactor/SKILL.md) | Structural improvements that preserve behavior |
+| [nurvel-review](skills/nurvel-review/SKILL.md) | Reviews of code, content, plans, skills, configurations, and processes; scoring when requested |
 
-## Adding a new skill
+Choose skills by their descriptions and the task at hand. Each works independently; there is no required sequence. Reviews are read-only unless changes are requested.
 
-Create `dist/skills/nurvel-<name>/SKILL.md` (folder name matches the frontmatter `name`):
+Ordinary feature implementation, component work, API integration, and test writing use the shared defaults and the target project's conventions. They do not require separate skills.
 
-```yaml
----
-name: nurvel-<skill-name>
-description: <one-line purpose>
-triggers:
-  - <keyword that should activate this skill>
-mcp_servers:          # optional — only if the skill benefits from an MCP server
-  - <server-name>
----
-```
+## Optional detail
 
-Below the frontmatter, include: `When to use`, task-specific guidance, and a `Check` section. See existing skills for reference.
+Product and technical planning include reference files for named blueprint outputs. Review includes references for scoring and implementation reports. Load these only when the requested output needs them.
 
-Project-specific or domain-specific extensions should usually live outside `dist/` and use their own naming convention. Promote behavior into `dist/` only when it is useful as generic base guidance.
+Prefer the target project's existing source of truth and formats, including its OpenSpec conventions when applicable. Return analysis in chat unless a file update is requested.
 
-## Limitations
+## Maintaining the library
 
-This playbook does not:
-- **Orchestrate agents** - it provides guidelines, not runtime coordination
-- **Enforce rules** - the agent is expected to follow the guidance, not be constrained by it
-- **Cover all task types** - skills are added as needed, not upfront
-- **Replace project-specific config** - use alongside your project's own conventions (e.g. `CLAUDE.md`, `.cursorrules`)
+- Keep one authoritative copy of each shared skill, with the folder name matching its frontmatter `name`.
+- Put the purpose and activation conditions in `description`; keep task guidance in the body.
+- Add a skill when a distinct, repeated task needs guidance beyond the shared defaults. Combine overlapping guidance and remove rules that add no useful behavior.
+- Keep skills self-contained and avoid hardcoded harness installation paths or unnecessary tool dependencies.
+- Put substantial, conditional templates or procedures in linked references.
+- Update this catalog and the default agent's skill list when names or scope change.
+- Check metadata, local links, and representative task routing after changes.
 
-## Design principles
+## Installation
 
-- **Generic** - agent-agnostic; skills may be technology-specific
-- **Composable** - skills can be combined per task
-- **Minimal** - only what adds value, no bloat
-- **Opinionated** - clear defaults, not endless options
+This repository is the content source; placing a file here does not activate it in a harness. Use each harness's supported setup to consume the relevant content.
+
+The existing [install-playbook.sh](install-playbook.sh) still targets the previous `dist/` layout and needs a separate update before use.

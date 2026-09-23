@@ -1,35 +1,22 @@
 ---
 name: nurvel-refactor
-description: Restructure existing code without changing behavior
-triggers:
-  - refactor
-  - restructure
-  - clean up code
-  - simplify code
-  - reduce complexity
+description: Simplify or restructure existing code while preserving behavior. Use to reduce complexity, improve boundaries, or remove duplication without changing the feature.
 ---
 
-## When to use
-- Existing code works but structure is weak
-- Code is too large, unclear, duplicated, or mixed-responsibility
-- Need better maintainability without changing behavior
+## Approach
 
-## Refactor goals
-- Preserve behavior unless change is explicitly requested.
-- Reduce complexity.
-- Improve readability.
-- Clarify responsibilities.
-- Make future changes easier.
+- Identify the concrete structural problem and the behavior or public contracts that must remain unchanged.
+- Inspect callers and existing tests before changing boundaries. Include relevant ordering, side effects, errors, and data shapes in the preservation check.
+- Choose the smallest structural improvement and proceed in reviewable steps. Extract only when it improves clarity, testing, or demonstrated reuse.
+- Reduce nesting, mixed responsibilities, dead code, or duplication without moving the same complexity behind new indirection.
+- Keep feature changes and bug fixes separate unless they are explicitly part of the requested scope. Report unrelated discoveries rather than silently changing behavior.
 
-## Refactor approach
-- Start with the simplest structural improvement.
-- Prefer small, reviewable steps.
-- Extract only when extraction improves clarity.
-- Reduce nesting and branching where possible.
-- Remove dead code and obsolete wrappers.
-- Keep data flow easy to follow.
-- Avoid moving complexity to another file without actually reducing it.
-- Avoid adding abstractions unless repeated patterns are stable and real.
+## Verification
 
-## Check after refactor
-- Behavior unchanged unless intended; boundaries clearer; cognitive load smaller; no new indirection without payoff.
+- Use relevant existing checks to compare behavior before and after the change when practical.
+- Add focused characterization tests where behavior is important and insufficiently understood or protected. Avoid tests tied only to the old internal structure.
+- Confirm that callers and contracts remain compatible and that the result is easier to understand or change.
+
+## Output
+
+Explain what became simpler, which behavior was preserved, and how it was checked. State any remaining uncertainty; do not equate fewer lines or more files with a successful refactor.
