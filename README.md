@@ -1,150 +1,57 @@
 # Agent Engineering Playbook
 
-Personal, agent-agnostic toolbox for coding agents and software work. It combines deployable agent guidance with repo-only principles from coding, architecture, product management, workflows, and agent tooling.
+A personal, curated library of skills, agent instructions, MCP configurations, and permissions for use across coding-agent harnesses. Maintain reusable content here and keep harness-specific configuration in its native format.
 
-The portable agent package is `dist/AGENTS.md` + `dist/skills/<name>/SKILL.md`. The contents of `dist/` are hand-authored source files, not generated build output.
+## Contents
 
-Root `AGENTS.md`, `principles/`, `planning/`, `repo-skills/`, `scripts/`, and this `README.md` are repo support files. They are not installed into Codex or Claude by the playbook installer.
-
-## Structure
-
-```
-AGENTS.md              <- repo-local instructions for agents working here
-
-dist/
-  AGENTS.md              <- universal coding principles and defaults
-  skills/<name>/SKILL.md <- task-specific guidance with triggers and MCP linkages
-
-principles/
-  README.md              <- repo-only knowledge layer and compression model
-  coding.md              <- coding quality and maintainability principles
-  architecture.md        <- architecture boundaries and visualization principles
-  product-management.md  <- discovery, requirements, and prioritization principles
-  agent-tooling.md       <- agent and harness tooling principles
-  workflows.md           <- idea-to-delivery workflow principles
-
-repo-skills/
-  README.md              <- repo-local skills for maintaining this toolbox
-
-planning/
-  README.md              <- repo-internal planning notes
-  requirements.md        <- requirements index and durable project contract
-  requirements/<id>-<slug>.md <- implementation-ready requirement details
-  reports/               <- one-off audits, analysis, and design outputs
-  roadmap.md             <- roadmap for improving this playbook
-  backlog.md             <- operational backlog for this repo
-
-scripts/
-  install-playbook.sh    <- syncs dist/ into user-level agent folders
-```
-
-## How to use
-
-1. Point your agent at `dist/AGENTS.md` as the baseline behavior guide and skill router.
-2. Skills are selected from their YAML frontmatter (`triggers`, optional `mcp_servers`).
-3. `mcp_servers` is a hint, not a requirement - use the server when it adds value, skip it when the codebase alone is enough.
-
-## Knowledge Model
-
-`principles/` explains the thinking behind the runtime output. It can be detailed, opinionated, and traceable.
-
-`dist/` is the compressed runtime layer. It should contain only the guidance that improves agent behavior during normal work.
-
-Traceability flows one way: principle pages may list the runtime files they inform, but runtime files should not reference `principles/` directly.
-
-`repo-skills/` is for skills that maintain this repository itself. These skills are not part of the portable package.
-
-### Install to Codex or Claude
-
-The install script syncs `dist/` into user-level agent folders. It updates matching files and overwrites older versions of the same skills, but never deletes unrelated files from `~/.agents` or `~/.claude`.
-
-```bash
-scripts/install-playbook.sh              # both agents
-scripts/install-playbook.sh --codex      # Codex only
-scripts/install-playbook.sh --claude     # Claude only
-scripts/install-playbook.sh --dry-run    # preview without writing
-```
-
-## Internal Planning
-
-Use `planning/` only for work about this repository and the package it produces. It should describe what needs to change in the playbook, not content that should be copied into installed agent folders.
-
-## Target-Project Product Artifacts
-
-- `product/roadmap.md` — strategic view: goals, horizons, milestones, `Now / Next / Later`
-- `product/backlog.md` — operational view: `In progress / Next / Blocked / Later / Done / Dropped`
-- `product/initiatives/<slug>.md` — only for larger initiatives that need their own scope and decision history
-
-The shipped roadmap and backlog skills support these optional files in target projects. If Jira, Linear, or another tool is already the source of truth for a target project, use `chat-only` mode and keep that project clean.
-
-## OpenSpec compatibility
-
-The playbook is OpenSpec-aware, not OpenSpec-dependent.
-
-This repository does not currently use OpenSpec for its own planning. OpenSpec guidance here is for target projects that install or adapt `dist/`.
-
-- `openspec/specs/` — current agreed behavior
-- `openspec/changes/<change-id>/` — active proposal, design, tasks, spec deltas
-- `product/roadmap.md` / `product/backlog.md` remain optional planning overlays above OpenSpec
-
-In OpenSpec-adopted repos, use OpenSpec for: discovery handoff into change planning, requirements as proposal + spec deltas, slicing as `tasks.md`. Keep roadmap and backlog outside OpenSpec — they should reference change ids and capability specs, not replace them. If a project ships its own OpenSpec skills, those are primary for change-file workflows; this playbook's PO skills stay as a companion layer for discovery, scoping, prioritization, and slicing quality.
-
-## Example flows
-
-- **Fixing a browser bug** - `bugfix` + `chrome-devtools` + `test-writing`
-- **New UI from Figma** - `planning` + `new-component` + `figma`
-- **API integration** - `api-integration` + `context7` (for library docs)
-- **New feature shaping** - `product-discovery` -> `requirements-definition` -> `story-slicing`
-- **Roadmap upkeep** - `backlog-management` -> `roadmap-planning`
-
-Each flow ends with validation: types, lint, and relevant tests.
+| Location | Purpose |
+|---|---|
+| [agents/default/AGENTS.md](agents/default/AGENTS.md) | Shared working preferences and coding defaults |
+| [skills/](skills/) | Six focused, reusable task skills |
+| [mcp/](mcp/README.md) | Catalogue of MCP server entries with placeholders |
+| [permissions/](permissions/README.md) | Native permission configurations per harness |
 
 ## Skills
 
-| Skill | Purpose |
+| Skill | Use it for |
 |---|---|
-| `planning` | Plan implementation approach before coding |
-| `product-discovery` | Analyze what should be built and why |
-| `requirements-definition` | Turn a validated idea into clear scope and acceptance criteria |
-| `roadmap-planning` | Sequence initiatives into milestones and MVP phases |
-| `backlog-management` | Maintain current priorities, progress, and next work |
-| `story-slicing` | Break defined work into small implementation-ready stories |
-| `bugfix` | Fix bugs, debug regressions |
-| `new-component` | Create React/UI components |
-| `api-integration` | Add API calls, wire data to UI |
-| `refactor` | Restructure code without changing behavior |
-| `test-writing` | Add or improve tests |
-| `code-review` | Review code or plans for quality |
-| `evaluation` | Score a target `0-10`, explain why, state what raises it to the next level |
+| [nurvel-product-planning](skills/nurvel-product-planning/SKILL.md) | Discovery, requirements, acceptance criteria, and story slicing for a feature |
+| [nurvel-technical-planning](skills/nurvel-technical-planning/SKILL.md) | Technical discovery, implementation approach, verification plans, handoffs, and implementation reports |
+| [nurvel-roadmap](skills/nurvel-roadmap/SKILL.md) | Priorities, milestones, and backlog state across initiatives |
+| [nurvel-bugfix](skills/nurvel-bugfix/SKILL.md) | Diagnosis, minimal fixes, and regression verification |
+| [nurvel-refactor](skills/nurvel-refactor/SKILL.md) | Structural improvements that preserve behavior |
+| [nurvel-review](skills/nurvel-review/SKILL.md) | Reviews of code, content, plans, skills, configurations, and processes; optional scoring |
 
-## Adding a new skill
+Choose skills by their descriptions and the task at hand. Each works independently; there is no required sequence.
 
-Create `dist/skills/<name>/SKILL.md` (folder name matches the frontmatter `name`):
+Ordinary feature implementation, component work, API integration, and test writing use the shared defaults and the target project's conventions. They do not require separate skills.
 
-```yaml
----
-name: <skill-name>
-description: <one-line purpose>
-triggers:
-  - <keyword that should activate this skill>
-mcp_servers:          # optional — only if the skill benefits from an MCP server
-  - <server-name>
----
-```
+## Optional detail
 
-Below the frontmatter, include: `When to use`, task-specific guidance, and a `Check` section. See existing skills for reference.
+Product and technical planning include reference templates for named outputs such as briefs, specs, discovery notes, handoffs, and implementation reports. Review includes a scoring guide. Load these only when the requested output needs them.
 
-## Limitations
+## Maintaining the library
 
-This playbook does not:
-- **Orchestrate agents** - it provides guidelines, not runtime coordination
-- **Enforce rules** - the agent is expected to follow the guidance, not be constrained by it
-- **Cover all task types** - skills are added as needed, not upfront
-- **Replace project-specific config** - use alongside your project's own conventions (e.g. `CLAUDE.md`, `.cursorrules`)
+- Keep one authoritative copy of each shared skill, with the folder name matching its frontmatter `name`.
+- Put the purpose and activation conditions in `description`; keep task guidance in the body.
+- Add a skill when a distinct, repeated task needs guidance beyond the shared defaults. Combine overlapping guidance and remove rules that add no useful behavior.
+- Keep skills self-contained and avoid hardcoded harness installation paths or unnecessary tool dependencies.
+- Put substantial, conditional templates or procedures in linked references.
+- Keep this skill catalog current when names or scope change, and keep the shared defaults consistent with the skills.
+- Keep MCP and permission entries as a catalogue: placeholders instead of secrets or machine-specific values.
+- Check metadata, local links, and representative task routing after changes.
 
-## Design principles
+## Setup
 
-- **Generic** - agent-agnostic; skills may be technology-specific
-- **Composable** - skills can be combined per task
-- **Minimal** - only what adds value, no bloat
-- **Opinionated** - clear defaults, not endless options
+This repository is a catalogue; nothing here is active until it is placed in a harness. Apply the parts a machine or project needs, manually or by asking an agent to do it.
+
+| Content | Claude Code | Codex |
+|---|---|---|
+| [agents/default/AGENTS.md](agents/default/AGENTS.md) | `~/.claude/CLAUDE.md` | `~/.codex/AGENTS.md` |
+| `skills/<name>/` | `~/.claude/skills/<name>/` | `~/.agents/skills/<name>/` |
+| [mcp/catalog.json](mcp/catalog.json) entries | Project `.mcp.json` or `claude mcp add-json` | `[mcp_servers.<name>]` in `~/.codex/config.toml` |
+| [permissions/](permissions/README.md) | `~/.claude/settings.json` or project `.claude/settings.json` | `~/.codex/config.toml` and `~/.codex/rules/` |
+
+- Symlink instructions and skills to pick up changes from this repository; copy them when a machine needs local edits.
+- Remove superseded skills from the target so that overlapping descriptions do not compete.
+- Merge MCP and permission entries into existing configuration instead of overwriting it, and replace placeholders per machine or project.

@@ -1,0 +1,61 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(./**)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(tree:*)",
+      "Bash(wc:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr status:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh run list:*)"
+    ],
+    "deny": [
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(rm -rf:*)",
+      "Bash(rm -fr:*)",
+      "Bash(rm -Rf:*)",
+      "Bash(rm -fR:*)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(git remote:*)",
+      "Bash(rm -r:*)",
+      "Bash(rm -R:*)",
+      "Bash(rm --recursive:*)",
+      "Bash(npm publish:*)",
+      "Bash(yarn publish:*)",
+      "Bash(pnpm publish:*)",
+      "Bash(docker push:*)",
+      "Bash(kubectl:*)",
+      "Bash(vercel:*)",
+      "Bash(aws:*)",
+      "Bash(gcloud:*)",
+      "Bash(ssh:*)",
+      "Bash(scp:*)",
+      "Bash(rsync:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "WebFetch(domain:*)",
+      "Read(.env)",
+      "Read(.env.*)"
+    ],
+    "defaultMode": "auto"
+  }
+}
