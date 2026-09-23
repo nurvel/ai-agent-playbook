@@ -2,7 +2,7 @@
   "mcpServers": {
     "chrome-devtools": {
       "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@1.6.0"],
+      "args": ["-y", "chrome-devtools-mcp@latest"],
       "lifecycle": "lazy"
     },
     "context7": {
@@ -25,7 +25,7 @@
     "gsc": {
       "type": "stdio",
       "command": "npx",
-      "args": ["-y", "suganthan-gsc-mcp"],
+      "args": ["-y", "suganthan-gsc-mcp@latest"],
       "env": {
         "GSC_AUTH_MODE": "oauth",
         "GSC_OAUTH_SECRETS_FILE": "${GSC_OAUTH_SECRETS_FILE}",

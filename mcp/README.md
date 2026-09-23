@@ -12,5 +12,5 @@
 
 When applying an entry:
 
-- Pin package versions instead of `@latest` or unversioned names; `npx -y` runs whatever version is current.
+- Entries track `@latest`; `npx -y` fetches the current version at startup. Pin a version locally only when a release breaks.
 - Keep credentials in environment variables or the harness's secret storage, never in committed files.
