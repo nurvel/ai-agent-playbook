@@ -1,6 +1,6 @@
 # Agent Engineering Playbook
 
-A personal, curated library of skills, agent instructions, MCP configurations, and permissions for use across coding-agent harnesses. Maintain reusable content here and keep harness-specific configuration in its native format.
+A personal, curated library of skills, agent instructions, MCP descriptions, and permission intent for use across coding-agent harnesses. Reusable behavior lives here; harness-specific configuration is generated when needed from current official documentation.
 
 ## Contents
 
@@ -8,8 +8,8 @@ A personal, curated library of skills, agent instructions, MCP configurations, a
 |---|---|
 | [agents/default/AGENTS.md](agents/default/AGENTS.md) | Shared working preferences and coding defaults |
 | [skills/](skills/) | Six focused, reusable task skills |
-| [mcp/](mcp/README.md) | Catalogue of MCP server entries with placeholders |
-| [permissions/](permissions/README.md) | Native permission configurations per harness |
+| [mcp/](mcp/README.md) | Harness-neutral MCP catalogue and configuration requirements |
+| [permissions/](permissions/README.md) | Harness-neutral personal permission policy |
 
 ## Skills
 
@@ -38,20 +38,30 @@ Product and technical planning include reference templates for named outputs suc
 - Keep skills self-contained and avoid hardcoded harness installation paths or unnecessary tool dependencies.
 - Put substantial, conditional templates or procedures in linked references.
 - Keep this skill catalog current when names or scope change, and keep the shared defaults consistent with the skills.
-- Keep MCP and permission entries as a catalogue: placeholders instead of secrets or machine-specific values.
+- Keep MCP and permission documents harness-neutral. Describe intent, prerequisites, risks, and required behavior rather than copying a harness's current configuration syntax.
+- Keep secrets and machine-specific values out of the repository.
 - Check metadata, local links, and representative task routing after changes.
 
 ## Setup
 
-This repository is a catalogue; nothing here is active until it is placed in a harness. Apply the parts a machine or project needs, manually or by asking an agent to do it.
+This repository is a catalogue; nothing here is active until it is placed in a harness.
 
 | Content | Claude Code | Codex |
 |---|---|---|
 | [agents/default/AGENTS.md](agents/default/AGENTS.md) | `~/.claude/CLAUDE.md` | `~/.codex/AGENTS.md` |
 | `skills/<name>/` | `~/.claude/skills/<name>/` | `~/.agents/skills/<name>/` |
-| [mcp/catalog.json](mcp/catalog.json) entries | Project `.mcp.json` or `claude mcp add-json` | `[mcp_servers.<name>]` in `~/.codex/config.toml` |
-| [permissions/](permissions/README.md) | `~/.claude/settings.json` or project `.claude/settings.json` | `~/.codex/config.toml` and `~/.codex/rules/` |
+| [MCP catalogue](mcp/README.md) | Translate selected entries to the current native MCP format | Translate selected entries to the current native MCP format |
+| [Permission policy](permissions/README.md) | Translate policy intent to current native permissions | Translate policy intent to current native permissions and sandbox controls |
 
-- Symlink instructions and skills to pick up changes from this repository; copy them when a machine needs local edits.
-- Remove superseded skills from the target so that overlapping descriptions do not compete.
-- Merge MCP and permission entries into existing configuration instead of overwriting it, and replace placeholders per machine or project.
+For instructions and skills, symlink them to pick up changes from this repository or copy them when a machine needs local edits. Remove superseded skills so overlapping descriptions do not compete.
+
+For MCP and permissions, ask an agent to:
+
+1. inspect the installed harness version and existing configuration;
+2. consult the current official harness and server documentation;
+3. translate only the selected catalogue entries and policy intent into native configuration;
+4. distinguish enforced behavior from approval-gated or unsupported behavior;
+5. propose a minimal merge without overwriting unrelated settings; and
+6. validate the resulting configuration with the harness's current checks.
+
+Configuration generation does not authorize installation. Review the proposed native change before asking the agent to apply it.
