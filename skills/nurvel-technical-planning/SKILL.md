@@ -1,6 +1,6 @@
 ---
 name: nurvel-technical-planning
-description: Plan technical implementation from existing code and agreed scope. Use for architecture decisions, technical discovery, ordered implementation plans, and handoffs.
+description: Plan technical implementation from existing code and agreed scope. Use for architecture decisions, technical discovery, ordered implementation plans, handoffs, and reports on completed implementation.
 ---
 
 ## Scope
@@ -21,8 +21,8 @@ description: Plan technical implementation from existing code and agreed scope. 
 
 - A concise plan should cover the goal, current facts, recommended approach, implementation order when requested, acceptance, verification, and material open questions.
 - Technical discovery can end with an approach and unresolved decisions. A handoff should contain enough verified context for another implementer to proceed.
-- Use existing project artifacts and conventions, including OpenSpec when applicable. Write or update files when requested; otherwise return the plan in chat.
-- For named Technical Discovery or Implementation Handoff outputs without an existing template, read the relevant [artifact template](references/artifacts.md).
+- Use existing project artifacts and conventions. Write or update files when requested; otherwise return the plan in chat.
+- For named Technical Discovery, Implementation Handoff, or Implementation Report outputs without an existing template, read the relevant [artifact template](references/artifacts.md).
 - Refresh facts when the branch, code, scope, or dependencies have changed since inspection.
 
 ## Check

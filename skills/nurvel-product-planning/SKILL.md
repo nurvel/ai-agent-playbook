@@ -30,7 +30,7 @@ description: Shape an idea or feature through product discovery, requirements, o
 ## Output
 
 - Return the requested analysis, scope, or story list in chat unless a file update is requested. Include material open questions and the next useful decision or validation step.
-- Follow the target project's existing tracker, artifact formats, and OpenSpec conventions when applicable. Avoid creating a parallel source of truth.
+- Follow the target project's existing tracker and artifact formats. Avoid creating a parallel source of truth.
 - For an Idea Brief, Requirement Refinement, or Product Spec without an existing format, use the relevant shape in [artifact templates](references/artifacts.md). Read only the template needed for the requested output.
 
 ## Check

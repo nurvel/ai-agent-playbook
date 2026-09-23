@@ -1,6 +1,6 @@
 ---
 name: nurvel-review
-description: Review or evaluate code, written content, documentation, plans, skills, configurations, or processes. Provide findings, requested scores, or implementation reports.
+description: Review or evaluate code, written content, documentation, plans, skills, configurations, or processes. Use when asked to review, audit, assess, check, or score something; provides findings and optional scores.
 ---
 
 ## Scope
@@ -34,4 +34,3 @@ Apply only the criteria relevant to the request. A content review does not need 
 - Lead with the assessment, then findings ordered by impact. Distinguish must-fix issues, worthwhile improvements, and optional observations where useful.
 - Each finding should identify the location, problem, impact, and suggested direction. Say when no material findings were identified; do not invent issues to fill categories.
 - Provide a numeric rating only when requested. Read the [scoring guide](references/scoring.md) for scores or a requested path to higher levels.
-- For a requested Implementation Report, use the [report template](references/implementation-report.md). Follow any existing project format first.

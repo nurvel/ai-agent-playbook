@@ -23,7 +23,7 @@ description: Prioritize initiatives, sequence milestones, and maintain roadmap o
 - Keep each item short: identifier, goal, status, priority, relevant links, and next step or blocker.
 - Identify items that should move, merge, split, pause, or drop. Preserve milestone context without duplicating detailed task lists.
 - Turn accepted review findings, implementation reports, or learning into follow-up work when requested. Keep proposals distinct from accepted changes.
-- Follow the project's OpenSpec conventions when present; link relevant changes or specifications while keeping portfolio status in its existing source of truth.
+- Link relevant specifications or change plans while keeping portfolio status in its existing source of truth.
 
 ## Output and check
 

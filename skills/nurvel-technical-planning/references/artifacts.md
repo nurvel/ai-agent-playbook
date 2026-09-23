@@ -1,8 +1,8 @@
 # Technical artifacts
 
-Use these shapes when the named output is requested and the project has no established template. Return the artifact in chat unless writing a file is requested. Include relevant sections and state evidence gaps instead of filling them with guesses.
+Use these shapes when the named output is requested and the project has no established template. Include relevant sections and state evidence gaps instead of filling them with guesses.
 
-## Technical Discovery — `technical-blueprint.md`
+## Technical Discovery — `technical-discovery.md`
 
 - Files inspected
 - Current implementation
@@ -17,17 +17,26 @@ Capture verified facts and technical choices. Detailed execution steps can wait 
 
 ## Implementation Handoff — `implementation-handoff.md`
 
-- Goal
-- Non-negotiables
+- Goal and what to report back
 - Scope: create / modify / inspect only / out of scope
 - Current facts
 - Contracts
-- Rules
+- Constraints: non-negotiables and feature rules
 - Implementation steps
-- Feature rules
 - Acceptance
 - Test plan
 - Stop conditions
-- Handoff instruction
 
 Make steps executable in a useful order. Identify behavior to protect, checks that establish acceptance, and material unknowns that must be resolved before dependent work. Preserve the user's authorization boundaries in the handoff.
+
+## Implementation Report — `implementation-report.md`
+
+- Summary
+- Files changed
+- Key decisions
+- Tests run
+- Tests not run
+- Deviations from plan
+- Remaining risks and follow-up work
+
+Base the report on the actual changes and available validation results. Keep observed results separate from claims supplied by an implementer. Do not infer successful browser, integration, or release verification from unit tests alone, and do not mark unfinished work complete to close a handoff.

@@ -1,6 +1,6 @@
 # Product artifacts
 
-Use these shapes when the named output is requested and the project has no established template. Return the artifact in chat unless writing a file is requested. Include relevant sections; do not invent details to fill a template.
+Use these shapes when the named output is requested and the project has no established template. Include relevant sections; do not invent details to fill a template.
 
 ## Idea Brief — `idea-brief.md`
 
@@ -15,7 +15,7 @@ Use these shapes when the named output is requested and the project has no estab
 
 Keep this exploratory. An idea brief does not establish approved scope.
 
-## Requirement Refinement — `requirements-blueprint.md`
+## Requirement Refinement — `requirement-refinement.md`
 
 - Current understanding
 - Decisions needed
