@@ -7,7 +7,7 @@ A personal, curated library of skills, agent instructions, MCP descriptions, and
 | Location | Purpose |
 |---|---|
 | [agents/default/AGENTS.md](agents/default/AGENTS.md) | Shared working preferences and coding defaults |
-| [skills/](skills/) | Six focused, reusable task skills |
+| [skills/](skills/) | Seven focused, reusable task skills |
 | [mcp/](mcp/README.md) | Harness-neutral MCP catalogue and configuration requirements |
 | [permissions/](permissions/README.md) | Harness-neutral personal permission policy |
 
@@ -21,6 +21,7 @@ A personal, curated library of skills, agent instructions, MCP descriptions, and
 | [nv-bugfix](skills/nv-bugfix/SKILL.md) | Diagnosis, minimal fixes, and regression verification |
 | [nv-refactor](skills/nv-refactor/SKILL.md) | Structural improvements that preserve behavior |
 | [nv-review](skills/nv-review/SKILL.md) | Reviews of code, content, plans, skills, configurations, and processes; optional scoring |
+| [nv-retro](skills/nv-retro/SKILL.md) | Post-run critique of an agent session's wasted effort and user corrections, ending in one durable instruction change |
 
 Choose skills by their descriptions and the task at hand. Each works independently; there is no required sequence.
 

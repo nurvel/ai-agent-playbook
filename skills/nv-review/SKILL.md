@@ -7,13 +7,14 @@ description: Review or evaluate code, written content, documentation, plans, ski
 
 - Establish the target, intended purpose, audience, and requested depth from the available context. Use stated requirements or acceptance criteria as the quality bar.
 - Review is read-only by default. Do not edit the reviewed material or change git state unless changes are requested. Creating a requested review report is allowed; it does not authorize fixing the target.
+- For code changes, establish the review scope first: diff against the merge-base with the target branch, include uncommitted work when reviewing your own changes, and exclude generated files and lockfiles. Read surrounding code when a change's correctness depends on it.
 - Assess the actual content or implementation and relevant surrounding evidence. A completion claim or passing check alone does not establish that the result meets its purpose.
 
 ## Choose relevant criteria
 
 | Target | Review focus |
 |---|---|
-| Code | Correctness, regressions, contracts, architecture, maintainability, and meaningful verification |
+| Code | Correctness, regressions, contracts, security, architecture, maintainability, and meaningful verification |
 | Written content and documentation | Accuracy, clarity, structure, audience fit, consistency, and completeness |
 | Plans and requirements | Problem fit, scope, feasibility, assumptions, dependencies, and testable acceptance |
 | Skills and configurations | Clear instructions, appropriate activation, consistency, duplication, compatibility, and intended behavior |
