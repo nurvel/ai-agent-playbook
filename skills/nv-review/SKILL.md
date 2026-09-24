@@ -1,5 +1,5 @@
 ---
-name: nurvel-review
+name: nv-review
 description: Review or evaluate code, written content, documentation, plans, skills, configurations, or processes. Use when asked to review, audit, assess, check, or score something; provides findings and optional scores.
 ---
 

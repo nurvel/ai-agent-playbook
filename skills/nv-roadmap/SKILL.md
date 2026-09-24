@@ -1,5 +1,5 @@
 ---
-name: nurvel-roadmap
+name: nv-roadmap
 description: Prioritize initiatives, sequence milestones, and maintain roadmap or backlog status. Use for release planning, reprioritization, progress updates, and deciding what comes next.
 ---
 
