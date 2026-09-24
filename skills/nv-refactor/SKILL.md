@@ -1,5 +1,5 @@
 ---
-name: nurvel-refactor
+name: nv-refactor
 description: Simplify or restructure existing code while preserving behavior. Use to reduce complexity, improve boundaries, or remove duplication without changing the feature.
 ---
 

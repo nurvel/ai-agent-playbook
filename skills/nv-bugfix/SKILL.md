@@ -1,5 +1,5 @@
 ---
-name: nurvel-bugfix
+name: nv-bugfix
 description: Investigate incorrect behavior, diagnose regressions, and implement minimal fixes. Use for debugging runtime, logic, typing, or integration failures.
 ---
 

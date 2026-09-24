@@ -15,12 +15,12 @@ A personal, curated library of skills, agent instructions, MCP descriptions, and
 
 | Skill | Use it for |
 |---|---|
-| [nurvel-product-planning](skills/nurvel-product-planning/SKILL.md) | Discovery, requirements, acceptance criteria, and story slicing for a feature |
-| [nurvel-technical-planning](skills/nurvel-technical-planning/SKILL.md) | Technical discovery, implementation approach, verification plans, handoffs, and implementation reports |
-| [nurvel-roadmap](skills/nurvel-roadmap/SKILL.md) | Priorities, milestones, and backlog state across initiatives |
-| [nurvel-bugfix](skills/nurvel-bugfix/SKILL.md) | Diagnosis, minimal fixes, and regression verification |
-| [nurvel-refactor](skills/nurvel-refactor/SKILL.md) | Structural improvements that preserve behavior |
-| [nurvel-review](skills/nurvel-review/SKILL.md) | Reviews of code, content, plans, skills, configurations, and processes; optional scoring |
+| [nv-product-planning](skills/nv-product-planning/SKILL.md) | Discovery, requirements, acceptance criteria, and story slicing for a feature |
+| [nv-technical-planning](skills/nv-technical-planning/SKILL.md) | Technical discovery, implementation approach, verification plans, handoffs, and implementation reports |
+| [nv-roadmap](skills/nv-roadmap/SKILL.md) | Priorities, milestones, and backlog state across initiatives |
+| [nv-bugfix](skills/nv-bugfix/SKILL.md) | Diagnosis, minimal fixes, and regression verification |
+| [nv-refactor](skills/nv-refactor/SKILL.md) | Structural improvements that preserve behavior |
+| [nv-review](skills/nv-review/SKILL.md) | Reviews of code, content, plans, skills, configurations, and processes; optional scoring |
 
 Choose skills by their descriptions and the task at hand. Each works independently; there is no required sequence.
 

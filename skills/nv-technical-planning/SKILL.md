@@ -1,5 +1,5 @@
 ---
-name: nurvel-technical-planning
+name: nv-technical-planning
 description: Plan technical implementation from existing code and agreed scope. Use for architecture decisions, technical discovery, ordered implementation plans, handoffs, and reports on completed implementation.
 ---
 

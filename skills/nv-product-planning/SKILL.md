@@ -1,5 +1,5 @@
 ---
-name: nurvel-product-planning
+name: nv-product-planning
 description: Shape an idea or feature through product discovery, requirements, or story slicing. Use for problem framing, scope, acceptance criteria, and MVP stories.
 ---
 
